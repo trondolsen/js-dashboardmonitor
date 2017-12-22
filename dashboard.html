@@ -1,0 +1,29 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href=".\dashboard\css\dashboard.css">
+    <link rel="stylesheet" href=".\dashboard\css\bootstrap.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-nav fixed-top mx-0 my-0 px-0 py-0">
+      <div class="topbar px-1 py-1 title w-100 noselect">
+        <span class="icon mx-1"></span><span class="text"></span>
+      </div>
+      <div id="statusbar" class="statusbar w-100 px-2 noselect">
+        <span class="status up icon my-0 noselect"></span><span id="statusUpText" class="status up mx-0 noselect"></span>
+        <span class="status warn icon my-0 noselect"></span><span id="statusWarnText" class="status warn mx-0 noselect"></span>
+        <span class="status down icon my-0 noselect"></span><span id="statusDownText" class="status down mx-0 noselect"></span>
+        <form class="searchbar float-right mx-3 my-2">
+          <input type="text" class="form-control" value="" placeholder="Search.." autocomplete='off'/>
+        </form>
+        <span id="datasources" class="datasources my-2 noselect float-right"></span>
+      </div>
+      <div id="alerts" class="w-100 my-1 m-0 px-2 float-left"></div>
+    </nav>
+    <div id="checks" class="folders checks"></div>
+    <script src=".\dashboard\js\dashboard.js"></script>
+  </body>
+</html>
