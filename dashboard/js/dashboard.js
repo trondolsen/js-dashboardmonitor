@@ -39,7 +39,7 @@
       timeoutInMinutes: 1,
       insyncInMinutes: 5,
       sources: [
-        {name: 'ExampleData', checks: {url: './ExampleChecks.xml'}, availability: { url: './ExampleAvailabilty.xml'}, dateSpan: 0, lastUpdate: new Date(0,0,0)}
+        {name: 'ExampleData', checks: {url: './ExampleChecks.xml'}, availability: {url: './ExampleAvailabilty.xml'}, dateSpan: 0, lastUpdate: new Date(0,0,0)}
       ]
     }
   };

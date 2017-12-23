@@ -21,7 +21,8 @@ const settings = {
       sources: [{
         name: 'YourData',
         checks: {url: './YourChecks.xml'},
-        availability: { url: './YourAvailabilty.xml'},
+        availability: {url: './YourAvailabilty.xml'},
+        dateSpan: 0,
         lastUpdate: new Date(0,0,0)}
       ]
     }
