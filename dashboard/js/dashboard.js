@@ -24,7 +24,7 @@
  * SOFTWARE.
   */
 
-(function (ElementSeq) {
+(function (console,ElementSeq) {
 
   /*
    * Application
@@ -38,8 +38,9 @@
     datasource: {
       timeoutInMinutes: 1,
       insyncInMinutes: 5,
+      requestInit: {cache:'no-cache', credentials: 'same-origin'},
       sources: [
-        {name: 'ExampleData', checks: {url: './ExampleChecks.xml'}, availability: {url: './ExampleAvailabilty.xml'}, dateSpan: 0, lastUpdate: new Date(0,0,0)}
+        {name: 'ExampleData', checks: {url: 'ExampleChecks.xml'}, availability: {url: 'ExampleAvailabilty.xml'}, dateSpan: 0, checksUpdate: new Date(0,0,0), availabilityUpdate: new Date(0,0,0)}
       ]
     }
   };
@@ -57,7 +58,7 @@
     query('.navbar .searchbar .form-control')
       .event('keyup', (event) => {
         window.scrollTop = 0;
-        settings.searchFilter = event.target.value;
+        settings.searchFilter = event.target.value.toLowerCase();
         filterChecks();
       })
       .event('keypress', (event) => {
@@ -72,7 +73,7 @@
       query('#datasources')
         .append(span({id: 'ds-' + source.name, css: ['datasource']})
           .append(span({css: ['icon','mx-1'], text: '' }))
-          .append(span({css: ['text','datasource-tooltip'], text: source.name, title: `${source.name}\nChecks: ${source.checks.url}\nAvailability: ${source.availability.url}`}))
+          .append(span({css: ['text','datasource-tooltip'], text: source.name, title: `${source.name}\nChecks URL: ${source.checks.url}\nAvailability URL: ${source.availability.url}`}))
       );
     }
 
@@ -81,6 +82,8 @@
       window.setInterval(() => queryChecks(source), settings.datasource.timeoutInMinutes * 60 * 1000);
       queryChecks(source);
     }
+
+    console.info(`Dashboard started. Fetching datasource(s) at ${settings.datasource.timeoutInMinutes} minute interval.`);
   }());
 
   function filterChecks() {
@@ -88,19 +91,19 @@
       // Apply search filter on folders
       for (const folder of Object.values(data.folders)) {
         const html = query('#' + stringify(folder.name));
-        if (folder.name.includes(settings.searchFilter)) {
+        if (folder.name.toLowerCase().includes(settings.searchFilter)) {
           html.css({remove:['remove']});
         }
         else {
           // Apply search filter on checks
           html.css({add:['remove']});
           for (const check of folder.checks) {
-            if (check.explanation.includes(settings.searchFilter) || check.type.includes(settings.searchFilter) || check.host.includes(settings.searchFilter)) {
+            if (check.explanation.toLowerCase().includes(settings.searchFilter) || check.type.toLowerCase().includes(settings.searchFilter) || check.host.toLowerCase().includes(settings.searchFilter)) {
               html.css({remove:['remove']});
-              html.query(`div span[data-id="${check.id}"]`).css({remove:['hide']});
+              html.query(`div [data-id="${check.id}"]`).css({remove:['hide']});
             }
             else {
-              html.query(`div span[data-id="${check.id}"]`).css({add:['hide']});
+              html.query(`div [data-id="${check.id}"]`).css({add:['hide']});
             }
           }
         }
@@ -112,14 +115,14 @@
         const html = query('#' + stringify(folder.name));
         html.css({remove:['remove']});
         for (const check of folder.checks) {
-          html.query(`div span[data-id="${check.id}"]`).css({remove:['hide']});
+          html.query(`div [data-id="${check.id}"]`).css({remove:['hide']});
         }
       }
     }
   }
 
   function queryChecks(datasource) {
-    fetch(datasource.checks.url, {cache:'no-cache'})
+    fetch(datasource.checks.url, settings.datasource.requestInit)
       .then(
         (response) => {
           if (!response.ok) {
@@ -155,9 +158,9 @@
     data.checks = data.checks.filter(check => check.datasource !== datasource);
 
     // Check if datasource is insync
-    datasource.lastUpdate = parseDate(dom(xml).query('monitor').query('xslrefreshtime').text());
+    datasource.checksUpdate = parseDate(dom(xml).query('monitor').query('xslrefreshtime').text());
     const datasourceInsync = new Date(Date.now() - settings.datasource.insyncInMinutes * 60 * 1000);
-    if (datasource.lastUpdate.getTime() > datasourceInsync.getTime()) {
+    if (datasource.checksUpdate.getTime() > datasourceInsync.getTime()) {
       query('#ds-' + datasource.name)
         .css({add: ['success'], remove: ['error']});
     }
@@ -165,10 +168,14 @@
       query('#ds-' + datasource.name)
         .css({add: ['error'], remove: ['success']});
 
-      showAlert({id: `alert-check-${datasource.name}` , text: `Problem with ${datasource.name} from ${datasource.checks.url}. Last updated ${datasource.lastUpdate}.`});
+      showAlert({id: `alert-check-${datasource.name}` , text: `Problem with ${datasource.name} from ${datasource.checks.url}. Updated ${datasource.checksUpdate}.`});
     }
+    query('#ds-' + datasource.name)
+      .query('.text')
+        .prop('title', `${datasource.name}\nChecks URL: ${datasource.checks.url}\nChecks Update: ${datasource.checksUpdate}\nAvailability URL: ${datasource.availability.url}`);
 
     // Read data for each check
+    console.debug(`Reading datasource checks for ${datasource.name}. Updated ${datasource.checksUpdate}.`);
     const checks = dom(xml).query('monitor').query('check');
     checks.each((elem) => {
       const check = {
@@ -196,7 +203,7 @@
   }
 
   function queryAvailability(datasource) {
-    fetch(datasource.availability.url, {cache:'no-cache'})
+    fetch(datasource.availability.url, settings.datasource.requestInit)
       .then(
         (response) => {
           if (!response.ok) {
@@ -221,6 +228,18 @@
   }
 
   function readAvailability(xml, datasource) {
+    // Calculate date span (in days)
+    const fromDate = parseDate(dom(xml).query('monitor').query('from-date').text());
+    const toDate = parseDate(dom(xml).query('monitor').query('to-date').text());
+    datasource.dateSpan = Math.ceil((toDate.getTime() - fromDate.getTime()) / (24 * 60 * 60 * 1000));
+    datasource.availabilityUpdate = toDate;
+
+    query('#ds-' + datasource.name)
+      .query('.text')
+        .prop('title', `${datasource.name}\nChecks URL: ${datasource.checks.url}\nChecks Update: ${datasource.checksUpdate}\nAvailability URL: ${datasource.availability.url}\nAvailability Update: ${datasource.availabilityUpdate}`);
+
+    console.debug(`Reading datasource availability for ${datasource.name}. Updated ${datasource.availabilityUpdate}.`);
+
     // Group checks by folder
     const checks = data.checks.filter(check => check.datasource === datasource);
     const checksById = checks.reduce((sum,check) => {
@@ -230,11 +249,6 @@
       sum[check.id].push(check);
       return sum;
     }, {});
-
-    // Calculate date span (in days)
-    const fromDate = parseDate(dom(xml).query('monitor').query('from-date').text());
-    const toDate = parseDate(dom(xml).query('monitor').query('to-date').text());
-    datasource.dateSpan = Math.ceil((toDate.getTime() - fromDate.getTime()) / (24 * 60 * 60 * 1000));
 
     // Assign least uptime to folder
     dom(xml).query('monitor').query('check').each((elem) => {
@@ -439,7 +453,7 @@
   function stringify(str) { return str.toLowerCase().replace(/\\/g,'_').replace(/ /g,'_').replace(/\./g,'_'); }
 
   function extractText(text, from, to) {
-    if (text.startsWith(from) === true && text.includes(to)) {
+    if (text.startsWith(from) === true && text.toLowerCase().includes(to.toLowerCase())) {
       return text.split(from, 2)[1].split(to, 1)[0];
     }
     else {
@@ -554,7 +568,7 @@
     return element('button', attr);
   }
   
-}(function() {
+}(window.console, (function() {
 
   /*
    *  Element util
@@ -679,6 +693,5 @@
   }
 
   return ElementSeq;
-}()
-)
-);
+}())
+));
