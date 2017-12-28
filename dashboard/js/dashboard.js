@@ -40,7 +40,7 @@
       insyncInMinutes: 5,
       requestInit: {cache:'no-cache', credentials: 'same-origin'},
       sources: [
-        {name: 'ExampleData', checks: {url: 'ExampleChecks.xml'}, availability: {url: 'ExampleAvailabilty.xml'}, dateSpan: 0, checksUpdate: new Date(0,0,0), availabilityUpdate: new Date(0,0,0)}
+        {name: 'ExampleData', checks: {url: 'ExampleChecks.xml'}, availability: {url: 'ExampleAvailabilty.xml'}}
       ]
     }
   };
@@ -158,9 +158,9 @@
     data.checks = data.checks.filter(check => check.datasource !== datasource);
 
     // Check if datasource is insync
-    datasource.checksUpdate = parseDate(dom(xml).query('monitor').query('xslrefreshtime').text());
+    datasource.checks.lastUpdate = parseDate(dom(xml).query('monitor').query('xslrefreshtime').text());
     const datasourceInsync = new Date(Date.now() - settings.datasource.insyncInMinutes * 60 * 1000);
-    if (datasource.checksUpdate.getTime() > datasourceInsync.getTime()) {
+    if (datasource.checks.lastUpdate.getTime() > datasourceInsync.getTime()) {
       query('#ds-' + datasource.name)
         .css({add: ['success'], remove: ['error']});
     }
@@ -168,14 +168,14 @@
       query('#ds-' + datasource.name)
         .css({add: ['error'], remove: ['success']});
 
-      showAlert({id: `alert-check-${datasource.name}` , text: `Problem with ${datasource.name} from ${datasource.checks.url}. Updated ${datasource.checksUpdate}.`});
+      showAlert({id: `alert-check-${datasource.name}` , text: `Problem with ${datasource.name} from ${datasource.checks.url}. Updated ${datasource.checks.lastUpdate}.`});
     }
     query('#ds-' + datasource.name)
       .query('.text')
-        .prop('title', `${datasource.name}\nChecks URL: ${datasource.checks.url}\nChecks Update: ${datasource.checksUpdate}\nAvailability URL: ${datasource.availability.url}`);
+        .prop('title', `Checks:\n${datasource.checks.url}\n${datasource.checks.lastUpdate}\n\nAvailability:\n${datasource.availability.url}`);
 
     // Read data for each check
-    console.debug(`Reading datasource checks for ${datasource.name}. Updated ${datasource.checksUpdate}.`);
+    console.debug(`Reading datasource checks for ${datasource.name}. Updated ${datasource.checks.lastUpdate}.`);
     const checks = dom(xml).query('monitor').query('check');
     checks.each((elem) => {
       const check = {
@@ -231,14 +231,14 @@
     // Calculate date span (in days)
     const fromDate = parseDate(dom(xml).query('monitor').query('from-date').text());
     const toDate = parseDate(dom(xml).query('monitor').query('to-date').text());
-    datasource.dateSpan = Math.ceil((toDate.getTime() - fromDate.getTime()) / (24 * 60 * 60 * 1000));
-    datasource.availabilityUpdate = toDate;
+    datasource.availability.spanInDays = Math.ceil((toDate.getTime() - fromDate.getTime()) / (24 * 60 * 60 * 1000));
+    datasource.availability.lastUpdate = toDate;
 
     query('#ds-' + datasource.name)
       .query('.text')
-        .prop('title', `${datasource.name}\nChecks URL: ${datasource.checks.url}\nChecks Update: ${datasource.checksUpdate}\nAvailability URL: ${datasource.availability.url}\nAvailability Update: ${datasource.availabilityUpdate}`);
+        .prop('title', `Checks:\n${datasource.checks.url}\n${datasource.checks.lastUpdate}\n\nAvailability:\n${datasource.availability.url}\n${datasource.availability.lastUpdate}`);
 
-    console.debug(`Reading datasource availability for ${datasource.name}. Updated ${datasource.availabilityUpdate}.`);
+    console.debug(`Reading datasource availability for ${datasource.name}. Updated ${datasource.availability.lastUpdate}.`);
 
     // Group checks by folder
     const checks = data.checks.filter(check => check.datasource === datasource);
@@ -289,7 +289,7 @@
             css: ['progress-bar'],
             width: folder.uptime + '%'
           })
-            .append(span({text: `${folder.uptime} % (last ${datasource.dateSpan} days)`}))
+            .append(span({text: `${folder.uptime} % (last ${datasource.availability.spanInDays} days)`}))
         );
     }
   }
@@ -421,6 +421,7 @@
   }
 
   function showAlert({id, text}) {
+    console.warn(text);
     const alerts = query('#alerts');
     clearAlert(id);
     alerts.append(

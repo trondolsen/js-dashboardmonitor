@@ -18,12 +18,8 @@ Configure datasource(s) in `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web\dashb
 ```javascript
 const settings = {
   datasource: {
-      sources: [{
-        name: 'YourData',
-        checks: {url: './YourChecks.xml'},
-        availability: {url: './YourAvailabilty.xml'},
-        dateSpan: 0,
-        lastUpdate: new Date(0,0,0)}
+      sources: [
+        {name: 'ExampleData', checks: {url: 'ExampleChecks.xml'}, availability: {url: 'ExampleAvailabilty.xml'}}
       ]
     }
   };
