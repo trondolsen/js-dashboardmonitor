@@ -34,9 +34,8 @@
     searchFilter: '',
     ignoreName: '\\_',
     textWidth: { name: 18, host: 18, detail: 18 },
-    datasourceInsyncInMinutes: 5,
     datasource: {
-      timeoutInMinutes: 1,
+      updateInMinutes: 1,
       insyncInMinutes: 5,
       requestInit: {cache:'no-cache', credentials: 'same-origin'},
       sources: [
@@ -79,11 +78,11 @@
 
     // Trigger repeated loading of data
     for (const source of settings.datasource.sources) {
-      window.setInterval(() => queryChecks(source), settings.datasource.timeoutInMinutes * 60 * 1000);
+      window.setInterval(() => queryChecks(source), settings.datasource.updateInMinutes * 60 * 1000);
       queryChecks(source);
     }
 
-    console.info(`Dashboard started. Fetching datasource(s) at ${settings.datasource.timeoutInMinutes} minute interval.`);
+    console.info(`Dashboard started. Fetching datasource(s) at ${settings.datasource.updateInMinutes} minute interval.`);
   }());
 
   function filterChecks() {
