@@ -69,14 +69,13 @@ SOFTWARE.
 
 This software was built using these additional libraries.
 
-### Bootstrap 4.0.0-beta.2
+### Bootstrap 4.0.0-beta.3
 
 https://getbootstrap.com/
 
 The MIT License (MIT)
 
-Copyright (c) 2011-2017 Twitter, Inc.
-Copyright (c) 2011-2017 The Bootstrap Authors
+Copyright (c) 2011-2016 Twitter, Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
