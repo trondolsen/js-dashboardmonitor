@@ -32,8 +32,8 @@
   const settings = {
     title: 'Applications',
     searchFilter: '',
-    ignoreName: '\\_',
-    textWidth: { name: 18, host: 18, detail: 18 },
+    ignoreFolderName: '\\_',
+    textColumnWidth: { name: 18, host: 18, detail: 18 },
     datasource: {
       updateInMinutes: 1,
       insyncInMinutes: 5,
@@ -167,7 +167,7 @@
       query('#ds-' + datasource.name)
         .css({add: ['error'], remove: ['success']});
 
-      showAlert({id: `alert-check-${datasource.name}` , text: `Problem with ${datasource.name} from ${datasource.checks.url}. Updated ${datasource.checks.lastUpdate}.`});
+      showAlert({id: `alert-check-${datasource.name}` , text: `Outdated ${datasource.name} from ${datasource.checks.url}. Updated ${datasource.checks.lastUpdate}.`});
     }
     query('#ds-' + datasource.name)
       .query('.text')
@@ -191,7 +191,7 @@
       };
 
       // Append check to given folder
-      if (check.folder.startsWith(settings.ignoreName) === false) {
+      if (check.folder.toLowerCase().startsWith(settings.ignoreFolderName) === false) {
         data.checks.push(check);
         if (data.folders[check.folder] === undefined) {
           data.folders[check.folder] = { name: check.folder, checks: [], uptime: '0.00' };
@@ -257,6 +257,7 @@
         if (value && value.indexOf('%') !== -1) {
           const check = checksById[id][0];
           check.uptimeSuccess = value.slice(0, value.length - 1);
+          query('#' + stringify(check.folder) + '_' + check.id).prop('title', `Host: ${check.host}\nUptime: ${check.uptimeSuccess}\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`);
         }
       }
     });
@@ -366,9 +367,9 @@
   }
 
   function showCheck(check, key, html) {
-    const name = clip(key, settings.textWidth.name, '..');
-    const detail = clip(extractText(check.explanation, 'Service [', ']'), settings.textWidth.detail, '..');
-    const host = clip(check.host.toLowerCase(), settings.textWidth.host, '..');
+    const name = clip(key, settings.textColumnWidth.name, '..');
+    const detail = clip(extractText(check.explanation, 'Service [', ']'), settings.textColumnWidth.detail, '..');
+    const host = clip(check.host.toLowerCase(), settings.textColumnWidth.host, '..');
 
     // Add check status
     const htmlStatus = span({'data-id': check.id, css: ['btn-sm','icon']});
@@ -453,7 +454,7 @@
   function stringify(str) { return str.toLowerCase().replace(/\\/g,'_').replace(/ /g,'_').replace(/\./g,'_'); }
 
   function extractText(text, from, to) {
-    if (text.startsWith(from) === true && text.toLowerCase().includes(to.toLowerCase())) {
+    if (text.toLowerCase().startsWith(from.toLowerCase()) === true && text.toLowerCase().includes(to.toLowerCase())) {
       return text.split(from, 2)[1].split(to, 1)[0];
     }
     else {
