@@ -24,7 +24,7 @@
  * SOFTWARE.
   */
 
-(function (console,ElementSeq) {
+((browser,ElementSeq) => {
 
   /*
    * Application
@@ -45,10 +45,10 @@
   };
   const data = { folders: {}, checks: [] };
 
-  (function () {
+  (() => {
     // Handle grid layout resizing
-    dom(document).event('ready', () => layoutGrid(query('#checks'), query('.card')));
-    dom(window).event('resize', () => layoutGrid(query('#checks'), query('.card')));
+    dom(browser.document).event('ready', () => layoutGrid(query('#checks'), query('.card')));
+    dom(browser).event('resize', () => layoutGrid(query('#checks'), query('.card')));
 
     // Set title
     query('.navbar .topbar .text').text(settings.title);
@@ -56,7 +56,7 @@
     // Handle search text
     query('.navbar .searchbar .form-control')
       .event('keyup', (event) => {
-        window.scrollTop = 0;
+        browser.scrollTop = 0;
         settings.searchFilter = event.target.value.toLowerCase();
         filterChecks();
       })
@@ -78,12 +78,12 @@
 
     // Trigger repeated loading of data
     for (const source of settings.datasource.sources) {
-      window.setInterval(() => queryChecks(source), settings.datasource.updateInMinutes * 60 * 1000);
+      browser.setInterval(() => queryChecks(source), settings.datasource.updateInMinutes * 60 * 1000);
       queryChecks(source);
     }
 
-    console.info(`Dashboard started. Fetching datasource(s) at ${settings.datasource.updateInMinutes} minute interval.`);
-  }());
+    browser.console.info(`Dashboard started. Fetching datasource(s) at ${settings.datasource.updateInMinutes} minute interval.`);
+  })();
 
   function filterChecks() {
     if (settings.searchFilter.length > 0 ) {
@@ -174,7 +174,7 @@
         .prop('title', `Checks:\n${datasource.checks.url}\n${datasource.checks.lastUpdate}\n\nAvailability:\n${datasource.availability.url}`);
 
     // Read data for each check
-    console.debug(`Reading datasource checks for ${datasource.name}. Updated ${datasource.checks.lastUpdate}.`);
+    browser.console.debug(`Reading datasource checks for ${datasource.name}. Updated ${datasource.checks.lastUpdate}.`);
     const checks = dom(xml).query('monitor').query('check');
     checks.each((elem) => {
       const check = {
@@ -237,7 +237,7 @@
       .query('.text')
         .prop('title', `Checks:\n${datasource.checks.url}\n${datasource.checks.lastUpdate}\n\nAvailability:\n${datasource.availability.url}\n${datasource.availability.lastUpdate}`);
 
-    console.debug(`Reading datasource availability for ${datasource.name}. Updated ${datasource.availability.lastUpdate}.`);
+    browser.console.debug(`Reading datasource availability for ${datasource.name}. Updated ${datasource.availability.lastUpdate}.`);
 
     // Group checks by folder
     const checks = data.checks.filter(check => check.datasource === datasource);
@@ -421,7 +421,7 @@
   }
 
   function showAlert({id, text}) {
-    console.warn(text);
+    browser.console.warn(text);
     const alerts = query('#alerts');
     clearAlert(id);
     alerts.append(
@@ -523,12 +523,12 @@
 
 
   function query(selector) {
-    const matches = document.querySelectorAll(selector);
+    const matches = browser.document.querySelectorAll(selector);
     return new ElementSeq(Array.from(matches));
   }
 
   function element(type, attr) {
-    const elem = document.createElement(type);
+    const elem = browser.document.createElement(type);
     if (attr != undefined) {
       if (attr.id !== undefined) {
         elem.id = attr.id;
@@ -569,7 +569,7 @@
     return element('button', attr);
   }
   
-}(window.console, (function() {
+})(window, (function(browser) {
 
   /*
    *  Element util
@@ -637,7 +637,7 @@
       for (const elem of this.elems) {
         if(value === undefined) {
           if (elem.style[key] === undefined || elem.style[key] === '') {
-            return window.getComputedStyle(elem)[key];
+            return browser.getComputedStyle(elem)[key];
           }
           return elem.style[key];
         }
@@ -694,5 +694,5 @@
   }
 
   return ElementSeq;
-}())
-));
+}(window))
+);
