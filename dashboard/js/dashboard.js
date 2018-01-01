@@ -26,13 +26,11 @@
 
 ((browser,ElementSeq) => {
 
-  /*
-   * Application
-   */
   const settings = {
     title: 'Applications',
     searchFilter: '',
     ignoreFolderName: '\\_',
+    clearConsoleInMinutes: 15,
     layout: {
       textColumnWidth: { name: 18, host: 18, detail: 18 },
     },
@@ -49,8 +47,8 @@
 
   (() => {
     // Handle grid layout resizing
-    dom(browser.document).event('ready', () => layoutGrid(query('#checks'), query('.card')));
     dom(browser).event('resize', () => layoutGrid(query('#checks'), query('.card')));
+    dom(browser.document).event('ready', () => layoutGrid(query('#checks'), query('.card')));
 
     // Set title
     query('.navbar .topbar .text').text(settings.title);
@@ -78,7 +76,7 @@
       );
     }
 
-    // Trigger repeated fetching of data
+    // Trigger repeated fetching of datasources
     browser.console.info(`Dashboard started. Fetching datasource(s) at ${settings.datasource.updateInMinutes} minute interval.`);
     for (const source of settings.datasource.sources) {
       const fetchData = async () => {
@@ -99,6 +97,9 @@
       browser.setInterval(fetchData, settings.datasource.updateInMinutes * 60 * 1000);
       fetchData();
     }
+
+    // Trigger clearing of console
+    browser.setInterval(() => { browser.console.clear(); }, settings.clearConsoleInMinutes * 60 * 1000);
   })();
 
   function filterChecks() {
@@ -200,7 +201,7 @@
   }
 
   function readAvailability(xml, datasource) {
-    // Calculate date span (in days)
+    // Calculate availability interval (in days)
     const fromDate = parseDate(dom(xml).query('monitor').query('from-date').text());
     const toDate = parseDate(dom(xml).query('monitor').query('to-date').text());
     datasource.availability.spanInDays = Math.ceil((toDate.getTime() - fromDate.getTime()) / (24 * 60 * 60 * 1000));
