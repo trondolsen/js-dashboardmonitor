@@ -83,14 +83,14 @@
     for (const source of settings.datasource.sources) {
       const fetchData = async () => {
         try {
-          const checksData = await fetchText(source.name, source.checks.url, settings.datasource.requestInit);
-          const availabilityData = await fetchText(source.name, source.availability.url, settings.datasource.requestInit);
-          readChecks(parseXml(checksData), source);
-          readAvailability(parseXml(availabilityData), source);
+          const checksData = fetchText(source.name, source.checks.url, settings.datasource.requestInit);
+          const availabilityData = fetchText(source.name, source.availability.url, settings.datasource.requestInit);
+          readChecks(parseXml(await checksData), source);
           showChecks();
-          showAvailability(source);
-          layoutGrid(query('#checks'), query('.card'));
           filterChecks();
+          layoutGrid(query('#checks'), query('.card'));
+          readAvailability(parseXml(await availabilityData), source);
+          showAvailability(source);
         }
         catch (reason) {
           showAlert({id: `alert-source-${source.name}`, text: reason.message });
