@@ -76,10 +76,25 @@
       );
     }
 
-    // Trigger repeated loading of data
+    // Trigger repeated fetching of data
     for (const source of settings.datasource.sources) {
-      browser.setInterval(() => queryChecks(source), settings.datasource.updateInMinutes * 60 * 1000);
-      queryChecks(source);
+      const fetchData = async () => {
+        try {
+          const checksData = await fetchChecks(source);
+          const availabilityData = await fetchAvailability(source);
+          readChecks(parseXml(checksData), source);
+          readAvailability(parseXml(availabilityData), source);
+          showChecks();
+          showAvailability(source);
+          layoutGrid(query('#checks'), query('.card'));
+          filterChecks();
+        }
+        catch (reason) {
+          showAlert({id: `alert-source-${source.name}`, text: reason.message });
+        }
+      };
+      browser.setInterval(fetchData, settings.datasource.updateInMinutes * 60 * 1000);
+      fetchData();
     }
 
     browser.console.info(`Dashboard started. Fetching datasource(s) at ${settings.datasource.updateInMinutes} minute interval.`);
@@ -120,39 +135,32 @@
     }
   }
 
-  function queryChecks(datasource) {
-    fetch(datasource.checks.url, settings.datasource.requestInit)
-      .then(
-        (response) => {
-          if (!response.ok) {
-            throw Error(`${response.status} ${response.statusText}`);
-          }
-          response.text()
-            .then(
-              (text) => {
-                readChecks(parseXml(text), datasource);
-                showChecks();
-                layoutGrid(query('#checks'), query('.card'));
-                filterChecks();
-                queryAvailability(datasource);
-              }
-            );
-        }
-      )
-      .catch(
-        (reason) => {
-          query('#ds-' + datasource.name)
-            .css({add: ['error'], remove: ['success']});
-          showAlert({id: 'alert-check-' + datasource.name, text: `Problem retrieving ${datasource.name} from ${datasource.checks.url}. Webpage responded with ${reason}`});
-        }
-      );
+  async function fetchChecks(source) {
+    try {
+      const response = await fetch(source.checks.url, settings.datasource.requestInit);
+      const text = await response.text();
+      return text;
+    }
+    catch (reason) {
+      throw Error(`Problem retrieving ${source.name} from ${source.checks.url}. Webpage responded with ${reason.message}`);
+    }
+  }
+
+  async function fetchAvailability(source) {
+    try {
+      const response = await fetch(source.availability.url, settings.datasource.requestInit);
+      const text = await response.text();
+      return text;
+    }
+    catch (reason) {
+      throw Error(`Problem retrieving ${datasource.name} from ${datasource.availability.url}. Webpage responded with ${reason.message}`);
+    }
   }
   
   function readChecks(xml, datasource) {
     // Clear previous data
     for (const folder of Object.values(data.folders)) {
       folder.checks = folder.checks.filter(check => check.datasource !== datasource);
-
     }
     data.checks = data.checks.filter(check => check.datasource !== datasource);
 
@@ -167,7 +175,7 @@
       query('#ds-' + datasource.name)
         .css({add: ['error'], remove: ['success']});
 
-      showAlert({id: `alert-check-${datasource.name}` , text: `Outdated ${datasource.name} from ${datasource.checks.url}. Updated ${datasource.checks.lastUpdate}.`});
+      showAlert({id: `alert-source-${datasource.name}` , text: `Outdated ${datasource.name} from ${datasource.checks.url}. Updated ${datasource.checks.lastUpdate}.`});
     }
     query('#ds-' + datasource.name)
       .query('.text')
@@ -199,31 +207,6 @@
         data.folders[check.folder].checks.push(check);
       }
     });
-  }
-
-  function queryAvailability(datasource) {
-    fetch(datasource.availability.url, settings.datasource.requestInit)
-      .then(
-        (response) => {
-          if (!response.ok) {
-            throw Error(`${response.status} ${response.statusText}`);
-          }
-          response.text()
-            .then(
-              (text) => {
-                readAvailability(parseXml(text), datasource);
-                showAvailability(datasource);
-              }
-            );
-        }
-      )
-      .catch(
-        (reason) => {
-          query('#ds-' + datasource.name)
-            .css({add: ['error'], remove: ['success']});
-          showAlert({id: 'alert-avail-' + datasource.name, text: `Problem retrieving ${datasource.name} from ${datasource.checks.url}. Webpage responded with ${reason}`});
-        }
-      );
   }
 
   function readAvailability(xml, datasource) {
