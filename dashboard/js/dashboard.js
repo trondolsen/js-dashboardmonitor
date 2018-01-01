@@ -33,7 +33,9 @@
     title: 'Applications',
     searchFilter: '',
     ignoreFolderName: '\\_',
-    textColumnWidth: { name: 18, host: 18, detail: 18 },
+    layout: {
+      textColumnWidth: { name: 18, host: 18, detail: 18 },
+    },
     datasource: {
       updateInMinutes: 1,
       insyncInMinutes: 5,
@@ -77,11 +79,12 @@
     }
 
     // Trigger repeated fetching of data
+    browser.console.info(`Dashboard started. Fetching datasource(s) at ${settings.datasource.updateInMinutes} minute interval.`);
     for (const source of settings.datasource.sources) {
       const fetchData = async () => {
         try {
-          const checksData = await fetchChecks(source);
-          const availabilityData = await fetchAvailability(source);
+          const checksData = await fetchText(source.name, source.checks.url, settings.datasource.requestInit);
+          const availabilityData = await fetchText(source.name, source.availability.url, settings.datasource.requestInit);
           readChecks(parseXml(checksData), source);
           readAvailability(parseXml(availabilityData), source);
           showChecks();
@@ -96,8 +99,6 @@
       browser.setInterval(fetchData, settings.datasource.updateInMinutes * 60 * 1000);
       fetchData();
     }
-
-    browser.console.info(`Dashboard started. Fetching datasource(s) at ${settings.datasource.updateInMinutes} minute interval.`);
   })();
 
   function filterChecks() {
@@ -135,28 +136,17 @@
     }
   }
 
-  async function fetchChecks(source) {
+  async function fetchText(name, url, requestInit) {
     try {
-      const response = await fetch(source.checks.url, settings.datasource.requestInit);
+      const response = await fetch(url, requestInit);
       const text = await response.text();
       return text;
     }
     catch (reason) {
-      throw Error(`Problem retrieving ${source.name} from ${source.checks.url}. Webpage responded with ${reason.message}`);
+      throw Error(`Problem retrieving ${name} from ${url}. Webpage responded with ${reason.message}`);
     }
   }
-
-  async function fetchAvailability(source) {
-    try {
-      const response = await fetch(source.availability.url, settings.datasource.requestInit);
-      const text = await response.text();
-      return text;
-    }
-    catch (reason) {
-      throw Error(`Problem retrieving ${datasource.name} from ${datasource.availability.url}. Webpage responded with ${reason.message}`);
-    }
-  }
-  
+ 
   function readChecks(xml, datasource) {
     // Clear previous data
     for (const folder of Object.values(data.folders)) {
@@ -350,9 +340,9 @@
   }
 
   function showCheck(check, key, html) {
-    const name = clip(key, settings.textColumnWidth.name, '..');
-    const detail = clip(extractText(check.explanation, 'Service [', ']'), settings.textColumnWidth.detail, '..');
-    const host = clip(check.host.toLowerCase(), settings.textColumnWidth.host, '..');
+    const name = clip(key, settings.layout.textColumnWidth.name, '..');
+    const detail = clip(extractText(check.explanation, 'Service [', ']'), settings.layout.textColumnWidth.detail, '..');
+    const host = clip(check.host.toLowerCase(), settings.layout.textColumnWidth.host, '..');
 
     // Add check status
     const htmlStatus = span({'data-id': check.id, css: ['btn-sm','icon']});
