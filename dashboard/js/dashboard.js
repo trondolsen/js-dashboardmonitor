@@ -30,7 +30,7 @@
     title: 'Applications',
     searchFilter: '',
     ignoreFolderName: '\\_',
-    clearConsoleInMinutes: 15,
+    clearConsoleInMinutes: 30,
     layout: {
       textColumnWidth: { name: 18, host: 18, detail: 18 },
     },
@@ -76,29 +76,31 @@
       );
     }
 
-    // Trigger repeated fetching of datasources
+    // Repeated fetching of datasources
     browser.console.info(`Dashboard started. Fetching datasource(s) at ${settings.datasource.updateInMinutes} minute interval.`);
-    for (const source of settings.datasource.sources) {
-      const fetchData = async () => {
-        try {
-          const checksData = fetchText(source.name, source.checks.url, settings.datasource.requestInit);
-          const availabilityData = fetchText(source.name, source.availability.url, settings.datasource.requestInit);
-          readChecks(parseXml(await checksData), source);
-          showChecks();
-          filterChecks();
-          layoutGrid(query('#checks'), query('.card'));
-          readAvailability(parseXml(await availabilityData), source);
-          showAvailability(source);
+    const fetchSources = () => {
+      Promise.all(settings.datasource.sources.map(
+        async (source) => {
+          try {
+            const checksData = fetchText(source.name, source.checks.url, settings.datasource.requestInit);
+            const availabilityData = fetchText(source.name, source.availability.url, settings.datasource.requestInit);
+            readChecks(parseXml(await checksData), source);
+            showChecks();
+            filterChecks();
+            layoutGrid(query('#checks'), query('.card'));
+            readAvailability(parseXml(await availabilityData), source);
+            showAvailability(source);
+          }
+          catch (reason) {
+            showAlert({id: `alert-source-${source.name}`, text: reason.message });
+          }
         }
-        catch (reason) {
-          showAlert({id: `alert-source-${source.name}`, text: reason.message });
-        }
-      };
-      browser.setInterval(fetchData, settings.datasource.updateInMinutes * 60 * 1000);
-      fetchData();
+      ));
     }
+    browser.setInterval(fetchSources, settings.datasource.updateInMinutes * 60 * 1000);
+    fetchSources();
 
-    // Trigger clearing of console
+    // Clear console at regular intervals
     browser.setInterval(() => { browser.console.clear(); }, settings.clearConsoleInMinutes * 60 * 1000);
   })();
 
@@ -144,7 +146,7 @@
       return text;
     }
     catch (reason) {
-      throw Error(`Problem retrieving ${name} from ${url}. Webpage responded with ${reason.message}`);
+      throw Error(`Problem retrieving ${url} for ${name}. Webpage responded with ${reason.message}`);
     }
   }
  
@@ -166,7 +168,7 @@
       query('#ds-' + datasource.name)
         .css({add: ['error'], remove: ['success']});
 
-      showAlert({id: `alert-source-${datasource.name}` , text: `Outdated ${datasource.name} from ${datasource.checks.url}. Updated ${datasource.checks.lastUpdate}.`});
+      showAlert({id: `alert-source-${datasource.name}` , text: `Outdated ${datasource.checks.url} for ${datasource.name}. Updated ${datasource.checks.lastUpdate}.`});
     }
     query('#ds-' + datasource.name)
       .query('.text')
