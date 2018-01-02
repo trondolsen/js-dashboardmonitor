@@ -79,8 +79,8 @@
     // Repeated fetching of datasources
     browser.console.info(`Dashboard started. Fetching datasource(s) at ${settings.datasource.updateInMinutes} minute interval.`);
     const fetchSources = () => {
-      Promise.all(settings.datasource.sources.map(
-        async (source) => {
+      Promise.all(
+        settings.datasource.sources.map(async (source) => {
           try {
             const checksData = fetchText(source.name, source.checks.url, settings.datasource.requestInit);
             const availabilityData = fetchText(source.name, source.availability.url, settings.datasource.requestInit);
@@ -94,8 +94,8 @@
           catch (reason) {
             showAlert({id: `alert-source-${source.name}`, text: reason.message });
           }
-        }
-      ));
+        })
+      );
     }
     browser.setInterval(fetchSources, settings.datasource.updateInMinutes * 60 * 1000);
     fetchSources();
@@ -404,10 +404,10 @@
       div({id: id, css: ['alert',`alert-dark`,'float-right','w-25','m-1','px-1','py-0']})
         .append(
           button({type:'button', css:['close','float-right']})
-            .append(span({css:['noselect'],html:'&times;'}))
+            .append(span({css:['noselect'], html:'&times;'}))
             .event('click', (event) => {
               event.preventDefault();
-              dom(event.target.parentNode).remove();
+              dom(event.target.parentNode.parentNode).remove();
             })
         )
         .append(span({text: text}))
