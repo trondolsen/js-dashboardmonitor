@@ -8,13 +8,19 @@ Web-based dashboard for displaying checks exported from ActiveXperts Network Mon
 
 * Live updates
 * Search
+* Supports multiple installations of ActiveXperts Network Monitor
 
 ## Installation
 
-Manually copy `dashboard.html` and `\dashboard` to `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web`.
-* For demo purpose also copy the example files `ExampleChecks.xml` and `ExampleAvailability.xml` to `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web`.
+Manually copy `dashboard.html` and `\dashboard` to `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web`
+* For demo purpose also copy the example files `ExampleChecks.xml` and `ExampleAvailability.xml` to `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web`
 
-Configure datasource(s) in `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web\dashboard\js\dashboard.js` with url for given checks and availability xml file:
+Prepare datasource files in ActiveXperts Network Monitor
+* Use customized report to defined interval for checks data
+* Use scheduled task to generate availability data at regular intervals
+* See https://www.activexperts.com/files/network-monitor/manual.htm#Report_Module for details
+
+Configure datasource(s) in `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web\dashboard\js\dashboard.js` with url for given checks and availability xml file
 ```javascript
 const settings = {
   datasource: {
@@ -27,15 +33,34 @@ const settings = {
 
 ## Usage
 
-Open http://<ip:port>/dashboard.html in web-browser.
+Open http://<ip:port>/dashboard.html in web browser.
 
-Web-browser requirements:
- - ECMAScript 2017
- - CSS Grid
+Web browser requirements:
+ - ECMAScript 2017 (http://www.ecma-international.org/ecma-262/8.0/index.html)
+ - CSS Grid (https://www.w3.org/TR/css-grid-1/)
 
 ## History
 
-0.5 First release
+**0.7**
+31a1140 Fixed close handling for alerts
+16583dc Improved async fetching
+47fd1cf Added automatic clearing of console logging
+4114e68 Improved usage of await
+dcac14f Minor refactoring of settings and fetch
+b89dec3 Fetch now uses async/await
+b6bd556 Rewrote global functions
+91a49ef Various text fixes
+d6384cc Updraded Bootstrap v4 to beta.3
+ed8326b Refactored datasource
+87b55e8 Modified settings for datasource
+
+**0.6**
+ed07eb4 Fixed fetch same-origin and urls Added console logging Improved tooltips
+
+**0.5**
+ef68ec3 Minor text corrections
+26edd56 Initial commit
+32d713c Initial commit
 
 ## Credits
 
