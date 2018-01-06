@@ -407,7 +407,7 @@
             .append(span({css:['noselect'], html:'&times;'}))
             .event('click', (event) => {
               event.preventDefault();
-              dom(event.target.parentNode.parentNode).remove();
+              query('#' + id).remove();
             })
         )
         .append(span({text: text}))
