@@ -261,7 +261,7 @@
   </check>
   <check>
     <comments></comments>
-    <id>106781</id>
+    <id>106782</id>
     <displayname>SRV01.domain - CPU Usage (all CPU&apos;s)</displayname>
     <host>SRV01.domain</host>
     <explanation>CPU usage=[50%], maximum allowed=[80%]</explanation>
