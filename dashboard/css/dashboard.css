@@ -8,18 +8,22 @@
 }
 
 body {
-  background-color: #f2f2f2;
-  padding-top: 4.5rem;
-  font-family: 'Roboto', sans-serif;
+  padding-top: 4.5rem !important;
   overflow-y: scroll !important;
 }
 
 .noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
+  user-select: none !important;
 }
 
-.noselect:hover {
-  cursor: default;
+.noselect:focus {
+  outline: none;
 }
 
 /* Boostrap CSS overrides */
@@ -30,9 +34,7 @@ body {
 }
 
 .searchbar .form-control {
-  height: 1.25rem;
-  color: #ffffff;
-  border: 1px solid #556678;
+  border: 1px solid #6a7e92;
   background-color: #57636F;
   font-size: 0.85rem;
 }
@@ -42,10 +44,8 @@ body {
   background-color: #57636F;
 }
 
-.card {
-  border: none !important;
-  display: unset !important;
-  flex-direction: unset !important;
+.searchbar .form-control {
+  padding: 0rem 0.75rem;
 }
 
 .card.bg-success .progress {
@@ -62,10 +62,6 @@ body {
 
 .card.bg-info .progress {
   background-color: #499eb7;
-}
-
-.searchbar .form-control {
-  padding: 0rem 0.75rem;
 }
 
 .checks .bg-success {
@@ -92,16 +88,9 @@ body {
   border-color: #269abc !important;
 }
 
-.checks .progress {
-  box-shadow: unset;
-  height: 0.70rem;
-  margin-bottom: 5px;
-}
-
 .checks .progress .progress-bar {
   background-color: #83d383 !important;
-  line-height: 0.70rem;
-  font-size: 0.50rem;
+  font-size: 0.55rem;
 }
 
 .checks .card .card-title {
@@ -113,30 +102,17 @@ body {
   height: 0.50rem;
 }
 
-.checks .card .data-table .progress .progress-bar.bg-info {
+.checks .data-table .bg-info {
   background-color: #5bc0de !important;
 }
 
 .checks .data-table .progress {
   margin-right: 0.45rem;
   margin-top: 0.35rem;
-  margin-bottom: 0rem;
-}
-
-.checks .btn-warning .progress {
-  background-color: #d29e56;
 }
 
 .checks .data-table .btn-sm {
   padding: 0;
-}
-
-.checks .btn-sm, .btn-group-sm > .btn {
-  padding: 0.5rem 0.20rem;
-}
-
-.progress {
-  text-align: center;
 }
 
 .progress span {
@@ -156,18 +132,15 @@ body {
   color: #ffffff;
   font-size: 1.25rem;
   font-family: 'Roboto', sans-serif;
-  text-decoration: none;
 }
 
-.topbar.title .icon {
+.topbar .icon {
   font-family: 'dashboard';
 }
 
 .statusbar {
   background-color: #647484;
-  color: #ffffff;
   font-size: 1.15rem;
-  text-decoration: none;
 }
 
 .statusbar .status.up {
@@ -207,11 +180,10 @@ body {
 }
 
 .statusbar .datasources .icon {
-  display: inline-block;
   font-family: 'dashboard';
 }
 
-.folders {
+.checks {
   display: grid;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
@@ -243,10 +215,10 @@ body {
   margin-bottom: 0rem;
 }
 
-.remove {
+.checks .remove {
   display: none !important;
 }
 
-.hide {
+.checks .hide {
   visibility: hidden !important;
 }

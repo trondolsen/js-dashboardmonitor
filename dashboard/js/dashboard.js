@@ -403,7 +403,7 @@
     alerts.append(
       div({id: id, css: ['alert','alert-secondary','float-right','w-25','m-1','px-1','py-0']})
         .append(
-          button({type:'button', css:['close','float-right']})
+          button({type:'button', css:['close','noselect','float-right']})
             .append(span({css:['noselect'], html:'&times;'}))
             .event('click', (event) => {
               event.preventDefault();
