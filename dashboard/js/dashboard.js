@@ -368,8 +368,11 @@
     
     // Add check value
     if (key === 'CPU Usage') {
-      const percent = extractText(check.explanation, 'CPU usage=[', '%]');
-      showProgress(percent, check.result, html, check.id);
+      showProgress('' + check.data, check.result, html, check.id);
+    }
+    else if (key === 'Memory Usage') {
+      const value = extractText(check.explanation, 'minimum required=[', ' ');
+      showProgress('' + (parseFloat(check.data) / parseFloat(value)), check.result, html, check.id);
     }
     else {
       html.append(span({text: detail, 'data-id': check.id}));
@@ -430,8 +433,11 @@
   function stringify(str) { return str.toLowerCase().replace(/\\/g,'_').replace(/ /g,'_').replace(/\./g,'_'); }
 
   function extractText(text, from, to) {
-    if (text.toLowerCase().startsWith(from.toLowerCase()) === true && text.toLowerCase().includes(to.toLowerCase())) {
-      return text.split(from, 2)[1].split(to, 1)[0];
+    if (text.toLowerCase().includes(from.toLowerCase())) {
+      const splitText = text.split(from, 2)[1];
+      if (splitText.toLowerCase().includes(to.toLowerCase())) {
+        return splitText.split(to, 1)[0];
+      }
     }
     else {
       return text;
