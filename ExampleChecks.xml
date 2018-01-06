@@ -271,7 +271,7 @@
     <result>Successful</result>
     <type-id>130</type-id>
     <type>CPU Usage</type>
-    <data>0</data>
+    <data>50</data>
     <processing>0</processing>
     <update-secs>1507278624</update-secs>
     <update>06.10.2017 10:30:24</update>
@@ -866,7 +866,7 @@
     <result>Failed</result>
     <type-id>130</type-id>
     <type>CPU Usage</type>
-    <data>0</data>
+    <data>90</data>
     <processing>0</processing>
     <update-secs>1507278624</update-secs>
     <update>06.10.2017 10:30:24</update>
