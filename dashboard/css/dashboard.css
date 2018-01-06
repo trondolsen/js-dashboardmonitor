@@ -1,6 +1,4 @@
-/*
- * Global CSS
- */
+/* Global CSS */
 
 @font-face {
   font-family: 'dashboard';
@@ -18,20 +16,13 @@ body {
 
 .noselect {
   user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
 }
 
 .noselect:hover {
   cursor: default;
 }
 
-/*
- * Boostrap CSS overrides
- */
+/* Boostrap CSS overrides */
 
 .tooltip .tooltip-inner {
   font-size: 0.65rem;
@@ -114,6 +105,7 @@ body {
 }
 
 .checks .card .card-title {
+  font-family: 'Roboto', sans-serif;
   font-size: 0.85rem;
 }
 
@@ -126,8 +118,6 @@ body {
 }
 
 .checks .data-table .progress {
-  min-width: 4.0rem;
-  margin-left: 0rem;
   margin-right: 0.45rem;
   margin-top: 0.35rem;
   margin-bottom: 0rem;
@@ -138,7 +128,6 @@ body {
 }
 
 .checks .data-table .btn-sm {
-  margin: 0;
   padding: 0;
 }
 
@@ -150,41 +139,17 @@ body {
   text-align: center;
 }
 
-.progress .progress-bar {
-  display: initial;
-}
-
 .progress span {
   position: absolute;
-  display: block;
   width: 100%;
 }
 
-#alerts .alert-danger {
-  color: #45505A;
-  font-size: 0.85rem;
-  text-decoration: none;
-  background-color: #DB7878 !important;
-  border: none;
-}
-
 #alerts .alert {
+  font-size: 0.75rem;
   box-shadow: 0px 0px 4px 0px #3f4a57;
 }
 
-#alerts .alert .close {
-  font-size: 1.0rem;
-  text-shadow: none;
-}
-
-#alerts .alert-dark {
-  font-size: 0.80rem;
-  border: none;
-}
-
-/*
- * Custom CSS
- */
+/* Custom CSS */
 
 .topbar {
   background-color: #3d4a57;
