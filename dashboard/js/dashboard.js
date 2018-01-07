@@ -63,7 +63,6 @@
       .event('keypress', (event) => {
         if (event.keyCode == 13) {
           event.preventDefault();
-          return false;
         }
       });
 
@@ -409,9 +408,8 @@
           button({type:'button', css:['close','noselect','float-right']})
             .append(span({css:['noselect'], html:'&times;'}))
             .event('click', (event) => {
-              event.preventDefault();
               query('#' + id).remove();
-            })
+            }, {passive: true})
         )
         .append(span({text: text}))
     );
@@ -644,12 +642,7 @@
 
     event(name, fn) {
       for (const elem of this.elems) {
-        if (elem.addEventListener === undefined || elem.addEventListener === null) {
-          elem['on' + name] = fn;
-        }
-        else {
-          elem.addEventListener(name, fn);
-        }
+        elem.addEventListener(name, fn, options | {});
       }
       return this;
     }
