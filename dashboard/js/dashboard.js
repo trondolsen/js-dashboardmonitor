@@ -1,9 +1,9 @@
 /***
  * Dashboard for ActiveExperts
  * 
- * Version: 0.7
+ * Version: 0.8
  *
- * Copyright (c) 2017 Trond Olsen
+ * Copyright (c) 2017-2018 Trond Olsen
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

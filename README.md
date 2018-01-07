@@ -41,36 +41,44 @@ Web browser requirements:
 
 ## History
 
-**0.7**
-
 ```
-529b768de5f2b78ea1a7b8c1aa03a6ef5ab9b40d New version
-31a114094ad5e7a8625c97a85e2926a5b0db23ac Fixed close handling for alerts
-16583dc65d547c3e15a8c9cc045d152e61cd0c08 Improved async fetching
-47fd1cf0df028113ea0305ed74588c6d54bf4d2c Added automatic clearing of console logging
-4114e6807a3770a353c21ab4609951403fcdd07d Improved usage of await
-dcac14fd9e57ed86e57cb9e023701545a7f960df Minor refactoring of settings and fetch
-b89dec339ccd81e6e665360d1bb9aeda8b912139 Fetch now uses async/await
-b6bd556b5e05bdf921c7510c62027a72bf7f0825 Rewrote global functions
-91a49ef44714f9c277fb5e273103cf1c748746ba Various text fixes
-d6384ccad3deb31adce620d3bd399aa65a507db8 Updraded Bootstrap v4 to beta.3
-ed8326b5d1f9c363fe0583cee3282b2642ecdbd1 Refactored datasource
-87b55e872b2d9a1eab5b81c00d3f771dc1014037 Modified settings for datasource
-```
+0.8:
+af7d357 Replaced readme image
+518d9c7 Removed boostrap css source mapping
+afd2f2a Minor change in progress for check
+345f83c Updated event handler
+16433e3 Fixed css
+855db43 Memory checks displayed as progress bar
+d15aa54 Fixed example data
+2106136 Fixed example data
+545d7d4 Refactored css
+ea6e447 Added checks to example data
+ae1f713 Changed css for alerts
+14aa66b Changed alert close handle
+c8e3d07 Updated readme
 
-**0.6**
+0.7:
+529b768 New version
+31a1140 Fixed close handling for alerts
+16583dc Improved async fetching
+47fd1cf Added automatic clearing of console logging
+4114e68 Improved usage of await
+dcac14f Minor refactoring of settings and fetch
+b89dec3 Fetch now uses async/await
+b6bd556 Rewrote global functions
+91a49ef Various text fixes
+d6384cc Updraded Bootstrap v4 to beta.3
+ed8326b Refactored datasource
+87b55e8 Modified settings for datasource
 
-```
-fdb6cb40fa8b496d614fe847687a78153943aa93 New version
-ed07eb412ee5b627bd88393654e9dbbd26563558 Fixed fetch same-origin and urls Added console logging Improved tooltips
-```
+0.6:
+fdb6cb4 New version
+ed07eb4 Fixed fetch same-origin and urls Added console logging Improved tooltips
 
-**0.5**
-
-```
-ef68ec331ac542b8d1f5c6dc50d5390ed3d7db76 Minor text corrections
-26edd564a4a94f2c1d3d464c8fa53565c8fbcef5 Initial commit
-32d713c8e38ed02b1f99c4a9c9ac94eddd0e2c50 Initial commit
+0.5:
+ef68ec3 Minor text corrections
+26edd56 Initial commit
+32d713c Initial commit
 ```
 
 ## Credits
