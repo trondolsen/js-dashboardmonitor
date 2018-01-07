@@ -2,6 +2,7 @@
 
 ```
 0.8:
+aaa231f New version
 af7d357 Replaced readme image
 518d9c7 Removed boostrap css source mapping
 afd2f2a Minor change in progress for check
