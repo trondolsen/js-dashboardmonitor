@@ -346,7 +346,7 @@
     const detail = clip(extractText(check.explanation, 'Service [', ']'), settings.layout.textColumnWidth.detail, '..');
     const host = clip(check.host.toLowerCase(), settings.layout.textColumnWidth.host, '..');
 
-    // Add check status
+    // Add status column
     const htmlStatus = span({'data-id': check.id, css: ['btn-sm','icon']});
     if (check.result === 'Successful') {
       htmlStatus.text('');
@@ -362,22 +362,22 @@
     }
     html.append(htmlStatus);
     
-    // Add check name
+    // Add name column
     html.append(span({text: name, 'data-id': check.id}));
     
-    // Add check value
+    // Add value column
     if (key === 'CPU Usage') {
       showProgress('' + check.data, check.result, html, check.id);
     }
     else if (key === 'Memory Usage') {
       const value = extractText(check.explanation, 'minimum required=[', ' ');
-      showProgress('' + (parseFloat(check.data) / parseFloat(value)), check.result, html, check.id);
+      showProgress((parseFloat(check.data) / parseFloat(value)).toFixed(0), check.result, html, check.id);
     }
     else {
       html.append(span({text: detail, 'data-id': check.id}));
     }
     
-    // Add host value (with tooltip)
+    // Add host column (with tooltip)
     html.append(
       span({
         id: stringify(check.folder) + '_' + check.id,
@@ -408,7 +408,7 @@
           button({type:'button', css:['close','noselect','float-right']})
             .append(span({css:['noselect'], html:'&times;'}))
             .event('click', (event) => {
-              query('#' + id).remove();
+               query('#' + id).remove();
             }, {passive: true})
         )
         .append(span({text: text}))
@@ -640,7 +640,7 @@
       return this;
     }
 
-    event(name, fn) {
+    event(name, fn, options) {
       for (const elem of this.elems) {
         elem.addEventListener(name, fn, options | {});
       }
