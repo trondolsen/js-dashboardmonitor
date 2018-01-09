@@ -619,7 +619,7 @@
       for (const elem of this.elems) {
         if(value === undefined) {
           if (elem.style[key] === undefined || elem.style[key] === '') {
-            return browser.getComputedStyle(elem)[key];
+            return browser.getComputedStyle(elem) ? browser.getComputedStyle(elem)[key] : "";
           }
           return elem.style[key];
         }
