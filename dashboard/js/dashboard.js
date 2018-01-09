@@ -370,8 +370,10 @@
       showProgress('' + check.data, check.result, html, check.id);
     }
     else if (key === 'Memory Usage') {
-      const value = extractText(check.explanation, 'minimum required=[', ' ');
-      showProgress((parseFloat(check.data) / parseFloat(value)).toFixed(0), check.result, html, check.id);
+      const minMem = parseFloat(extractText(check.explanation, 'minimum required=[', ' '));
+      const freeMem = parseFloat(check.data);
+      const value = freeMem < minMem ? 100.0 : (1.0 / (freeMem / minMem)) * 100.0;
+      showProgress(value.toFixed(0), check.result, html, check.id);
     }
     else {
       html.append(span({text: detail, 'data-id': check.id}));
