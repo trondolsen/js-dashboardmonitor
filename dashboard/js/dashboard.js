@@ -171,7 +171,7 @@
     }
     query('#ds-' + datasource.name)
       .query('.text')
-        .prop('title', `Checks:\n${datasource.checks.url}\n${datasource.checks.lastUpdate}\n\nAvailability:\n${datasource.availability.url}`);
+        .prop('title', () => `Checks:\n${datasource.checks.url}\n${datasource.checks.lastUpdate}\n\nAvailability:\n${datasource.availability.url}`);
 
     // Read data for each check
     browser.console.debug(`Reading datasource checks for ${datasource.name}. Updated ${datasource.checks.lastUpdate}.`);
@@ -210,7 +210,7 @@
 
     query('#ds-' + datasource.name)
       .query('.text')
-        .prop('title', `Checks:\n${datasource.checks.url}\n${datasource.checks.lastUpdate}\n\nAvailability:\n${datasource.availability.url}\n${datasource.availability.lastUpdate}`);
+        .prop('title', () => `Checks:\n${datasource.checks.url}\n${datasource.checks.lastUpdate}\n\nAvailability:\n${datasource.availability.url}\n${datasource.availability.lastUpdate}`);
 
     browser.console.debug(`Reading datasource availability for ${datasource.name}. Updated ${datasource.availability.lastUpdate}.`);
 
@@ -232,7 +232,7 @@
         if (value && value.indexOf('%') !== -1) {
           const check = checksById[id][0];
           check.uptimeSuccess = value.slice(0, value.length - 1);
-          query('#' + stringify(check.folder) + '_' + check.id).prop('title', `Host: ${check.host}\nUptime: ${check.uptimeSuccess}\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`);
+          query('#' + stringify(check.folder) + '_' + check.id).prop('title', () => `Host: ${check.host}\nUptime: ${check.uptimeSuccess}\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`);
         }
       }
     });
@@ -486,11 +486,15 @@
    */
   function layoutGrid(gridBody, gridElems) {
     gridElems.each((elem) => {
-      const rowheight = parseInt(gridBody.attr('grid-auto-rows'));
-      const rowgap = parseInt(gridBody.attr('grid-row-gap'));
-      const margin = parseInt(elem.attr('margin-top')) + parseInt(elem.attr('margin-bottom'));
-      const scrollHeight = elem.prop('scrollHeight');
-      elem.attr('grid-row-end','span ' + Math.ceil((scrollHeight + margin + rowgap) / (rowheight + rowgap)));
+      let rowgap,rowheight,marginTop,marginBottom,scrollheight;
+      gridBody
+        .attr('grid-auto-rows', (value)  => rowheight = parseInt(value))
+        .attr('grid-row-gap', (value) => rowgap = parseInt(value));
+      elem
+        .attr('margin-top', (value) => marginTop = parseInt(value))
+        .attr('margin-bottom', (value) => marginBottom = parseInt(value));
+      elem.prop('scrollHeight', (value) => scrollheight = value);
+      elem.attr('grid-row-end', () => 'span ' + Math.ceil((scrollheight + marginTop + marginBottom + rowgap) / (rowheight + rowgap)))
     });
   }
 
@@ -615,28 +619,30 @@
       return this.elems.length;
     }
 
-    attr(key, value) {
+    attr(key, fn) {
       for (const elem of this.elems) {
-        if(value === undefined) {
-          if (elem.style[key] === undefined || elem.style[key] === '') {
-            return browser.getComputedStyle(elem) ? browser.getComputedStyle(elem)[key] : "";
-          }
-          return elem.style[key];
+        if (fn.length === 0) {
+          elem.style[key] = fn();
         }
         else {
-          elem.style[key] = value;
+          if (elem.style[key] === undefined || elem.style[key] === '') {
+            fn(browser.getComputedStyle(elem) ? browser.getComputedStyle(elem)[key] : "");
+          }
+          else {
+            fn(elem.style[key]);
+          }
         }
       }
       return this;
     }
 
-    prop(key, value) {
+    prop(key, fn) {
       for (const elem of this.elems) {
-        if(value === undefined) {
-          return elem[key];
+        if (fn.length === 0) {
+          elem[key] = fn();
         }
         else {
-          elem[key] = value;
+          fn(elem[key]);
         }
       }
       return this;
