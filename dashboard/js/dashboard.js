@@ -513,28 +513,28 @@
     return new ElementSeq(Array.from(matches));
   }
 
-  function element(type, attr) {
+  function element(type, props) {
     const elem = browser.document.createElement(type);
-    if (attr != undefined) {
-      if (attr.id !== undefined) {
-        elem.id = attr.id;
+    if (props != undefined) {
+      if (props.id !== undefined) {
+        elem.id = props.id;
       }
-      if (attr.title !== undefined) {
-        elem.title = attr.title;
+      if (props.title !== undefined) {
+        elem.title = props.title;
       }
-      if (attr.text !== undefined) {
-        elem.textContent = attr.text;
+      if (props.text !== undefined) {
+        elem.textContent = props.text;
       }
-      if (attr.width !== undefined) {
-        elem.style.width = attr.width;
+      if (props.width !== undefined) {
+        elem.style.width = props.width;
       }
-      if (attr.css !== undefined) {
-        elem.classList.add(...attr.css);
+      if (props.css !== undefined) {
+        elem.classList.add(...props.css);
       }
-      if (attr.html !== undefined) {
-        elem.innerHTML = attr.html;
+      if (props.html !== undefined) {
+        elem.innerHTML = props.html;
       }
-      for (const [key, value] of Object.entries(attr)) {
+      for (const [key, value] of Object.entries(props)) {
         if (key.includes('data-')) {
           elem.dataset[key.substring(5)] = value;
         }
@@ -543,16 +543,16 @@
     return new ElementSeq([elem]);
   }
 
-  function div(attr) {
-    return element('div', attr);
+  function div(props) {
+    return element('div', props);
   }
 
-  function span(attr) {
-    return element('span', attr);
+  function span(props) {
+    return element('span', props);
   }
 
-  function button(attr) {
-    return element('button', attr);
+  function button(props) {
+    return element('button', props);
   }
   
 })(window, (function(browser) {
