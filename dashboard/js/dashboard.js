@@ -69,9 +69,9 @@
     // Show datasources
     for (const source of settings.datasource.sources) {
       query('#datasources')
-        .append(span({id: 'ds-' + source.name, css: ['datasource']})
-          .append(span({css: ['icon','mx-1'], text: '' }))
-          .append(span({css: ['text','datasource-tooltip'], text: source.name, title: `${source.name}\nChecks URL: ${source.checks.url}\nAvailability URL: ${source.availability.url}`}))
+        .append(span({props: {id: 'ds-' + source.name}, attrs: ['datasource']})
+          .append(span({props: {textContent: ''}, attrs: ['icon','mx-1']}))
+          .append(span({props: {textContent: source.name, title: `${source.name}\nChecks URL: ${source.checks.url}\nAvailability URL: ${source.availability.url}`}, attrs: ['text','datasource-tooltip']}))
       );
     }
 
@@ -232,7 +232,8 @@
         if (value && value.indexOf('%') !== -1) {
           const check = checksById[id][0];
           check.uptimeSuccess = value.slice(0, value.length - 1);
-          query('#' + stringify(check.folder) + '_' + check.id).prop('title', () => `Host: ${check.host}\nUptime: ${check.uptimeSuccess}\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`);
+          query('#' + stringify(check.folder) + '_' + check.id)
+            .prop('title', () => `Host: ${check.host}\nUptime: ${check.uptimeSuccess}\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`);
         }
       }
     });
@@ -260,11 +261,9 @@
       folder.htmlUptime.empty();
       folder.htmlUptime
         .append(
-          div({
-            css: ['progress-bar'],
-            width: folder.uptime + '%'
-          })
-            .append(span({text: `${folder.uptime} % (last ${datasource.availability.spanInDays} days)`}))
+          div({attrs: ['progress-bar']})
+            .attr('width', () => folder.uptime + '%')
+            .append(span({props: {textContent: `${folder.uptime} % (last ${datasource.availability.spanInDays} days)`}}))
         );
     }
   }
@@ -306,8 +305,8 @@
   }
 
   function showFolder(folder, result) {
-    const html = div({id: stringify(folder.name), css: ['item','card','mx-2','my-2']});
-    folder.htmlUptime = div({css: ['progress', 'uptime']});
+    const html = div({props:{id: stringify(folder.name)}, attrs:['item','card','mx-2','my-2']});
+    folder.htmlUptime = div({attrs:['progress', 'uptime']});
 
     if (result === "Ok") { html.css({add:['bg-success']}); }
     else if (result === "Error") { html.css({add:['bg-danger']}); }
@@ -322,7 +321,7 @@
       return sum;
     }, {});
 
-    const htmlData = div({css: ['data-table']});
+    const htmlData = div({attrs:['data-table']});
 
     for (const [name,checks] of Object.entries(byType)) {
       for (const check of Object.values(checks)) {
@@ -331,8 +330,8 @@
     }
     
     html.append(
-      div({css: ['card-body','mx-1','my-1','px-1','py-0']})
-        .append(div({css: ['card-title','my-1'], text: folder.name}))
+      div({attrs:['card-body','mx-1','my-1','px-1','py-0']})
+        .append(div({props:{textContent: folder.name}, attrs: ['card-title','my-1']}))
         .append(folder.htmlUptime)
         .append(htmlData)
     );
@@ -347,7 +346,7 @@
     const host = clip(check.host.toLowerCase(), settings.layout.textColumnWidth.host, '..');
 
     // Add status column
-    const htmlStatus = span({'data-id': check.id, css: ['btn-sm','icon']});
+    const htmlStatus = span({attrs: ['btn-sm','icon'], datas:{'id': check.id}});
     if (check.result === 'Successful') {
       htmlStatus.text('');
     }
@@ -363,7 +362,7 @@
     html.append(htmlStatus);
     
     // Add name column
-    html.append(span({text: name, 'data-id': check.id}));
+    html.append(span({props:{textContent: name}, datas:{'id': check.id}}));
     
     // Add value column
     if (key === 'CPU Usage') {
@@ -376,27 +375,29 @@
       showProgress(value.toFixed(0), check.result, html, check.id);
     }
     else {
-      html.append(span({text: detail, 'data-id': check.id}));
+      html.append(span({props:{textContent: detail}, datas:{'id': check.id}}));
     }
     
     // Add host column (with tooltip)
     html.append(
       span({
-        id: stringify(check.folder) + '_' + check.id,
-        text: host,
-        title: `Host: ${check.host}\nUptime: ${check.uptimeSuccess}\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`,
-        'data-id': check.id
+        props: {
+          id: stringify(check.folder) + '_' + check.id,
+          textContent: host,
+          title:`Host: ${check.host}\nUptime: ${check.uptimeSuccess}\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`
+        },
+        datas:{'id': check.id}
       })
     );
   }
 
   function showProgress(percent, result, html, id) {
     html.append(
-      div({'data-id': id, css: ['progress']})
-        .append(div({
-          css: ['progress-bar','bg-info'],
-          width: String(percent) + '%'
-        }))
+      div({attrs:['progress'], datas:{'id': id}})
+        .append(
+          div({attrs: ['progress-bar','bg-info']})
+            .attr('width', () => String(percent) + '%')
+        )
     );
   }
 
@@ -405,15 +406,13 @@
     const alerts = query('#alerts');
     clearAlert(id);
     alerts.append(
-      div({id: id, css: ['alert','alert-secondary','float-right','w-25','m-1','px-1','py-0']})
+      div({props: {id:id}, attrs: ['alert','alert-secondary','float-right','w-25','m-1','px-1','py-0']})
         .append(
-          button({type:'button', css:['close','noselect','float-right']})
-            .append(span({css:['noselect'], html:'&times;'}))
-            .event('click', (event) => {
-               query('#' + id).remove();
-            }, {passive: true})
+          element({type:'button', attrs:['close','noselect','float-right']})
+            .append(span({props:{innerHTML:'&times;'}, attrs:['noselect']}))
+            .event('click', (event) => query('#' + id).remove(), {passive: true})
         )
-        .append(span({text: text}))
+        .append(span({props:{textContent: text}}))
     );
   }
 
@@ -513,46 +512,30 @@
     return new ElementSeq(Array.from(matches));
   }
 
-  function element(type, props) {
+  function element({type, props, attrs, datas}) {
     const elem = browser.document.createElement(type);
-    if (props != undefined) {
-      if (props.id !== undefined) {
-        elem.id = props.id;
-      }
-      if (props.title !== undefined) {
-        elem.title = props.title;
-      }
-      if (props.text !== undefined) {
-        elem.textContent = props.text;
-      }
-      if (props.width !== undefined) {
-        elem.style.width = props.width;
-      }
-      if (props.css !== undefined) {
-        elem.classList.add(...props.css);
-      }
-      if (props.html !== undefined) {
-        elem.innerHTML = props.html;
-      }
+    if (props !== undefined) {
       for (const [key, value] of Object.entries(props)) {
-        if (key.includes('data-')) {
-          elem.dataset[key.substring(5)] = value;
-        }
+        elem[key] = value;
+      }
+    }
+    if (attrs !== undefined) {
+      elem.classList.add(...attrs);
+    }
+    if (datas !== undefined) {
+      for (const [key, value] of Object.entries(datas)) {
+        elem.dataset[key] = value;
       }
     }
     return new ElementSeq([elem]);
   }
 
-  function div(props) {
-    return element('div', props);
+  function div({props,attrs,datas}) {
+    return element({type:'div', props:props, attrs:attrs, datas:datas});
   }
 
-  function span(props) {
-    return element('span', props);
-  }
-
-  function button(props) {
-    return element('button', props);
+  function span({props,attrs,datas}) {
+    return element({type:'span', props:props, attrs:attrs, datas:datas});
   }
   
 })(window, (function(browser) {
@@ -619,6 +602,28 @@
       return this.elems.length;
     }
 
+    prop(key, fn) {
+      for (const elem of this.elems) {
+        if (fn.length === 0) {
+          if (key.includes('data-')) {
+            elem.dataset[key.substring(5)] = fn();
+          }
+          else {
+            elem[key] = fn();
+          }
+        }
+        else {
+          if (key.includes('data-')) {
+            fn(elem.dataset[key.substring(5)]);
+          }
+          else {
+            fn(elem[key]);
+          }
+        }
+      }
+      return this;
+    }
+
     attr(key, fn) {
       for (const elem of this.elems) {
         if (fn.length === 0) {
@@ -636,13 +641,13 @@
       return this;
     }
 
-    prop(key, fn) {
+    data(key, fn) {
       for (const elem of this.elems) {
         if (fn.length === 0) {
-          elem[key] = fn();
+          elem.dataset[key] = fn();
         }
         else {
-          fn(elem[key]);
+          fn(elem.dataset[key]);
         }
       }
       return this;
