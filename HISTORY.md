@@ -1,6 +1,19 @@
 # History
 
 ```
+0.9:
+70d495b Fixed filtering handling
+921187f Revisit showAlert() code
+0cf9b35 (origin/master, origin/HEAD) Changed extractText() behavior
+ae573ec Separated properties, attributes, and data in element()
+76894d9 Rename in element()
+c388b67 Changed attr() and prop() handling in elementseq
+fb2a6e8 Added null check for getComputedStyle
+aba2a55 Changed formula for memory check
+c2024c9 Updated history
+43553dd Removed box shadow css for alerts
+cd17ee9 Moved history in readme history to file
+
 0.8:
 aaa231f New version
 af7d357 Replaced readme image
