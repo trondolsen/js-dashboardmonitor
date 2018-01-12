@@ -2,6 +2,7 @@
 
 ```
 0.9:
+fa1ff38 New version
 70d495b Fixed filtering handling
 921187f Revisit showAlert() code
 0cf9b35 (origin/master, origin/HEAD) Changed extractText() behavior
