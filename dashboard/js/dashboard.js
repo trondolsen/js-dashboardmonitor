@@ -439,7 +439,7 @@
       }
     }
     else {
-      return text;
+      return '';
     }
   }
 
