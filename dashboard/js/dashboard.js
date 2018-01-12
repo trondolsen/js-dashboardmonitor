@@ -110,6 +110,9 @@
         const html = query('#' + stringify(folder.name));
         if (folder.name.toLowerCase().includes(settings.searchFilter)) {
           html.css({remove:['remove']});
+          for (const check of folder.checks) {
+            html.query(`div [data-id="${check.id}"]`).css({remove:['hide']});
+          }
         }
         else {
           // Apply search filter on checks
