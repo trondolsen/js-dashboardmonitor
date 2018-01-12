@@ -404,7 +404,7 @@
   function showAlert({id, text}) {
     browser.console.warn(text);
     const alerts = query('#alerts');
-    clearAlert(id);
+    query('#' + id).remove();
     alerts.append(
       div({props: {id:id}, attrs: ['alert','alert-secondary','float-right','w-25','m-1','px-1','py-0']})
         .append(
@@ -414,10 +414,6 @@
         )
         .append(span({props:{textContent: text}}))
     );
-  }
-
-  function clearAlert(id) {
-    query('#' + id).remove();
   }
 
 
