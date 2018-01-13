@@ -8,7 +8,6 @@
 }
 
 body {
-  padding-top: 4.5rem !important;
   overflow-y: scroll !important;
 }
 
@@ -120,8 +119,15 @@ body {
   width: 100%;
 }
 
+#alerts {
+  position: absolute;
+  z-index: 1;
+  padding: 0.30rem;
+}
+
 #alerts .alert {
   font-size: 0.75rem;
+  min-width: 15.0rem;
 }
 
 /* Custom CSS */

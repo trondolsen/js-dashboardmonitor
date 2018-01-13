@@ -47,8 +47,17 @@
 
   (() => {
     // Handle grid layout resizing
-    dom(browser).event('resize', () => layoutGrid(query('#checks'), query('.card')));
-    dom(browser.document).event('ready', () => layoutGrid(query('#checks'), query('.card')));
+    dom(browser)
+      .event('resize', () => {
+        layoutGrid(query('#checks'), query('.card'));
+        query('.navbar').prop('scrollHeight', (value) => dom(browser.document.body).attr('padding-top', () => value + "px"));
+      })
+
+    dom(browser.document)
+      .event('DOMContentLoaded', () => {
+        layoutGrid(query('#checks'), query('.card'));
+        query('.navbar').prop('scrollHeight', (value) => dom(browser.document.body).attr('padding-top', () => value + "px"));
+      })
 
     // Set title
     query('.navbar .topbar .text').text(settings.title);
