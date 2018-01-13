@@ -438,7 +438,7 @@
       }
     }
     else {
-      return '';
+      return text;
     }
   }
 
@@ -604,20 +604,10 @@
     prop(key, fn) {
       for (const elem of this.elems) {
         if (fn.length === 0) {
-          if (key.includes('data-')) {
-            elem.dataset[key.substring(5)] = fn();
-          }
-          else {
-            elem[key] = fn();
-          }
+          elem[key] = fn();
         }
         else {
-          if (key.includes('data-')) {
-            fn(elem.dataset[key.substring(5)]);
-          }
-          else {
-            fn(elem[key]);
-          }
+          fn(elem[key]);
         }
       }
       return this;
