@@ -94,8 +94,8 @@
             const availabilityData = fetchText(source.name, source.availability.url, settings.datasource.requestInit);
             readChecks(parseXml(await checksData), source);
             showChecks();
-            filterChecks();
             layoutGrid(query('#checks'), query('.card'));
+            filterChecks();
             readAvailability(parseXml(await availabilityData), source);
             showAvailability(source);
           }
