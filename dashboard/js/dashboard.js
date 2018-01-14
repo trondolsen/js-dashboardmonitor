@@ -199,7 +199,9 @@
         result:         elem.query('result').text(),
         data:           elem.query('data').text(),
         type:           elem.query('type').text(),
-        uptimeSuccess:  '0.00'
+        successPct:     '0.00',
+        failurePct:     '0.00',
+        uncertainPct:   '0.00'
       };
 
       // Append check to given folder
@@ -240,13 +242,12 @@
     dom(xml).query('monitor').query('check').each((elem) => {
       const id = elem.query('id').text();
       if (checksById[id] !== undefined) {
-        const value = elem.query('success-pct').text();
-        if (value && value.indexOf('%') !== -1) {
-          const check = checksById[id][0];
-          check.uptimeSuccess = value.slice(0, value.length - 1);
-          query('#' + stringify(check.folder) + '_' + check.id)
-            .prop('title', () => `Host: ${check.host}\nUptime: ${check.uptimeSuccess}\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`);
-        }
+        const check = checksById[id][0];
+        check.successPct = elem.query('success-pct').text().slice(0,-1);
+        check.failurePct = elem.query('failure-pct').text().slice(0,-1);
+        check.uncertainPct = elem.query('uncertain-pct').text().slice(0,-1);
+        query('#' + stringify(check.folder) + '_' + check.id)
+          .prop('title', () => `Host: ${check.host}\nSuccess: ${check.successPct}\nFailure: ${check.failurePct}\nUncertain: ${check.uncertainPct}\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`);
       }
     });
     
@@ -256,11 +257,11 @@
       const percent = checks.reduce(
         (sum, check) => {
           const a = fromFloat(sum);
-          const b = fromFloat(check.uptimeSuccess);
+          const b = fromFloat(check.successPct);
           if (a < b) {
             return sum;
           }
-          return check.uptimeSuccess;
+          return check.successPct;
         },
         "100.00"
       );
@@ -396,7 +397,7 @@
         props: {
           id: stringify(check.folder) + '_' + check.id,
           textContent: host,
-          title:`Host: ${check.host}\nUptime: ${check.uptimeSuccess}\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`
+          title:`Host: ${check.host}\nSuccess: ${check.successPct}\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`
         },
         datas:{'id': check.id}
       })
