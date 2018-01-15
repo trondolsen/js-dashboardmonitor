@@ -68,6 +68,7 @@
         browser.scrollTop = 0;
         settings.searchFilter = event.target.value.toLowerCase();
         filterChecks();
+        layoutGrid(query('#checks'), query('.card'));
       })
       .event('keypress', (event) => {
         if (event.keyCode == 13) {
