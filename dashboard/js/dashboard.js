@@ -46,7 +46,7 @@
   };
   const data = { folders: {}, checks: [] };
 
-  (() => {
+  new Promise((resolve,reject) => {
     // Handle grid layout resizing
     dom(browser).event('resize', () => {
       layoutGrid(query('#checks'), query('.card'));
@@ -85,7 +85,6 @@
     }
 
     // Repeated fetching of datasources
-    browser.console.info(`Dashboard started. Fetching datasource(s) at ${config.datasource.updateInMinutes} minute interval.`);
     const fetchSources = () => {
       Promise.all(
         config.datasource.sources.map(async (source) => {
@@ -110,7 +109,15 @@
 
     // Clear console at regular intervals
     browser.setInterval(() => { browser.console.clear(); }, config.clearConsoleInMinutes * 60 * 1000);
-  })();
+
+    resolve("done");
+  })
+  .then((reason) => {
+    browser.console.info(`Dashboard started. Fetching datasource(s) at ${config.datasource.updateInMinutes} minute interval.`);
+  })
+  .catch((reason) => {
+    showAlert({id: `alert-source-init`, text: `Dashboard failed start. ${reason.message}`});
+  });
 
   function filterChecks() {
     if (config.searchFilter.length > 0 ) {
@@ -251,7 +258,7 @@
         check.maintenancePct = elem.query('maintenance-pct').text().slice(0,-1);
         check.uptime = check.successPct;
         query('#' + stringify(check.folder) + '_' + check.id)
-          .prop('title', () => `Host: ${check.host}\nSuccess: ${check.successPct}\nFailure: ${check.failurePct}\nUncertain: ${check.uncertainPct}\nMaintenance: ${check.maintenancePct}\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`);
+          .prop('title', () => `Host: ${check.host}\nSuccess: ${check.successPct}%\nFailure: ${check.failurePct}%\nUncertain: ${check.uncertainPct}%\nMaintenance: ${check.maintenancePct}%\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`);
       }
     });
     
