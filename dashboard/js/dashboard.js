@@ -80,7 +80,7 @@
       query('#datasources')
         .append(span({props: {id: 'ds-' + source.name}, attrs: ['datasource']})
           .append(span({props: {textContent: ''}, attrs: ['icon','mx-1']}))
-          .append(span({props: {textContent: source.name, title: `${source.name}\nChecks URL: ${source.checks.url}\nAvailability URL: ${source.availability.url}`}, attrs: ['text','datasource-tooltip']}))
+          .append(span({props: {textContent: source.name, title: `${source.checks.url}\n${source.availability.url}`}, attrs: ['text','datasource-tooltip']}))
       );
     }
 
@@ -190,7 +190,7 @@
     }
     query('#ds-' + datasource.name)
       .query('.text')
-        .prop('title', () => `Checks:\n${datasource.checks.url}\n${datasource.checks.lastUpdate}\n\nAvailability:\n${datasource.availability.url}`);
+        .prop('title', () => `${datasource.checks.url}\n${datasource.checks.lastUpdate}\n${datasource.availability.url}`);
 
     // Read data for each check
     browser.console.debug(`Reading datasource checks for ${datasource.name}. Updated ${datasource.checks.lastUpdate}.`);
@@ -233,7 +233,7 @@
 
     query('#ds-' + datasource.name)
       .query('.text')
-        .prop('title', () => `Checks:\n${datasource.checks.url}\n${datasource.checks.lastUpdate}\n\nAvailability:\n${datasource.availability.url}\n${datasource.availability.lastUpdate}`);
+        .prop('title', () => `${datasource.checks.url}\n${datasource.checks.lastUpdate}\n${datasource.availability.url}\n${datasource.availability.lastUpdate}`);
 
     browser.console.debug(`Reading datasource availability for ${datasource.name}. Updated ${datasource.availability.lastUpdate}.`);
 
