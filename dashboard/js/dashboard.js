@@ -25,8 +25,9 @@
   */
 
 ((browser,ElementSeq) => {
+  'use strict';
 
-  const settings = {
+  const config = {
     title: 'Applications',
     searchFilter: '',
     ignoreFolderName: '\\_',
@@ -47,26 +48,24 @@
 
   (() => {
     // Handle grid layout resizing
-    dom(browser)
-      .event('resize', () => {
-        layoutGrid(query('#checks'), query('.card'));
-        query('.navbar').prop('scrollHeight', (value) => dom(browser.document.body).attr('padding-top', () => value + "px"));
-      })
+    dom(browser).event('resize', () => {
+      layoutGrid(query('#checks'), query('.card'));
+      query('.navbar').prop('scrollHeight', (value) => dom(browser.document.body).attr('padding-top', () => value + "px"));
+    });
 
-    dom(browser.document)
-      .event('DOMContentLoaded', () => {
-        layoutGrid(query('#checks'), query('.card'));
-        query('.navbar').prop('scrollHeight', (value) => dom(browser.document.body).attr('padding-top', () => value + "px"));
-      })
+    dom(browser.document).event('DOMContentLoaded', () => {
+      layoutGrid(query('#checks'), query('.card'));
+      query('.navbar').prop('scrollHeight', (value) => dom(browser.document.body).attr('padding-top', () => value + "px"));
+    });
 
     // Set title
-    query('.navbar .topbar .text').text(settings.title);
+    query('.navbar .topbar .text').text(config.title);
 
     // Handle search text
     query('.navbar .searchbar .form-control')
       .event('keyup', (event) => {
         browser.scrollTop = 0;
-        settings.searchFilter = event.target.value.toLowerCase();
+        config.searchFilter = event.target.value.toLowerCase();
         filterChecks();
         layoutGrid(query('#checks'), query('.card'));
       })
@@ -77,7 +76,7 @@
       });
 
     // Show datasources
-    for (const source of settings.datasource.sources) {
+    for (const source of config.datasource.sources) {
       query('#datasources')
         .append(span({props: {id: 'ds-' + source.name}, attrs: ['datasource']})
           .append(span({props: {textContent: ''}, attrs: ['icon','mx-1']}))
@@ -86,13 +85,13 @@
     }
 
     // Repeated fetching of datasources
-    browser.console.info(`Dashboard started. Fetching datasource(s) at ${settings.datasource.updateInMinutes} minute interval.`);
+    browser.console.info(`Dashboard started. Fetching datasource(s) at ${config.datasource.updateInMinutes} minute interval.`);
     const fetchSources = () => {
       Promise.all(
-        settings.datasource.sources.map(async (source) => {
+        config.datasource.sources.map(async (source) => {
           try {
-            const checksData = fetchText(source.name, source.checks.url, settings.datasource.requestInit);
-            const availabilityData = fetchText(source.name, source.availability.url, settings.datasource.requestInit);
+            const checksData = fetchText(source.name, source.checks.url, config.datasource.requestInit);
+            const availabilityData = fetchText(source.name, source.availability.url, config.datasource.requestInit);
             readChecks(parseXml(await checksData), source);
             showChecks();
             layoutGrid(query('#checks'), query('.card'));
@@ -106,19 +105,19 @@
         })
       );
     }
-    browser.setInterval(fetchSources, settings.datasource.updateInMinutes * 60 * 1000);
+    browser.setInterval(fetchSources, config.datasource.updateInMinutes * 60 * 1000);
     fetchSources();
 
     // Clear console at regular intervals
-    browser.setInterval(() => { browser.console.clear(); }, settings.clearConsoleInMinutes * 60 * 1000);
+    browser.setInterval(() => { browser.console.clear(); }, config.clearConsoleInMinutes * 60 * 1000);
   })();
 
   function filterChecks() {
-    if (settings.searchFilter.length > 0 ) {
+    if (config.searchFilter.length > 0 ) {
       // Apply search filter on folders
       for (const folder of Object.values(data.folders)) {
         const html = query('#' + stringify(folder.name));
-        if (folder.name.toLowerCase().includes(settings.searchFilter)) {
+        if (folder.name.toLowerCase().includes(config.searchFilter)) {
           html.css({remove:['remove']});
           for (const check of folder.checks) {
             html.query(`div [data-id="${check.id}"]`).css({remove:['hide']});
@@ -128,7 +127,7 @@
           // Apply search filter on checks
           html.css({add:['remove']});
           for (const check of folder.checks) {
-            if (check.explanation.toLowerCase().includes(settings.searchFilter) || check.type.toLowerCase().includes(settings.searchFilter) || check.host.toLowerCase().includes(settings.searchFilter)) {
+            if (check.explanation.toLowerCase().includes(config.searchFilter) || check.type.toLowerCase().includes(config.searchFilter) || check.host.toLowerCase().includes(config.searchFilter)) {
               html.css({remove:['remove']});
               html.query(`div [data-id="${check.id}"]`).css({remove:['hide']});
             }
@@ -171,7 +170,7 @@
 
     // Check if datasource is insync
     datasource.checks.lastUpdate = parseDate(dom(xml).query('monitor').query('xslrefreshtime').text());
-    const datasourceInsync = new Date(Date.now() - settings.datasource.insyncInMinutes * 60 * 1000);
+    const datasourceInsync = new Date(Date.now() - config.datasource.insyncInMinutes * 60 * 1000);
     if (datasource.checks.lastUpdate.getTime() > datasourceInsync.getTime()) {
       query('#ds-' + datasource.name)
         .css({add: ['success'], remove: ['error']});
@@ -208,7 +207,7 @@
       };
 
       // Append check to given folder
-      if (check.folder.toLowerCase().startsWith(settings.ignoreFolderName) === false) {
+      if (check.folder.toLowerCase().startsWith(config.ignoreFolderName) === false) {
         data.checks.push(check);
         if (data.folders[check.folder] === undefined) {
           data.folders[check.folder] = { name: check.folder, checks: [], uptime: '0.00' };
@@ -359,9 +358,9 @@
   }
 
   function showCheck(check, key, html) {
-    const name = clip(key, settings.layout.textColumnWidth.name, '..');
-    const detail = clip(extractText(check.explanation, 'Service [', ']'), settings.layout.textColumnWidth.detail, '..');
-    const host = clip(check.host.toLowerCase(), settings.layout.textColumnWidth.host, '..');
+    const name = clip(key, config.layout.textColumnWidth.name, '..');
+    const detail = clip(extractText(check.explanation, 'Service [', ']'), config.layout.textColumnWidth.detail, '..');
+    const host = clip(check.host.toLowerCase(), config.layout.textColumnWidth.host, '..');
 
     // Add status column
     const htmlStatus = span({attrs: ['btn-sm','icon'], datas:{'id': check.id}});
@@ -437,7 +436,7 @@
 
   /*
    *  Text utility
-  */
+   */
 
   function clip(str,length,pad) { return (str.length < length) ? (str) : (str.substr(0,length-pad.length) + pad); }
 
@@ -497,6 +496,7 @@
   /*
    *  DOM util
    */
+
   function layoutGrid(gridBody, gridElems) {
     gridElems.each((elem) => {
       let rowgap,rowheight,marginTop,marginBottom,scrollheight;
@@ -519,7 +519,6 @@
   function dom(elem) {
     return new ElementSeq([elem]);
   }
-
 
   function query(selector) {
     const matches = browser.document.querySelectorAll(selector);
@@ -553,10 +552,12 @@
   }
   
 })(window, (function(browser) {
+  'use strict';
 
   /*
    *  Element util
    */
+
   class ElementSeq {
     constructor(elems) {
       if (elems === undefined) {
