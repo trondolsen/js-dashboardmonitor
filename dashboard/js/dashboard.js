@@ -200,9 +200,11 @@
         result:         elem.query('result').text(),
         data:           elem.query('data').text(),
         type:           elem.query('type').text(),
+        uptime:         '0.00',
         successPct:     '0.00',
         failurePct:     '0.00',
-        uncertainPct:   '0.00'
+        uncertainPct:   '0.00',
+        maintenancePct: '0.00'
       };
 
       // Append check to given folder
@@ -247,8 +249,10 @@
         check.successPct = elem.query('success-pct').text().slice(0,-1);
         check.failurePct = elem.query('failure-pct').text().slice(0,-1);
         check.uncertainPct = elem.query('uncertain-pct').text().slice(0,-1);
+        check.maintenancePct = elem.query('maintenance-pct').text().slice(0,-1);
+        check.uptime = check.successPct;
         query('#' + stringify(check.folder) + '_' + check.id)
-          .prop('title', () => `Host: ${check.host}\nSuccess: ${check.successPct}\nFailure: ${check.failurePct}\nUncertain: ${check.uncertainPct}\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`);
+          .prop('title', () => `Host: ${check.host}\nSuccess: ${check.successPct}\nFailure: ${check.failurePct}\nUncertain: ${check.uncertainPct}\nMaintenance: ${check.maintenancePct}\nCheck: ${check.type}\nResult: ${check.result}\n\n${check.explanation}`);
       }
     });
     
@@ -258,11 +262,11 @@
       const percent = checks.reduce(
         (sum, check) => {
           const a = fromFloat(sum);
-          const b = fromFloat(check.successPct);
+          const b = fromFloat(check.uptime);
           if (a < b) {
             return sum;
           }
-          return check.successPct;
+          return check.uptime;
         },
         "100.00"
       );
