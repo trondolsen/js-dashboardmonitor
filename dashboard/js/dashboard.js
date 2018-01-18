@@ -1,7 +1,5 @@
 /***
  * Dashboard for ActiveExperts
- * 
- * Version: 0.8
  *
  * Copyright (c) 2017-2018 Trond Olsen
  * 

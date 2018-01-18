@@ -1,6 +1,20 @@
 # History
 
 ```
+1.0:
+7b519f2 Updated Bootstrap to 4.0.0
+270e437 Revisit datasource tooltip
+cf12b78 Use promise for init code
+346c269 Revisit settings
+4eb2f98 Revisited uptime handling
+e43a354 Fixed resize after filtering
+cc04aa3 Revisit availability
+3755732 Perform layout before filtering
+01fd59d Revisited resizing
+47f5108 Fixed data handling
+92f8fde Revised example data
+dced0ec Revised history
+
 0.9:
 fa1ff38 New version
 70d495b Fixed filtering handling
