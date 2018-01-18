@@ -12,6 +12,8 @@ Web-based dashboard for displaying checks exported from ActiveXperts Network Mon
 
 ## Installation
 
+See [Releases](https://github.com/trondolsen/js-monitordashboard/releases) for packaged releases
+
 Manually copy `dashboard.html` and `\dashboard` to `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web`
 * For demo purpose also copy the example files `ExampleChecks.xml` and `ExampleAvailability.xml` to `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web`
 
