@@ -856,23 +856,6 @@
   </check>
   <check>
     <comments></comments>
-    <id>106781</id>
-    <displayname>SRV01.domain - CPU Usage (all CPU&apos;s)</displayname>
-    <host>SRV01.domain</host>
-    <explanation>CPU usage=[90%], maximum allowed=[80%]</explanation>
-    <folder>\SRV\Application 1</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
-    <result>Failed</result>
-    <type-id>130</type-id>
-    <type>CPU Usage</type>
-    <data>90</data>
-    <processing>0</processing>
-    <update-secs>1507278624</update-secs>
-    <update>06.10.2017 10:30:24</update>
-  </check>
-  <check>
-    <comments></comments>
     <id>10532</id>
     <displayname>SRV01.domain - DNS</displayname>
     <host>SRV01.domain</host>

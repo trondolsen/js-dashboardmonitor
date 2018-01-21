@@ -13768,39 +13768,6 @@
     <notprocessed-pctbar>36.69%</notprocessed-pctbar>
   </check>
   <check>
-    <id>106781</id>
-    <checktype>CPU</checktype>
-    <checktype-id>130</checktype-id>
-    <uncertain-secs>0</uncertain-secs>
-    <uncertain-hrsmin>000 00:00:00</uncertain-hrsmin>
-    <uncertain-pct>0.00%</uncertain-pct>
-    <uncertain-pctbar>0.00%</uncertain-pctbar>
-    <success-secs>0</success-secs>
-    <success-hrsmin>000 00:00:00</success-hrsmin>
-    <success-pct>15.00%</success-pct>
-    <success-pctbar>15.00%</success-pctbar>
-    <failure-secs>0</failure-secs>
-    <failure-hrsmin>000 00:00:00</failure-hrsmin>
-    <failure-pct>85.00%</failure-pct>
-    <failure-pctbar>85.00%</failure-pctbar>
-    <maintenance-secs>0</maintenance-secs>
-    <maintenance-hrsmin>000 00:00:00</maintenance-hrsmin>
-    <maintenance-pct>0.00%</maintenance-pct>
-    <maintenance-pctbar>0.00%</maintenance-pctbar>
-    <onhold-secs>382942</onhold-secs>
-    <onhold-hrsmin>004 10:22:22</onhold-hrsmin>
-    <onhold-pct>00.00%</onhold-pct>
-    <onhold-pctbar>00.00%</onhold-pctbar>
-    <depfailure-secs>0</depfailure-secs>
-    <depfailure-hrsmin>000 00:00:00</depfailure-hrsmin>
-    <depfailure-pct>0.00%</depfailure-pct>
-    <depfailure-pctbar>0.00%</depfailure-pctbar>
-    <notprocessed-secs>221857</notprocessed-secs>
-    <notprocessed-hrsmin>002 13:37:37</notprocessed-hrsmin>
-    <notprocessed-pct>36.68%</notprocessed-pct>
-    <notprocessed-pctbar>36.68%</notprocessed-pctbar>
-  </check>
-  <check>
     <id>106782</id>
     <checktype>CPU</checktype>
     <checktype-id>130</checktype-id>
