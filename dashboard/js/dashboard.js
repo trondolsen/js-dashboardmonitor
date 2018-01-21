@@ -44,7 +44,7 @@
   };
   const data = { folders: {}, checks: [] };
 
-  new Promise((resolve,reject) => {
+  const applyConfig = () => new Promise((resolve,reject) => {
     // Handle grid layout resizing
     dom(browser).event('resize', () => {
       layoutGrid(query('#checks'), query('.card'));
@@ -58,6 +58,7 @@
 
     // Set title
     query('.navbar .topbar .text').text(config.title);
+    dom(browser.document).prop('title', () => config.title)
 
     // Handle search text
     query('.navbar .searchbar .form-control')
@@ -110,12 +111,14 @@
 
     resolve("done");
   })
-  .then((reason) => {
-    browser.console.info(`Dashboard started. Fetching datasource(s) at ${config.datasource.updateInMinutes} minute interval.`);
-  })
-  .catch((reason) => {
-    showAlert({id: `alert-source-init`, text: `Dashboard failed start. ${reason.message}`});
-  });
+
+  applyConfig()
+    .then((reason) => {
+      browser.console.info(`Dashboard started. Fetching datasource(s) at ${config.datasource.updateInMinutes} minute interval.`);
+    })
+    .catch((reason) => {
+      showAlert({id: `alert-source-init`, text: `Dashboard failed start. ${reason.message}`});
+    });
 
   function filterChecks() {
     if (config.searchFilter.length > 0 ) {
