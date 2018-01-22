@@ -399,6 +399,9 @@
       const value = freeMem < minMem ? 100.0 : (1.0 / (freeMem / minMem)) * 100.0;
       showProgress(value.toFixed(0), check.result, html, check.id);
     }
+    else if (key === 'Event Log') {
+      html.append(span({props:{textContent: (check.data === '0' ? detail : check.data + ' matches')}, datas:{'id': check.id}}));
+    }
     else {
       html.append(span({props:{textContent: detail}, datas:{'id': check.id}}));
     }
