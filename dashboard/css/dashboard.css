@@ -1,10 +1,15 @@
 /* Global CSS */
 
+/**
 @font-face {
-  font-family: 'dashboard';
-  font-weight: normal;
-  font-style: normal;
-  src: local('Dashboard'), local('Dashboard'), url(../fonts/dashboard.woff2) format('woff2');
+  font-family: 'Glyphicons Halflings';
+  src: url('../fonts/glyphicons-halflings-regular.woff2') format('woff2');
+}
+*/
+
+@font-face {
+  font-family: 'Dashboard';
+  src: url(../fonts/dashboard.woff2) format('woff2');
 }
 
 body {
@@ -140,7 +145,7 @@ body {
 }
 
 .topbar .icon {
-  font-family: 'dashboard';
+  font-family: 'Dashboard';
 }
 
 .statusbar {
@@ -165,7 +170,7 @@ body {
 
 .statusbar .status.icon {
   margin: 2px 4px 2px 8px;
-  font-family: 'dashboard';
+  font-family: 'Dashboard';
   font-size: 1.45rem;
 }
 
@@ -185,7 +190,7 @@ body {
 }
 
 .statusbar .datasources .icon {
-  font-family: 'dashboard';
+  font-family: 'Dashboard';
 }
 
 .checks {
@@ -207,7 +212,7 @@ body {
 }
 
 .checks .icon {
-  font-family: 'dashboard';
+  font-family: 'Dashboard';
   font-size: 0.65rem;
 }
 
