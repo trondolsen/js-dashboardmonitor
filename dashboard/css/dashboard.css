@@ -132,7 +132,7 @@ body {
 
 #alerts .alert {
   font-size: 0.75rem;
-  min-width: 15.0rem;
+  min-width: 18.2rem;
 }
 
 /* Custom CSS */
@@ -218,7 +218,7 @@ body {
 
 .checks .data-table {
   display: grid;
-  grid-template-columns: 2fr 8fr 9fr 8fr;
+  grid-template-columns: 3fr 16fr 19fr 16fr;
   grid-auto-rows: 1fr;
   grid-column-gap: 0;
   font-size: 0.64rem;
