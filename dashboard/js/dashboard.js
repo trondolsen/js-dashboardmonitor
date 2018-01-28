@@ -36,7 +36,7 @@
     datasource: {
       updateInMinutes: 1,
       insyncInMinutes: 5,
-      requestInit: {cache:'no-cache', credentials: 'same-origin'},
+      requestInit: {cache:'no-cache', mode: 'same-origin', credentials: 'same-origin'},
       sources: [
         {name: 'ExampleData', checks: {url: 'ExampleChecks.xml'}, availability: {url: 'ExampleAvailabilty.xml'}}
       ]
