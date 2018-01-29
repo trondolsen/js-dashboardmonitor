@@ -57,11 +57,11 @@ body {
 }
 
 .card.bg-danger .progress {
-  background-color: #be5959;
+  background-color: #b54e4e;
 }
 
 .card.bg-warning .progress {
-  background-color: #d29e56;
+  background-color: #cc9952;
 }
 
 .card.bg-info .progress {
@@ -70,19 +70,19 @@ body {
 
 .checks .bg-success {
   color: #ffffff !important;
-  background-color: #5cb85c !important;
+  background-color: #58b858 !important;
   border-color: #4cae4c !important;
 }
 
 .checks .bg-warning {
   color: #ffffff !important;
-  background-color: #f0ad4e !important;
+  background-color: #f0a63c !important;
   border-color: #eea236 !important;
 }
 
 .checks .bg-danger {
   color: #ffffff !important;
-  background-color: #d9534f !important;
+  background-color: #de4f4b !important;
   border-color: #d43f3a !important;
 }
 
