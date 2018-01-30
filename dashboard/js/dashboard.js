@@ -109,11 +109,11 @@
     // Clear console at regular intervals
     browser.setInterval(() => { browser.console.clear(); }, config.clearConsoleInMinutes * 60 * 1000);
 
-    resolve("done");
+    resolve();
   })
 
   applyConfig()
-    .then((reason) => {
+    .then(() => {
       browser.console.info(`Dashboard started. Fetching datasource(s) at ${config.datasource.updateInMinutes} minute interval.`);
     })
     .catch((reason) => {
