@@ -1,3 +1,4 @@
 # git ignores
 .eslintignore
 .eslintrc.js
+settings.json
