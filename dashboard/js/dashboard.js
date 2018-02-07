@@ -44,7 +44,7 @@
   };
   const data = { folders: {}, checks: [] };
 
-  const applyConfig = () => new Promise((resolve,reject) => {
+  const applyConfig = () => new Promise((resolve) => {
     // Handle grid layout resizing
     dom(browser).event('resize', () => {
       layoutGrid(query('#checks'), query('.card'));
@@ -58,7 +58,7 @@
 
     // Set title
     query('.navbar .topbar .text').text(config.title);
-    dom(browser.document).prop('title', () => config.title)
+    dom(browser.document).prop('title', () => config.title);
 
     // Handle search text
     query('.navbar .searchbar .form-control')
@@ -102,7 +102,7 @@
           }
         })
       );
-    }
+    };
     browser.setInterval(fetchSources, config.datasource.updateInMinutes * 60 * 1000);
     fetchSources();
 
@@ -110,7 +110,7 @@
     browser.setInterval(() => { browser.console.clear(); }, config.clearConsoleInMinutes * 60 * 1000);
 
     resolve();
-  })
+  });
 
   applyConfig()
     .then(() => {
@@ -391,7 +391,7 @@
     
     // Add value column
     if (key === 'CPU Usage') {
-      showProgress('' + check.data, check.result, html, check.id);
+      showProgress(String(check.data), check.result, html, check.id);
     }
     else if (key === 'Memory Usage') {
       const minMem = parseFloat(extractText(check.explanation, 'minimum required=[', ' '));
@@ -438,7 +438,7 @@
         .append(
           element({type:'button', attrs:['close','noselect','float-right']})
             .append(span({props:{innerHTML:'&times;'}, attrs:['noselect']}))
-            .event('click', (event) => query('#' + id).remove(), {passive: true})
+            .event('click', () => query('#' + id).remove(), {passive: true})
         )
         .append(span({props:{textContent: text}}))
     );
@@ -510,15 +510,15 @@
 
   function layoutGrid(gridBody, gridElems) {
     gridElems.each((elem) => {
-      let rowgap,rowheight,marginTop,marginBottom,scrollheight;
+      let marginBottom='',marginTop='',rowgap='',rowheight='',scrollheight='';
       gridBody
-        .attr('grid-auto-rows', (value)  => rowheight = parseInt(value))
-        .attr('grid-row-gap', (value) => rowgap = parseInt(value));
+        .attr('grid-auto-rows', (value) => { rowheight = parseInt(value); })
+        .attr('grid-row-gap', (value) => { rowgap = parseInt(value); });
       elem
-        .attr('margin-top', (value) => marginTop = parseInt(value))
-        .attr('margin-bottom', (value) => marginBottom = parseInt(value));
-      elem.prop('scrollHeight', (value) => scrollheight = value);
-      elem.attr('grid-row-end', () => 'span ' + Math.ceil((scrollheight + marginTop + marginBottom + rowgap) / (rowheight + rowgap)))
+        .attr('margin-top', (value) => { marginTop = parseInt(value); })
+        .attr('margin-bottom', (value) => { marginBottom = parseInt(value); });
+      elem.prop('scrollHeight', (value) => { scrollheight = value; });
+      elem.attr('grid-row-end', () => 'span ' + Math.ceil((scrollheight + marginTop + marginBottom + rowgap) / (rowheight + rowgap)));
     });
   }
 
@@ -671,7 +671,7 @@
 
     event(name, fn, options) {
       for (const elem of this.elems) {
-        elem.addEventListener(name, fn, options | {});
+        elem.addEventListener(name, fn, options || {});
       }
       return this;
     }
