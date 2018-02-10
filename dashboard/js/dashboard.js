@@ -509,12 +509,13 @@
    */
 
   function layoutGrid(gridBody, gridElems) {
+    let rowgap='',rowheight='';
     gridBody
       .attr('grid-auto-rows', (value) => rowheight = parseInt(value))
       .attr('grid-row-gap', (value) => rowgap = parseInt(value));
 
     gridElems.each((elem) => {
-      let marginBottom='',marginTop='',rowgap='',rowheight='',scrollheight='';
+      let marginBottom='',marginTop='',scrollheight='';
       elem
         .attr('margin-top', (value) => marginTop = parseInt(value))
         .attr('margin-bottom', (value) => marginBottom = parseInt(value));
