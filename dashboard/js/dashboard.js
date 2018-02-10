@@ -191,7 +191,7 @@
     }
     query('#ds-' + datasource.name)
       .query('.text')
-        .prop('title', () => `${datasource.checks.url}\n${datasource.checks.lastUpdate}\n${datasource.availability.url}`);
+      .prop('title', () => `${datasource.checks.url}\n${datasource.checks.lastUpdate}\n${datasource.availability.url}`);
 
     // Read data for each check
     browser.console.debug(`Reading datasource checks for ${datasource.name}. Updated ${datasource.checks.lastUpdate}.`);
@@ -234,7 +234,7 @@
 
     query('#ds-' + datasource.name)
       .query('.text')
-        .prop('title', () => `${datasource.checks.url}\n${datasource.checks.lastUpdate}\n${datasource.availability.url}\n${datasource.availability.lastUpdate}`);
+      .prop('title', () => `${datasource.checks.url}\n${datasource.checks.lastUpdate}\n${datasource.availability.url}\n${datasource.availability.lastUpdate}`);
 
     browser.console.debug(`Reading datasource availability for ${datasource.name}. Updated ${datasource.availability.lastUpdate}.`);
 
@@ -509,15 +509,16 @@
    */
 
   function layoutGrid(gridBody, gridElems) {
+    gridBody
+      .attr('grid-auto-rows', (value) => rowheight = parseInt(value))
+      .attr('grid-row-gap', (value) => rowgap = parseInt(value));
+
     gridElems.each((elem) => {
       let marginBottom='',marginTop='',rowgap='',rowheight='',scrollheight='';
-      gridBody
-        .attr('grid-auto-rows', (value) => { rowheight = parseInt(value); })
-        .attr('grid-row-gap', (value) => { rowgap = parseInt(value); });
       elem
-        .attr('margin-top', (value) => { marginTop = parseInt(value); })
-        .attr('margin-bottom', (value) => { marginBottom = parseInt(value); });
-      elem.prop('scrollHeight', (value) => { scrollheight = value; });
+        .attr('margin-top', (value) => marginTop = parseInt(value))
+        .attr('margin-bottom', (value) => marginBottom = parseInt(value));
+      elem.prop('scrollHeight', (value) => scrollheight = value);
       elem.attr('grid-row-end', () => 'span ' + Math.ceil((scrollheight + marginTop + marginBottom + rowgap) / (rowheight + rowgap)));
     });
   }
