@@ -75,9 +75,9 @@
     // Show datasources
     for (const source of config.datasource.sources) {
       query('#datasources')
-        .append(span({props: {id: 'ds-' + source.name}, attrs: ['datasource']})
-          .append(span({props: {textContent: ''}, attrs: ['icon','mx-1']}))
-          .append(span({props: {textContent: source.name, title: `${source.checks.url}\n${source.availability.url}`}, attrs: ['text','datasource-tooltip']}))
+        .append(span({props: {id: 'ds-' + source.name}, css: ['datasource']})
+          .append(span({props: {textContent: ''}, css: ['icon','mx-1']}))
+          .append(span({props: {textContent: source.name, title: `${source.checks.url}\n${source.availability.url}`}, css: ['text','datasource-tooltip']}))
       );
     }
 
@@ -284,8 +284,7 @@
       folder.htmlUptime.empty();
       folder.htmlUptime
         .append(
-          div({attrs: ['progress-bar']})
-            .attr('width', () => folder.uptime + '%')
+          div({attrs:{width: folder.uptime + '%'}, css: ['progress-bar']})
             .append(span({props: {textContent: `${folder.uptime} % (last ${datasource.availability.spanInDays} days)`}}))
         );
     }
@@ -328,8 +327,8 @@
   }
 
   function showFolder(folder, result) {
-    const html = div({props:{id: stringify(folder.name)}, attrs:['item','card','mx-2','my-2']});
-    folder.htmlUptime = div({attrs:['progress', 'uptime']});
+    const html = div({props:{id: stringify(folder.name)}, css:['item','card','mx-2','my-2']});
+    folder.htmlUptime = div({css:['progress', 'uptime']});
 
     if (result === "Ok") { html.css({add:['bg-success']}); }
     else if (result === "Error") { html.css({add:['bg-danger']}); }
@@ -344,7 +343,7 @@
       return sum;
     }, {});
 
-    const htmlData = div({attrs:['data-table']});
+    const htmlData = div({css:['data-table']});
 
     for (const [name,checks] of Object.entries(byType)) {
       for (const check of Object.values(checks)) {
@@ -353,8 +352,8 @@
     }
     
     html.append(
-      div({attrs:['card-body','mx-1','my-1','px-1','py-0']})
-        .append(div({props:{textContent: folder.name}, attrs: ['card-title','my-1']}))
+      div({css:['card-body','mx-1','my-1','px-1','py-0']})
+        .append(div({props:{textContent: folder.name}, css: ['card-title','my-1']}))
         .append(folder.htmlUptime)
         .append(htmlData)
     );
@@ -369,7 +368,7 @@
     const host = clip(check.host.toLowerCase(), config.layout.textColumnWidth.host, '..');
 
     // Add status column
-    const htmlStatus = span({attrs: ['btn-sm','icon'], datas:{'id': check.id}});
+    const htmlStatus = span({css: ['btn-sm','icon'], datas:{'id': check.id}});
     if (check.result === 'Successful') {
       htmlStatus.text('');
     }
@@ -419,10 +418,9 @@
 
   function showProgress(percent, result, html, id) {
     html.append(
-      div({attrs:['progress'], datas:{'id': id}})
+      div({css:['progress'], datas:{'id': id}})
         .append(
-          div({attrs: ['progress-bar','bg-info']})
-            .attr('width', () => String(percent) + '%')
+          div({attrs: {width: String(percent) + '%'}, css: ['progress-bar','bg-info']})
         )
     );
   }
@@ -432,10 +430,10 @@
     const alerts = query('#alerts');
     query('#' + id).remove();
     alerts.append(
-      div({props: {id:id}, attrs: ['alert','alert-secondary','float-right','w-25','m-1','px-1','py-0']})
+      div({props: {id:id}, css: ['alert','alert-secondary','float-right','w-25','m-1','px-1','py-0']})
         .append(
-          element({type:'button', attrs:['close','noselect','float-right']})
-            .append(span({props:{innerHTML:'&times;'}, attrs:['noselect']}))
+          element({type:'button', css:['close','noselect','float-right']})
+            .append(span({props:{innerHTML:'&times;'}, css:['noselect']}))
             .event('click', () => query('#' + id).remove(), {passive: true})
         )
         .append(span({props:{textContent: text}}))
@@ -536,7 +534,7 @@
     return new ElementSeq(Array.from(matches));
   }
 
-  function element({type, props, attrs, datas}) {
+  function element({type, props, attrs, css, datas}) {
     const elem = browser.document.createElement(type);
     if (props !== undefined) {
       for (const [key, value] of Object.entries(props)) {
@@ -544,7 +542,12 @@
       }
     }
     if (attrs !== undefined) {
-      elem.classList.add(...attrs);
+      for (const [key, value] of Object.entries(attrs)) {
+        elem.style[key] = value;
+      }
+    }
+    if (css !== undefined) {
+      elem.classList.add(...css);
     }
     if (datas !== undefined) {
       for (const [key, value] of Object.entries(datas)) {
@@ -554,12 +557,12 @@
     return new ElementSeq([elem]);
   }
 
-  function div({props,attrs,datas}) {
-    return element({type:'div', props:props, attrs:attrs, datas:datas});
+  function div({props,attrs,css,datas}) {
+    return element({type:'div', attrs:attrs, props:props, css:css, datas:datas});
   }
 
-  function span({props,attrs,datas}) {
-    return element({type:'span', props:props, attrs:attrs, datas:datas});
+  function span({props,attrs,css,datas}) {
+    return element({type:'span', attrs:attrs, props:props, css:css, datas:datas});
   }
   
 })(window, (function(browser) {
@@ -593,11 +596,11 @@
 
     css({add, remove}) {
       for (const elem of this.elems) {
-        if (add) {
-          elem.classList.add(...add);
-        }
         if (remove) {
           elem.classList.remove(...remove);
+        }
+        if (add) {
+          elem.classList.add(...add);
         }
       }
       return this;
