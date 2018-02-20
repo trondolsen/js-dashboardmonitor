@@ -30,19 +30,17 @@
     searchFilter: '',
     ignoreFolderName: '\\_',
     clearConsoleInMinutes: 30,
-    layout: {
-      textColumnWidth: { name: 18, host: 18, detail: 18 },
-    },
+    layout: {textColumnWidth: { name: 18, host: 18, detail: 18 }},
     datasource: {
       updateInMinutes: 1,
       insyncInMinutes: 5,
-      requestInit: {cache:'no-cache', mode: 'same-origin', credentials: 'same-origin'},
+      requestInit: {cache: 'no-cache', mode: 'same-origin', credentials: 'same-origin'},
       sources: [
         {name: 'ExampleData', checks: {url: 'ExampleChecks.xml'}, availability: {url: 'ExampleAvailabilty.xml'}}
       ]
     }
   };
-  const data = { folders: {}, checks: [] };
+  const data = {folders: {}, checks: []};
 
   const applyConfig = () => new Promise((resolve) => {
     // Handle grid layout resizing
