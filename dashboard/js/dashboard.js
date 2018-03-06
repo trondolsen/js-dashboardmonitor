@@ -30,7 +30,7 @@
     searchFilter: '',
     ignoreFolderName: '\\_',
     clearConsoleInMinutes: 30,
-    layout: {textColumnWidth: { name: 18, host: 18, detail: 18 }},
+    layout: {textColumnWidth: { name: 17, host: 18, detail: 19 }},
     datasource: {
       updateInMinutes: 1,
       insyncInMinutes: 5,
@@ -47,11 +47,13 @@
     dom(browser).event('resize', () => {
       layoutGrid(query('#checks'), query('.card'));
       query('.navbar').prop('scrollHeight', (value) => dom(browser.document.body).attr('padding-top', () => value + "px"));
+      query('.navbar').prop('scrollHeight', (value) => query('#alerts').attr('padding-top', () => value + "px"));
     });
 
     dom(browser.document).event('DOMContentLoaded', () => {
       layoutGrid(query('#checks'), query('.card'));
       query('.navbar').prop('scrollHeight', (value) => dom(browser.document.body).attr('padding-top', () => value + "px"));
+      query('.navbar').prop('scrollHeight', (value) => query('#alerts').attr('padding-top', () => value + "px"));
     });
 
     // Set title
