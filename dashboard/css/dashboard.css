@@ -126,7 +126,7 @@ body {
 
 #alerts {
   position: fixed;
-  z-index: 1;
+  z-index: -1;
   padding: 0.30rem;
 }
 
