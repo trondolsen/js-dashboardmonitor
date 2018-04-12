@@ -1,6 +1,31 @@
 # History
 
 ```
+1.1:
+717fae6 upgraded bootstrap to version 4.1
+9630929 Removed touch handling
+8f269df Fix alert overlaying search
+0067c68 Alerts are now fixed to top
+0372e3b Element now handle attrs and css distinct
+cfb5cdf Minor formating corrections
+7fe10a3 Trimmed boostrap css
+55181b3 Update license
+1f7c26b Fix grid body recalulation
+36acbad Avoid grid body recalculation
+2aeb071 Multiple syntax errors corrected
+c436e73 More gitignore
+ec4a935 Cleanup config code
+04ee67e Adjusted color contrast for folders
+67deb03 Set fetch() mode to same-origin
+8770c7f Minor css changes for checks and alerts
+bd8f521 Add Glyphicons Halflings legacy fonts from Bootstrap 3
+05c6536 Event log now show matches
+eaf7ef9 Apply title to document
+18973ab Revisted example data
+2586a82 Revisited css
+9e77ae0 Updated screenshot
+f78e023 Revisted readme
+
 1.0:
 7b519f2 Updated Bootstrap to 4.0.0
 270e437 Revisit datasource tooltip
