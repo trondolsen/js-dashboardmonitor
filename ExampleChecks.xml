@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="Stylesheets\ExampleChecks1.xsl"?>
 <monitor>
   <xslname>ExampleChecks1</xslname>
   <xsldescription>ExampleChecks1</xsldescription>
@@ -11,15 +10,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278646</update-secs>
-    <update>06.10.2017 10:30:46</update>
   </check>
   <check>
     <comments></comments>
@@ -28,15 +21,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278549</update-secs>
-    <update>06.10.2017 10:29:09</update>
   </check>
   <check>
     <comments></comments>
@@ -45,15 +32,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278755</update-secs>
-    <update>06.10.2017 10:32:35</update>
   </check>
   <check>
     <comments></comments>
@@ -62,15 +43,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278489</update-secs>
-    <update>06.10.2017 10:28:09</update>
   </check>
   <check>
     <comments></comments>
@@ -79,15 +54,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278586</update-secs>
-    <update>06.10.2017 10:29:46</update>
   </check>
   <check>
     <comments></comments>
@@ -96,15 +65,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278616</update-secs>
-    <update>06.10.2017 10:30:16</update>
   </check>
   <check>
     <comments></comments>
@@ -113,15 +76,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278644</update-secs>
-    <update>06.10.2017 10:30:44</update>
   </check>
   <check>
     <comments></comments>
@@ -130,15 +87,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>77</type-id>
     <type>MS SQL Server</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278485</update-secs>
-    <update>06.10.2017 10:28:05</update>
   </check>
   <check>
     <comments></comments>
@@ -147,15 +98,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [World Wide Web Publishing Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278668</update-secs>
-    <update>06.10.2017 10:31:08</update>
   </check>
   <check>
     <comments></comments>
@@ -164,15 +109,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [Windows Process Activation Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278668</update-secs>
-    <update>06.10.2017 10:31:08</update>
   </check>
   <check>
     <comments></comments>
@@ -181,15 +120,9 @@
     <host>SRV01.domain</host>
     <explanation>Web site available, text pattern found in page</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>33</type-id>
     <type>HTTP/HTTPs</type>
     <data>16</data>
-    <processing>0</processing>
-    <update-secs>1507278586</update-secs>
-    <update>06.10.2017 10:29:46</update>
   </check>
   <check>
     <comments></comments>
@@ -198,15 +131,9 @@
     <host>SRV01.domain</host>
     <explanation>Web site available, text pattern found in page</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>33</type-id>
     <type>HTTP/HTTPs</type>
     <data>31</data>
-    <processing>0</processing>
-    <update-secs>1507278591</update-secs>
-    <update>06.10.2017 10:29:51</update>
   </check>
   <check>
     <comments></comments>
@@ -215,15 +142,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [World Wide Web Publishing Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278640</update-secs>
-    <update>06.10.2017 10:30:40</update>
   </check>
   <check>
     <comments></comments>
@@ -232,15 +153,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [Windows Process Activation Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278667</update-secs>
-    <update>06.10.2017 10:31:07</update>
   </check>
   <check>
     <comments></comments>
@@ -249,15 +164,9 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>90</type-id>
     <type>Event Log</type>
     <data>0</data>
-    <processing>0</processing>
-    <update-secs>1507278635</update-secs>
-    <update>06.10.2017 10:30:35</update>
   </check>
   <check>
     <comments></comments>
@@ -266,15 +175,9 @@
     <host>SRV01.domain</host>
     <explanation>CPU usage=[50%], maximum allowed=[80%]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>130</type-id>
     <type>CPU Usage</type>
     <data>50</data>
-    <processing>0</processing>
-    <update-secs>1507278624</update-secs>
-    <update>06.10.2017 10:30:24</update>
   </check>
   <check>
     <comments></comments>
@@ -283,15 +186,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\ActiveDirectory</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>71</type-id>
     <type>MS Active Directory</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278752</update-secs>
-    <update>06.10.2017 10:32:32</update>
   </check>
   <check>
     <comments></comments>
@@ -300,15 +197,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\ActiveDirectory</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>71</type-id>
     <type>MS Active Directory</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278515</update-secs>
-    <update>06.10.2017 10:28:35</update>
   </check>
   <check>
     <comments></comments>
@@ -317,15 +208,9 @@
     <host>SRV01.domain</host>
     <explanation>DNS server queried, response string matched, response=[123.123.123.123 (A)]</explanation>
     <folder>\SRV\ActiveDirectory</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>36</type-id>
     <type>DNS</type>
     <data>Not monitored</data>
-    <processing>0</processing>
-    <update-secs>1507278586</update-secs>
-    <update>06.10.2017 10:29:46</update>
   </check>
   <check>
     <comments></comments>
@@ -334,15 +219,9 @@
     <host>SRV01.domain</host>
     <explanation>DNS server queried, response string matched, response=[123.123.123.123 (A)]</explanation>
     <folder>\SRV\ActiveDirectory</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>36</type-id>
     <type>DNS</type>
     <data>Not monitored</data>
-    <processing>0</processing>
-    <update-secs>1507278586</update-secs>
-    <update>06.10.2017 10:29:46</update>
   </check>
   <check>
     <comments></comments>
@@ -351,15 +230,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Citrix</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>81</type-id>
     <type>Citrix - XenApp</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278642</update-secs>
-    <update>06.10.2017 10:30:42</update>
   </check>
   <check>
     <comments></comments>
@@ -368,15 +241,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Citrix</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>81</type-id>
     <type>Citrix - XenApp</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278744</update-secs>
-    <update>06.10.2017 10:32:24</update>
   </check>
   <check>
     <comments></comments>
@@ -385,15 +252,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Citrix</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>74</type-id>
     <type>MS IIS Server</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278565</update-secs>
-    <update>06.10.2017 10:29:25</update>
   </check>
   <check>
     <comments></comments>
@@ -402,15 +263,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Citrix</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>74</type-id>
     <type>MS IIS Server</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278562</update-secs>
-    <update>06.10.2017 10:29:22</update>
   </check>
   <check>
     <comments></comments>
@@ -419,15 +274,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>77</type-id>
     <type>MS SQL Server</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278469</update-secs>
-    <update>06.10.2017 10:27:49</update>
   </check>
   <check>
     <comments></comments>
@@ -436,15 +285,9 @@
     <host>SRV01.domain</host>
     <explanation>CPU usage=[0%], maximum allowed=[80%]</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>130</type-id>
     <type>CPU Usage</type>
     <data>0</data>
-    <processing>0</processing>
-    <update-secs>1507278624</update-secs>
-    <update>06.10.2017 10:30:24</update>
   </check>
   <check>
     <comments></comments>
@@ -453,15 +296,9 @@
     <host>SRV01.domain</host>
     <explanation>Available memory=[927 MB], minimum required=[500 MB]</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>170</type-id>
     <type>Memory Usage</type>
     <data>927</data>
-    <processing>0</processing>
-    <update-secs>1507278695</update-secs>
-    <update>06.10.2017 10:31:35</update>
   </check>
   <check>
     <comments></comments>
@@ -470,15 +307,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>77</type-id>
     <type>MS SQL Server</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278633</update-secs>
-    <update>06.10.2017 10:30:33</update>
   </check>
   <check>
     <comments></comments>
@@ -487,15 +318,9 @@
     <host>SRV01.domain</host>
     <explanation>CPU usage=[15%], maximum allowed=[80%]</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>130</type-id>
     <type>CPU Usage</type>
     <data>15</data>
-    <processing>1</processing>
-    <update-secs>1507278481</update-secs>
-    <update>06.10.2017 10:28:01</update>
   </check>
   <check>
     <comments></comments>
@@ -504,15 +329,9 @@
     <host>SRV01.domain</host>
     <explanation>Available memory=[640 MB], minimum required=[500 MB]</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>170</type-id>
     <type>Memory Usage</type>
     <data>640</data>
-    <processing>0</processing>
-    <update-secs>1507278669</update-secs>
-    <update>06.10.2017 10:31:09</update>
   </check>
   <check>
     <comments></comments>
@@ -521,15 +340,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>77</type-id>
     <type>MS SQL Server</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278633</update-secs>
-    <update>06.10.2017 10:30:33</update>
   </check>
   <check>
     <comments></comments>
@@ -538,15 +351,9 @@
     <host>SRV01.domain</host>
     <explanation>CPU usage=[1%], maximum allowed=[80%]</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>130</type-id>
     <type>CPU Usage</type>
     <data>1</data>
-    <processing>0</processing>
-    <update-secs>1507278589</update-secs>
-    <update>06.10.2017 10:29:49</update>
   </check>
   <check>
     <comments></comments>
@@ -555,15 +362,9 @@
     <host>SRV01.domain</host>
     <explanation>Available memory=[5745 MB], minimum required=[500 MB]</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>170</type-id>
     <type>Memory Usage</type>
     <data>5745</data>
-    <processing>0</processing>
-    <update-secs>1507278697</update-secs>
-    <update>06.10.2017 10:31:37</update>
   </check>
   <check>
     <comments></comments>
@@ -572,15 +373,9 @@
     <host>SRV01.domain</host>
     <explanation>Available memory=[3213 MB], minimum required=[500 MB]</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>170</type-id>
     <type>Memory Usage</type>
     <data>3213</data>
-    <processing>0</processing>
-    <update-secs>1507278523</update-secs>
-    <update>06.10.2017 10:28:43</update>
   </check>
   <check>
     <comments></comments>
@@ -589,15 +384,9 @@
     <host>SRV01.domain</host>
     <explanation>CPU usage=[1%], maximum allowed=[80%]</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>130</type-id>
     <type>CPU Usage</type>
     <data>1</data>
-    <processing>0</processing>
-    <update-secs>1507278632</update-secs>
-    <update>06.10.2017 10:30:32</update>
   </check>
   <check>
     <comments></comments>
@@ -606,15 +395,9 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>90</type-id>
     <type>Event Log</type>
     <data>0</data>
-    <processing>0</processing>
-    <update-secs>1507278666</update-secs>
-    <update>06.10.2017 10:31:06</update>
   </check>
   <check>
     <comments></comments>
@@ -623,15 +406,9 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>90</type-id>
     <type>Event Log</type>
     <data>0</data>
-    <processing>0</processing>
-    <update-secs>1507278696</update-secs>
-    <update>06.10.2017 10:31:36</update>
   </check>
   <check>
     <comments>Down for 10d 13h</comments>
@@ -640,15 +417,9 @@
     <host>SRV01.domain</host>
     <explanation>Event found (131 events matched)</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>3</result-id>
-    <result-sortorder>1000</result-sortorder>
     <result>Failed</result>
-    <type-id>90</type-id>
     <type>Event Log</type>
     <data>131</data>
-    <processing>0</processing>
-    <update-secs>1507278754</update-secs>
-    <update>06.10.2017 10:32:34</update>
   </check>
   <check>
     <comments></comments>
@@ -657,15 +428,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>77</type-id>
     <type>MS SQL Server</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278484</update-secs>
-    <update>06.10.2017 10:28:04</update>
   </check>
   <check>
     <comments></comments>
@@ -674,15 +439,9 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>90</type-id>
     <type>Event Log</type>
     <data>0</data>
-    <processing>0</processing>
-    <update-secs>1507278670</update-secs>
-    <update>06.10.2017 10:31:10</update>
   </check>
   <check>
     <comments></comments>
@@ -691,15 +450,9 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\Database</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>90</type-id>
     <type>Event Log</type>
     <data>0</data>
-    <processing>0</processing>
-    <update-secs>1507278511</update-secs>
-    <update>06.10.2017 10:28:31</update>
   </check>
   <check>
     <comments></comments>
@@ -708,15 +461,9 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\DHCP</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>90</type-id>
     <type>Event Log</type>
     <data>0</data>
-    <processing>0</processing>
-    <update-secs>1507278718</update-secs>
-    <update>06.10.2017 10:31:58</update>
   </check>
   <check>
     <comments></comments>
@@ -725,15 +472,9 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\DHCP</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>90</type-id>
     <type>Event Log</type>
     <data>0</data>
-    <processing>0</processing>
-    <update-secs>1507278513</update-secs>
-    <update>06.10.2017 10:28:33</update>
   </check>
   <check>
     <comments></comments>
@@ -742,15 +483,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [DHCP Server] has state: [Running]</explanation>
     <folder>\SRV\DHCP</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278699</update-secs>
-    <update>06.10.2017 10:31:39</update>
   </check>
   <check>
     <comments></comments>
@@ -759,15 +494,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [DHCP Server] has state: [Running]</explanation>
     <folder>\SRV\DHCP</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278490</update-secs>
-    <update>06.10.2017 10:28:10</update>
   </check>
   <check>
     <comments></comments>
@@ -776,15 +505,9 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\DHCP</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>90</type-id>
     <type>Event Log</type>
     <data>0</data>
-    <processing>0</processing>
-    <update-secs>1507278737</update-secs>
-    <update>06.10.2017 10:32:17</update>
   </check>
   <check>
     <comments></comments>
@@ -793,15 +516,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 1</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Failed</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278521</update-secs>
-    <update>06.10.2017 10:28:41</update>
   </check>
   <check>
     <comments></comments>
@@ -810,15 +527,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Application 1</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Failed</result>
-    <type-id>77</type-id>
     <type>MS SQL Server</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278649</update-secs>
-    <update>06.10.2017 10:30:49</update>
   </check>
   <check>
     <comments></comments>
@@ -827,15 +538,9 @@
     <host>domain.com</host>
     <explanation>Web site available, text pattern found in page</explanation>
     <folder>\SRV\Application 1</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Failed</result>
-    <type-id>33</type-id>
     <type>HTTP/HTTPs</type>
     <data>31</data>
-    <processing>0</processing>
-    <update-secs>1507278627</update-secs>
-    <update>06.10.2017 10:30:27</update>
   </check>
   <check>
     <comments>Down for 10d 13h</comments>
@@ -844,15 +549,9 @@
     <host>SRV01.domain</host>
     <explanation>Event found (131 events matched)</explanation>
     <folder>\SRV\Application 1</folder>
-    <result-id>3</result-id>
-    <result-sortorder>1000</result-sortorder>
     <result>Failed</result>
-    <type-id>90</type-id>
     <type>Event Log</type>
     <data>131</data>
-    <processing>0</processing>
-    <update-secs>1507278513</update-secs>
-    <update>06.10.2017 10:28:33</update>
   </check>
   <check>
     <comments></comments>
@@ -861,15 +560,9 @@
     <host>SRV01.domain</host>
     <explanation>DNS server queried, response string matched, response=[123.123.123.123 (A)]</explanation>
     <folder>\SRV\DNS</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>36</type-id>
     <type>DNS</type>
     <data>Not monitored</data>
-    <processing>0</processing>
-    <update-secs>1507278586</update-secs>
-    <update>06.10.2017 10:29:46</update>
   </check>
   <check>
     <comments></comments>
@@ -878,15 +571,9 @@
     <host>SRV01.domain</host>
     <explanation>DNS server queried, response string matched, response=[123.123.123.123 (A)]</explanation>
     <folder>\SRV\DNS</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>36</type-id>
     <type>DNS</type>
     <data>Not monitored</data>
-    <processing>0</processing>
-    <update-secs>1507278586</update-secs>
-    <update>06.10.2017 10:29:46</update>
   </check>
   <check>
     <comments></comments>
@@ -895,15 +582,9 @@
     <host>SRV01.domain</host>
     <explanation>Server is available</explanation>
     <folder>\SRV\WSUS</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>30</type-id>
     <type>TCP/IP</type>
     <data>15</data>
-    <processing>0</processing>
-    <update-secs>1507278596</update-secs>
-    <update>06.10.2017 10:29:56</update>
   </check>
   <check>
     <comments></comments>
@@ -912,15 +593,9 @@
     <host>domain.com</host>
     <explanation>Web site available, text pattern found in page</explanation>
     <folder>\SRV\Application 8</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>33</type-id>
     <type>HTTP/HTTPs</type>
     <data>109</data>
-    <processing>0</processing>
-    <update-secs>1507278748</update-secs>
-    <update>06.10.2017 10:32:28</update>
   </check>
   <check>
     <comments></comments>
@@ -929,15 +604,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Application 8</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>77</type-id>
     <type>MS SQL Server</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278725</update-secs>
-    <update>06.10.2017 10:32:05</update>
   </check>
   <check>
     <comments></comments>
@@ -946,15 +615,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [IIS Admin Service] has state: [Running]</explanation>
     <folder>\SRV\Application 8</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278508</update-secs>
-    <update>06.10.2017 10:28:28</update>
   </check>
   <check>
     <comments></comments>
@@ -963,15 +626,9 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\Application 8</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>90</type-id>
     <type>Event Log</type>
     <data>0</data>
-    <processing>0</processing>
-    <update-secs>1507278642</update-secs>
-    <update>06.10.2017 10:30:42</update>
   </check>
   <check>
     <comments></comments>
@@ -980,15 +637,9 @@
     <host>SRV01.domain</host>
     <explanation>Reply from SRV01.domain, time=[0ms], TTL=[64]</explanation>
     <folder>\SRV\Application 9</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>10</type-id>
     <type>ICMP Ping</type>
     <data>0</data>
-    <processing>0</processing>
-    <update-secs>1507278591</update-secs>
-    <update>06.10.2017 10:29:51</update>
   </check>
   <check>
     <comments></comments>
@@ -997,15 +648,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [SMS Agent Host] has state: [Running]</explanation>
     <folder>\SRV\SCCM</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278647</update-secs>
-    <update>06.10.2017 10:30:47</update>
   </check>
   <check>
     <comments></comments>
@@ -1014,15 +659,9 @@
     <host>SRV01.domain</host>
     <explanation>On Hold</explanation>
     <folder>\SRV\SCCM</folder>
-    <result-id>5</result-id>
-    <result-sortorder>1008</result-sortorder>
     <result>On Hold</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278742</update-secs>
-    <update>06.10.2017 10:32:22</update>
   </check>
   <check>
     <comments></comments>
@@ -1031,15 +670,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [SMS_NOTIFICATION_SERVER] has state: [Running]</explanation>
     <folder>\SRV\SCCM</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278667</update-secs>
-    <update>06.10.2017 10:31:07</update>
   </check>
   <check>
     <comments></comments>
@@ -1048,15 +681,9 @@
     <host>SRV01.domain</host>
     <explanation>On Hold</explanation>
     <folder>\SRV\SCCM</folder>
-    <result-id>5</result-id>
-    <result-sortorder>1008</result-sortorder>
     <result>On Hold</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278742</update-secs>
-    <update>06.10.2017 10:32:22</update>
   </check>
   <check>
     <comments></comments>
@@ -1065,15 +692,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [SMS_SITE_SQL_BACKUP] has state: [Running]</explanation>
     <folder>\SRV\SCCM</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278557</update-secs>
-    <update>06.10.2017 10:29:17</update>
   </check>
   <check>
     <comments></comments>
@@ -1082,15 +703,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [SMS_SITE_VSS_WRITER] has state: [Running]</explanation>
     <folder>\SRV\SCCM</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278644</update-secs>
-    <update>06.10.2017 10:30:44</update>
   </check>
   <check>
     <comments></comments>
@@ -1099,15 +714,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\SCCM</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>77</type-id>
     <type>MS SQL Server</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278639</update-secs>
-    <update>06.10.2017 10:30:39</update>
   </check>
   <check>
     <comments></comments>
@@ -1116,15 +725,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\SCCM</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>74</type-id>
     <type>MS IIS Server</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278484</update-secs>
-    <update>06.10.2017 10:28:04</update>
   </check>
   <check>
     <comments></comments>
@@ -1133,15 +736,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [WSUS Service] has state: [Running]</explanation>
     <folder>\SRV\SCCM</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278638</update-secs>
-    <update>06.10.2017 10:30:38</update>
   </check>
   <check>
     <comments></comments>
@@ -1150,15 +747,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [SMS Agent Host] has state: [Running]</explanation>
     <folder>\SRV\SCCM</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278668</update-secs>
-    <update>06.10.2017 10:31:08</update>
   </check>
   <check>
     <comments></comments>
@@ -1167,15 +758,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\SCCM</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>74</type-id>
     <type>MS IIS Server</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278667</update-secs>
-    <update>06.10.2017 10:31:07</update>
   </check>
   <check>
     <comments></comments>
@@ -1184,15 +769,9 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\SCCM</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>90</type-id>
     <type>Event Log</type>
     <data>0</data>
-    <processing>0</processing>
-    <update-secs>1507278641</update-secs>
-    <update>06.10.2017 10:30:41</update>
   </check>
   <check>
     <comments></comments>
@@ -1201,15 +780,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [Network Policy Server] has state: [Running]</explanation>
     <folder>\SRV\Radius</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278514</update-secs>
-    <update>06.10.2017 10:28:34</update>
   </check>
   <check>
     <comments></comments>
@@ -1218,15 +791,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [Network Policy Server] has state: [Running]</explanation>
     <folder>\SRV\Radius</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278665</update-secs>
-    <update>06.10.2017 10:31:05</update>
   </check>
   <check>
     <comments></comments>
@@ -1235,15 +802,9 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Application 2</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>77</type-id>
     <type>MS SQL Server</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278699</update-secs>
-    <update>06.10.2017 10:31:39</update>
   </check>
   <check>
     <comments></comments>
@@ -1252,15 +813,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 2</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278603</update-secs>
-    <update>06.10.2017 10:30:03</update>
   </check>
   <check>
     <comments></comments>
@@ -1269,15 +824,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 2</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278644</update-secs>
-    <update>06.10.2017 10:30:44</update>
   </check>
   <check>
     <comments></comments>
@@ -1286,15 +835,9 @@
     <host>domain.com</host>
     <explanation>Web site available, text pattern found in page</explanation>
     <folder>\SRV\Application 2</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>33</type-id>
     <type>HTTP/HTTPs</type>
     <data>0</data>
-    <processing>0</processing>
-    <update-secs>1507278642</update-secs>
-    <update>06.10.2017 10:30:42</update>
   </check>
   <check>
     <comments>Down for 9d 20h</comments>
@@ -1303,15 +846,9 @@
     <host>SRV01.domain</host>
     <explanation>Event found (131 events matched)</explanation>
     <folder>\SRV\Application 2</folder>
-    <result-id>3</result-id>
-    <result-sortorder>1000</result-sortorder>
     <result>Failed</result>
-    <type-id>90</type-id>
     <type>Event Log</type>
     <data>131</data>
-    <processing>0</processing>
-    <update-secs>1507278590</update-secs>
-    <update>06.10.2017 10:29:50</update>
   </check>
   <check>
     <comments></comments>
@@ -1320,15 +857,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [domain.com] has state: [Running]</explanation>
     <folder>\SRV\Application 10</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278739</update-secs>
-    <update>06.10.2017 10:32:19</update>
   </check>
   <check>
     <comments></comments>
@@ -1337,15 +868,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [domain.com] has state: [Running]</explanation>
     <folder>\SRV\Application 10</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278737</update-secs>
-    <update>06.10.2017 10:32:17</update>
   </check>
   <check>
     <comments></comments>
@@ -1354,15 +879,9 @@
     <host>SRV01.domain</host>
     <explanation>Service [domain.com] has state: [Running]</explanation>
     <folder>\SRV\Application 10</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278744</update-secs>
-    <update>06.10.2017 10:32:24</update>
   </check>
   <check>
     <comments></comments>
@@ -1371,15 +890,9 @@
     <host>123.123.123.123</host>
     <explanation>On Hold</explanation>
     <folder>\SRV\Application 11</folder>
-    <result-id>5</result-id>
-    <result-sortorder>1008</result-sortorder>
     <result>On Hold</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278742</update-secs>
-    <update>06.10.2017 10:32:22</update>
   </check>
   <check>
     <comments></comments>
@@ -1388,15 +901,9 @@
     <host>123.123.123.123</host>
     <explanation>On Hold</explanation>
     <folder>\SRV\Application 11</folder>
-    <result-id>5</result-id>
-    <result-sortorder>1008</result-sortorder>
     <result>On Hold</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278742</update-secs>
-    <update>06.10.2017 10:32:22</update>
   </check>
   <check>
     <comments></comments>
@@ -1405,15 +912,9 @@
     <host></host>
     <explanation>On Hold</explanation>
     <folder>\SRV\Application 11</folder>
-    <result-id>5</result-id>
-    <result-sortorder>1008</result-sortorder>
     <result>On Hold</result>
-    <type-id>100</type-id>
     <type>VBScript - CheckDhcpMinAvailable</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278742</update-secs>
-    <update>06.10.2017 10:32:22</update>
   </check>
   <check>
     <comments></comments>
@@ -1421,16 +922,10 @@
     <displayname>SRV01.domain - Service</displayname>
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
-    <folder>\M\Application 6</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
+    <folder>\SRV\Application 6</folder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278702</update-secs>
-    <update>06.10.2017 10:31:42</update>
   </check>
   <check>
     <comments></comments>
@@ -1438,16 +933,10 @@
     <displayname>SRV01.domain - Service</displayname>
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
-    <folder>\M\Application 6</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
+    <folder>\SRV\Application 6</folder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278714</update-secs>
-    <update>06.10.2017 10:31:54</update>
   </check>
   <check>
     <comments></comments>
@@ -1455,16 +944,10 @@
     <displayname>SRV01.domain - Service</displayname>
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
-    <folder>\M\Application 6</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
+    <folder>\SRV\Application 6</folder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278716</update-secs>
-    <update>06.10.2017 10:31:56</update>
   </check>
   <check>
     <comments></comments>
@@ -1472,16 +955,10 @@
     <displayname>SRV01.domain - Service</displayname>
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
-    <folder>\M\Application 6</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
+    <folder>\SRV\Application 6</folder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278717</update-secs>
-    <update>06.10.2017 10:31:57</update>
   </check>
   <check>
     <comments></comments>
@@ -1489,15 +966,9 @@
     <displayname>SRV01.domain - Service</displayname>
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
-    <folder>\M\Application 6</folder>
-    <result-id>1</result-id>
-    <result-sortorder>1007</result-sortorder>
+    <folder>\SRV\Application 6</folder>
     <result>Successful</result>
-    <type-id>50</type-id>
     <type>Service</type>
     <data></data>
-    <processing>0</processing>
-    <update-secs>1507278721</update-secs>
-    <update>06.10.2017 10:32:01</update>
   </check>
 </monitor>
