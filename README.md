@@ -77,7 +77,7 @@ SOFTWARE.
 
 This software was built using these additional libraries.
 
-### Bootstrap 4.0.0
+### Bootstrap 4.1.1
 
 https://getbootstrap.com/
 
