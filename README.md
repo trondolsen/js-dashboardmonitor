@@ -10,6 +10,10 @@ Web-based dashboard for displaying checks exported from ActiveXperts Network Mon
 * Search
 * Supports multiple installations of ActiveXperts Network Monitor
 
+## Demo
+
+See [trondolsen.github.io/dashboard/dashboard.html](https://trondolsen.github.io/dashboard/dashboard.html)
+
 ## Installation
 
 See [Releases](https://github.com/trondolsen/js-monitordashboard/releases) for packaged releases
