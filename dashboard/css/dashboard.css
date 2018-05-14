@@ -93,7 +93,13 @@ body {
 }
 
 .checks .progress .progress-bar {
+  position: relative;
   background-color: #83d383 !important;
+  font-size: 0.55rem;
+}
+
+.checks .progress .progress-bar.warn {
+  position: relative;
   font-size: 0.55rem;
 }
 
