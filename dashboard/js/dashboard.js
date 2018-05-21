@@ -39,8 +39,20 @@
         {name: 'ExampleData', checks: {url: 'ExampleChecks.xml'}, availability: {url: 'ExampleAvailabilty.xml'}}
       ],
       checkPriorities: {
-        'default': 4,
+        'default': 1,
+        'Citrix XenApp': 1,
+        'CPU': 1,
+        'DNS': 1,
         'Event Log': 1,
+        'Event Log (Classic)': 1,
+        'HTTP(s)': 1,
+        'ICMP': 1,
+        'Memory': 1,
+        'MS SQL Server': 1,
+        'Powershell': 1,
+        'Service': 1,
+        'SMTP': 1,
+        'SNMP Get': 1
       }
     }
   };
@@ -270,7 +282,7 @@
         check.failurePct = elem.query('failure-pct').text().slice(0,-1);
         check.uncertainPct = elem.query('uncertain-pct').text().slice(0,-1);
         check.maintenancePct = elem.query('maintenance-pct').text().slice(0,-1);
-        check.success = ((parseFloat(check.successPct) * 10 + parseFloat(check.uncertainPct) * 10 + parseFloat(check.maintenancePct) * 10) / 10).toFixed(2);
+        check.success = ((fromFloat(check.successPct) * 10 + fromFloat(check.uncertainPct) * 10 + fromFloat(check.maintenancePct) * 10) / 10).toFixed(2);
         check.failure = check.failurePct;
         query('#' + stringify(check.folder) + '_' + check.id)
           .prop('title', () => `Host: ${check.host}\nSuccess: ${check.successPct}%\nFailure: ${check.failurePct}%\nUncertain: ${check.uncertainPct}%\nMaintenance: ${check.maintenancePct}%\nType: ${check.type}\nPriority: ${check.priority}\nResult: ${check.result}\n\n${check.explanation}`);
@@ -279,7 +291,7 @@
 
     for (const folder of Object.values(data.folders)) {
       const checks = folder.checks.filter(check => check.result !== 'On Hold');
-      const sum = checks.reduce((sum, check) => sum + parseFloat(check.success) * check.priority, 0.00);
+      const sum = checks.reduce((sum, check) => sum + fromFloat(check.success) * check.priority, 0.00);
       if (sum > 0.0) {
         const priorities = checks.reduce((sum, check) => sum + check.priority, 0.00);
         folder.success = (sum / priorities).toFixed(2);
@@ -400,8 +412,8 @@
       showProgress(String(check.data), check.result, html, check.id);
     }
     else if (key === 'Memory Usage') {
-      const minMem = parseFloat(extractText(check.explanation, 'minimum required=[', ' '));
-      const freeMem = parseFloat(check.data);
+      const minMem = fromFloat(extractText(check.explanation, 'minimum required=[', ' '));
+      const freeMem = fromFloat(check.data);
       const value = freeMem < minMem ? 100.0 : (1.0 / (freeMem / minMem)) * 100.0;
       showProgress(value.toFixed(0), check.result, html, check.id);
     }

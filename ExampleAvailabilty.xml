@@ -2523,8 +2523,8 @@
     <uncertain-pctbar>0.00%</uncertain-pctbar>
     <success-secs>383023</success-secs>
     <success-hrsmin>004 10:23:43</success-hrsmin>
-    <success-pct>63.33%</success-pct>
-    <success-pctbar>63.33%</success-pctbar>
+    <success-pct>100.00%</success-pct>
+    <success-pctbar>100.00%</success-pctbar>
     <failure-secs>0</failure-secs>
     <failure-hrsmin>000 00:00:00</failure-hrsmin>
     <failure-pct>0.00%</failure-pct>
@@ -8067,8 +8067,8 @@
     <uncertain-pctbar>0.00%</uncertain-pctbar>
     <success-secs>383023</success-secs>
     <success-hrsmin>004 10:23:43</success-hrsmin>
-    <success-pct>63.33%</success-pct>
-    <success-pctbar>63.33%</success-pctbar>
+    <success-pct>100.00%</success-pct>
+    <success-pctbar>100.00%</success-pctbar>
     <failure-secs>0</failure-secs>
     <failure-hrsmin>000 00:00:00</failure-hrsmin>
     <failure-pct>0.00%</failure-pct>
