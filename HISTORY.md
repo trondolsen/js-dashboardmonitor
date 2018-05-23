@@ -1,6 +1,18 @@
 # History
 
 ```
+1.2:
+cd920b7 replaced README image
+86e1dbd include notprocessed in calculations
+cc53572 trimmed example data search
+ff83ac4 changed font usageed to top
+199d8bc added weights to check typed css distinct
+2a54fd6 removed source mapping for bootstrap css
+bcf7852 added demo link to readme
+8d07261 upgraded bootstrap to version 4.1.1
+a40986c Trimmed example datalation
+6588749 updated history
+
 1.1:
 717fae6 upgraded bootstrap to version 4.1
 9630929 Removed touch handling
