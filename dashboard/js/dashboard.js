@@ -229,6 +229,7 @@
         failurePct:     '0.00',
         uncertainPct:   '0.00',
         maintenancePct: '0.00',
+        notprocessedPct:'0.00',
         success:        '0.00',
         failure:        '0.00',
         priority:         config.datasource.checkPriorities['default'],
@@ -282,10 +283,11 @@
         check.failurePct = elem.query('failure-pct').text().slice(0,-1);
         check.uncertainPct = elem.query('uncertain-pct').text().slice(0,-1);
         check.maintenancePct = elem.query('maintenance-pct').text().slice(0,-1);
-        check.success = ((fromFloat(check.successPct) * 10 + fromFloat(check.uncertainPct) * 10 + fromFloat(check.maintenancePct) * 10) / 10).toFixed(2);
+        check.notprocessedPct = elem.query('notprocessed-pct').text().slice(0,-1);
+        check.success = ((fromFloat(check.successPct) * 10 + fromFloat(check.uncertainPct) * 10 + fromFloat(check.maintenancePct) * 10 + fromFloat(check.notprocessedPct) * 10) / 10).toFixed(2);
         check.failure = check.failurePct;
         query('#' + stringify(check.folder) + '_' + check.id)
-          .prop('title', () => `Host: ${check.host}\nSuccess: ${check.successPct}%\nFailure: ${check.failurePct}%\nUncertain: ${check.uncertainPct}%\nMaintenance: ${check.maintenancePct}%\nType: ${check.type}\nPriority: ${check.priority}\nResult: ${check.result}\n\n${check.explanation}`);
+          .prop('title', () => `Host: ${check.host}\nSuccess: ${check.successPct}%\nFailure: ${check.failurePct}%\nUncertain: ${check.uncertainPct}%\nMaintenance: ${check.maintenancePct}%\nNot Processed: ${check.notprocessedPct}%\nType: ${check.type}\nPriority: ${check.priority}\nResult: ${check.result}\n\n${check.explanation}`);
       }
     });
 
