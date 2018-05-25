@@ -116,7 +116,7 @@
             showAvailability(source);
           }
           catch (reason) {
-            showAlert({id: `alert-source-${source.name}`, text: reason.message });
+            browser.console.error(`Error processing datasource ${source.name}. ${reason.message}`);
           }
         })
       );
@@ -135,7 +135,7 @@
       browser.console.info(`Dashboard started. Fetching datasource(s) at ${config.datasource.updateInMinutes} minute interval.`);
     })
     .catch((reason) => {
-      showAlert({id: `alert-source-init`, text: `Dashboard failed start. ${reason.message}`});
+      browser.console.error(`Dashboard initialization failed. ${reason.message}`);
     });
 
   function filterChecks() {
