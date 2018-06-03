@@ -10,10 +10,20 @@
 @font-face {
   font-family: 'Dashboard';
   src: url(./fonts/dashboard.woff2) format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  src: url(./fonts/firasans-regular.woff2) format('woff2');
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {
   overflow-y: scroll !important;
+  font-family: "Fira Sans",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
 }
 
 .noselect {
@@ -136,7 +146,7 @@ body {
 }
 
 #alerts .alert {
-  font-size: 0.75rem;
+  font-size: 0.70rem;
   min-width: 18.2rem;
 }
 
@@ -145,7 +155,7 @@ body {
 .topbar {
   background-color: #3d4a57;
   color: #ffffff;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
 }
 
 .topbar .icon {
