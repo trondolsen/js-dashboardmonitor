@@ -12,11 +12,11 @@ Web-based dashboard for displaying checks exported from ActiveXperts Network Mon
 
 ## Demo
 
-See [trondolsen.github.io/dashboard/dashboard.html](https://trondolsen.github.io/dashboard/dashboard.html)
+See [trondolsen.github.io/dashboard/dashboard.html](https://trondolsen.gitlab.io/trondolsen-pages/dashboard/dashboard.html)
 
 ## Installation
 
-See [Releases](https://github.com/trondolsen/js-monitordashboard/releases) for packaged releases
+See [Releases](https://gitlab.com/trondolsen/js-dashboardmonitor/tags) for packaged releases
 
 Manually copy `dashboard.html` and `\dashboard` to `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web`
 * For demo purpose also copy the example files `ExampleChecks.xml` and `ExampleAvailability.xml` to `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web`
@@ -47,7 +47,7 @@ Web browser requirements:
 
 ## History
 
-See [HISTORY.md](https://github.com/trondolsen/js-monitordashboard/blob/master/HISTORY.md)
+See [HISTORY.md](https://gitlab.com/trondolsen/js-dashboardmonitor/blob/master/HISTORY.md)
 
 ## Credits
 
