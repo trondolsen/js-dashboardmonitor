@@ -118,9 +118,7 @@ This license is copied below, and is also available with a FAQ at:
 http://scripts.sil.org/OFL
 
 
------------------------------------------------------------
 SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
------------------------------------------------------------
 
 PREAMBLE
 The goals of the Open Font License (OFL) are to stimulate worldwide
