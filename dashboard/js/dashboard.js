@@ -30,7 +30,7 @@
     searchFilter: '',
     ignoreFolderName: '\\_',
     clearConsoleInMinutes: 30,
-    layout: {textColumnWidth: { name: 17, host: 18, detail: 19 }},
+    layout: {columnWidth: { name: 17, host: 18, detail: 19 }},
     datasource: {
       updateInMinutes: 1,
       insyncInMinutes: 5,
@@ -38,7 +38,7 @@
       sources: [
         {name: 'ExampleData', checks: {url: 'ExampleChecks.xml'}, availability: {url: 'ExampleAvailabilty.xml'}}
       ],
-      checkPriorities: {
+      checkRating: {
         'default': 1,
         'Citrix XenApp': 1,
         'CPU': 1,
@@ -232,12 +232,12 @@
         notprocessedPct:'0.00',
         success:        '0.00',
         failure:        '0.00',
-        priority:         config.datasource.checkPriorities['default'],
+        rating:         config.datasource.checkRating['default'],
       };
 
-      // Assign priority for check type
-      if (config.datasource.checkPriorities[check.type] !== undefined) {
-        check.priority = config.datasource.checkPriorities[check.type];
+      // Assign rating for check type
+      if (config.datasource.checkRating[check.type] !== undefined) {
+        check.rating = config.datasource.checkRating[check.type];
       }
 
       // Append check to given folder
@@ -287,16 +287,16 @@
         check.success = ((fromFloat(check.successPct) * 10 + fromFloat(check.uncertainPct) * 10 + fromFloat(check.maintenancePct) * 10 + fromFloat(check.notprocessedPct) * 10) / 10).toFixed(2);
         check.failure = check.failurePct;
         query('#' + stringify(check.folder) + '_' + check.id)
-          .prop('title', () => `Host: ${check.host}\nSuccess: ${check.successPct}%\nFailure: ${check.failurePct}%\nUncertain: ${check.uncertainPct}%\nMaintenance: ${check.maintenancePct}%\nNot Processed: ${check.notprocessedPct}%\nType: ${check.type}\nPriority: ${check.priority}\nResult: ${check.result}\n\n${check.explanation}`);
+          .prop('title', () => `Host: ${check.host}\nSuccess: ${check.successPct}%\nFailure: ${check.failurePct}%\nUncertain: ${check.uncertainPct}%\nMaintenance: ${check.maintenancePct}%\nNot Processed: ${check.notprocessedPct}%\nType: ${check.type}\nRating: ${check.rating}\nResult: ${check.result}\n\n${check.explanation}`);
       }
     });
 
     for (const folder of Object.values(data.folders)) {
       const checks = folder.checks.filter(check => check.result !== 'On Hold');
-      const sum = checks.reduce((sum, check) => sum + fromFloat(check.success) * check.priority, 0.00);
+      const sum = checks.reduce((sum, check) => sum + fromFloat(check.success) * check.rating, 0.00);
       if (sum > 0.0) {
-        const priorities = checks.reduce((sum, check) => sum + check.priority, 0.00);
-        folder.success = (sum / priorities).toFixed(2);
+        const ratings = checks.reduce((sum, check) => sum + check.rating, 0.00);
+        folder.success = (sum / ratings).toFixed(2);
       }
     }
   }
@@ -386,9 +386,9 @@
   }
 
   function showCheck(check, key, html) {
-    const name = clip(key, config.layout.textColumnWidth.name, '..');
-    const detail = clip(extractText(check.explanation, 'Service [', ']'), config.layout.textColumnWidth.detail, '..');
-    const host = clip(check.host.toLowerCase(), config.layout.textColumnWidth.host, '..');
+    const name = clip(key, config.layout.columnWidth.name, '..');
+    const detail = clip(extractText(check.explanation, 'Service [', ']'), config.layout.columnWidth.detail, '..');
+    const host = clip(check.host.toLowerCase(), config.layout.columnWidth.host, '..');
 
     // Add status column
     const htmlStatus = span({css: ['btn-sm','icon'], datas:{'id': check.id}});
@@ -432,7 +432,7 @@
         props: {
           id: stringify(check.folder) + '_' + check.id,
           textContent: host,
-          title:`Host: ${check.host}\nSuccess: ${check.successPct}\nType: ${check.type}\nPriority: ${check.priority}\nResult: ${check.result}\n\n${check.explanation}`
+          title:`Host: ${check.host}\nSuccess: ${check.successPct}\nType: ${check.type}\nRating: ${check.rating}\nResult: ${check.result}\n\n${check.explanation}`
         },
         datas:{'id': check.id}
       })

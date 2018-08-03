@@ -60,6 +60,7 @@ body {
 
 .searchbar .form-control {
   padding: 0rem 0.75rem;
+  height: auto;
 }
 
 .card.bg-success .progress {
