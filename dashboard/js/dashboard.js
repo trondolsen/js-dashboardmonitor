@@ -197,6 +197,7 @@
     // Check if datasource is insync
     datasource.checks.lastUpdate = parseDate(dom(xml).query('monitor').query('xslrefreshtime').text());
     const datasourceInsync = new Date(Date.now() - config.datasource.insyncInMinutes * 60 * 1000);
+    clearAlert({id: `alert-source-${datasource.name}`});
     if (datasource.checks.lastUpdate.getTime() > datasourceInsync.getTime()) {
       query('#ds-' + datasource.name)
         .css({add: ['success'], remove: ['error']});
@@ -448,10 +449,13 @@
     );
   }
 
+  function clearAlert({id}) {
+    query('#' + id).remove();
+  }
+
   function showAlert({id, text}) {
     browser.console.warn(text);
     const alerts = query('#alerts');
-    query('#' + id).remove();
     alerts.append(
       div({props: {id:id}, css: ['alert','alert-secondary','float-right','w-25','m-1','px-1','py-0']})
         .append(
