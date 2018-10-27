@@ -96,7 +96,7 @@
     for (const source of config.datasource.sources) {
       query('#datasources')
         .append(span({props: {id: 'ds-' + source.name}, css: ['datasource']})
-          .append(span({props: {textContent: ''}, css: ['icon','mx-1']}))
+          .append(span({props: {textContent: ''}, css: ['icon','mx-1']}))
           .append(span({props: {textContent: source.name, title: `${source.checks.url}\n${source.availability.url}`}, css: ['text','datasource-tooltip']}))
       );
     }
@@ -293,7 +293,7 @@
     });
 
     for (const folder of Object.values(data.folders)) {
-      const checks = folder.checks.filter(check => check.result !== 'On Hold');
+      const checks = folder.checks.filter(check => check.result !== 'On Hold' || check.result !== 'Maintenance');
       const sum = checks.reduce((sum, check) => sum + fromFloat(check.success) * check.rating, 0.00);
       if (sum > 0.0) {
         const ratings = checks.reduce((sum, check) => sum + check.rating, 0.00);
@@ -308,7 +308,7 @@
         .empty()
         .append(
           div({attrs:{width: folder.success + '%'}, css: ['progress-bar']})
-            .append(span({props: {textContent: `${folder.success} % (last ${datasource.availability.spanInDays} days)`}}))
+          .append(span({props: {textContent: `${folder.success} % (last ${datasource.availability.spanInDays} days)`}}))
         );
     }
   }
@@ -318,10 +318,10 @@
     
     // Group folders by checks result
     const byStatus = Object.values(data.folders).reduce((sum,folder) => {
-      if(folder.checks.every(check => check.result === 'On Hold')) {
+      if(folder.checks.every(check => check.result === 'On Hold' || check.result === 'Maintenance')) {
         sum['Onhold'].push(folder);
       }
-      else if (folder.checks.every(check => check.result === 'Successful' || check.result === 'Uncertain' || check.result === 'On Hold') ) {
+      else if (folder.checks.every(check => check.result === 'Successful' || check.result === 'Uncertain' || check.result === 'On Hold' || check.result === 'Maintenance') ) {
         sum['Ok'].push(folder);
       }
       else if (folder.checks.every(check => check.result === 'Failed')) {
@@ -394,16 +394,19 @@
     // Add status column
     const htmlStatus = span({css: ['btn-sm','icon'], datas:{'id': check.id}});
     if (check.result === 'Successful') {
-      htmlStatus.text('');
+      htmlStatus.text('');
     }
     else if (check.result === 'Uncertain') {
       htmlStatus.text('');
     }
     else if (check.result === 'On Hold') {
-      htmlStatus.text('');
+      htmlStatus.text('');
+    }
+    else if (check.result === 'Maintenance') {
+      htmlStatus.text('');
     }
     else {
-      htmlStatus.text('');
+      htmlStatus.text('');
     }
     html.append(htmlStatus);
     

@@ -10,7 +10,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Maintenance</result>
     <type>Service</type>
     <data></data>
   </check>

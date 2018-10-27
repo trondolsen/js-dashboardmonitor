@@ -1,15 +1,8 @@
 /* Global CSS */
 
-/**
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('./fonts/glyphicons-halflings-regular.woff2') format('woff2');
-}
-*/
-
 @font-face {
   font-family: 'Dashboard';
-  src: url(./fonts/dashboard.woff2) format('woff2');
+  src: url(./fonts/glyphicons-halflings-regular.woff2) format('woff2');
   font-weight: 400;
   font-style: normal;
 }
@@ -163,6 +156,10 @@ body {
   font-family: 'Dashboard';
 }
 
+.topbar .text {
+  vertical-align: text-bottom;
+}
+
 .statusbar {
   background-color: #647484;
   font-size: 1.15rem;
@@ -189,6 +186,10 @@ body {
   font-size: 1.45rem;
 }
 
+.statusbar .status.text {
+  vertical-align: text-bottom;
+}
+
 .statusbar .datasources {
   color: #45505A;
   font-size: 0.85rem;
@@ -206,6 +207,10 @@ body {
 
 .statusbar .datasources .icon {
   font-family: 'Dashboard';
+}
+
+.statusbar .datasources .text {
+  vertical-align: text-bottom;
 }
 
 .checks {

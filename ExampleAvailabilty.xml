@@ -12,10 +12,10 @@
     <uncertain-pct>0.00%</uncertain-pct>
     <success-pct>63.31%</success-pct>
     <failure-pct>0.00%</failure-pct>
-    <maintenance-pct>0.00%</maintenance-pct>
+    <maintenance-pct>36.69%</maintenance-pct>
     <onhold-pct>0.00%</onhold-pct>
     <depfailure-pct>0.00%</depfailure-pct>
-    <notprocessed-pct>36.69%</notprocessed-pct>
+    <notprocessed-pct>0.00%</notprocessed-pct>
   </check>
   <check>
     <id>10084</id>
