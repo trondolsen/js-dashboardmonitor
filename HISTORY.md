@@ -1,6 +1,18 @@
 # History
 
 ```
+1.3:
+c3d5d04 Added url parameters and improved search and filtering functionality
+0541bc6 Updated bootstrap css to 4.2.1
+b5a74ea Check now handle maintenance result. Added Bootstrap 3.3.7 Glyphicons.
+bcff256 Alerts now get cleared
+c1f1cc4 updated bootstrap to 4.1.3
+0dc142e update readme image
+e42faef updated readme
+3ba1c85 updated links in readme
+ed9c89d using fira sans font
+b634530 moved exception logging console.error
+c6d1fed revised history
 1.2:
 cd920b7 replaced README image
 86e1dbd include notprocessed in calculations
