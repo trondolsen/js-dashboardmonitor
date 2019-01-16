@@ -205,6 +205,11 @@ body {
   text-shadow: 0px 0px 2px #45505A;
 }
 
+.statusbar .datasources .disabled {
+  color: #45505A;
+  text-shadow: 0px 0px 2px #6685A1;
+}
+
 .statusbar .datasources .icon {
   font-family: 'Dashboard';
 }
