@@ -51,7 +51,7 @@ Optional URL parameters
  - Search: Sets search on startup. Use a , (comma) sign to look for multiple search terms. Use a + (plus) sign to narrow each search term.
  - Datasources: Only enable given datasources. Use , (comma) sign to specify multiple datasources.
 
-http://server-url/dashboard.html?search=service+html&datasources=data1+data2
+http://server-url/dashboard.html?search=service,dns&datasources=data1,data2
 
 Web browser requirements
  - ECMAScript 2017 (http://www.ecma-international.org/ecma-262/8.0/index.html)
