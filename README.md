@@ -39,25 +39,23 @@ const settings = {
 
 ## Usage
 
-### Browsing
+Open http://server-url/dashboard.html in web browser.
 
-Open http://url/dashboard.html in web browser.
-
-Web browser requirements:
- - ECMAScript 2017 (http://www.ecma-international.org/ecma-262/8.0/index.html)
- - CSS Grid (https://www.w3.org/TR/css-grid-1/)
-
-Optional URL parameters:
- - Search - Sets search to text. Use + sign to look for multiple text.
- - Datasources - Only enable given datasources. Use + sign to enable multiple datasources.
-
-http://url/dashboard.html?search=service+html&datasources=data1+data2
-
-### User interface tips
-
- - Multiple search terms can be specified by using + sign.
+User interface tips
+ - Multiple search terms can be specified by using a , (comma) sign.
+ - Search terms can be narrowed by using a + (plus) sign.
  - Datasources can be disabled by clicking on them.
  - Hovering over the hostname (3rd column) on checks will reveal more details.
+
+Optional URL parameters
+ - Search: Sets search on startup. Use a , (comma) sign to look for multiple search terms. Use a + (plus) sign to narrow each search term.
+ - Datasources: Only enable given datasources. Use , (comma) sign to specify multiple datasources.
+
+http://server-url/dashboard.html?search=service+html&datasources=data1+data2
+
+Web browser requirements
+ - ECMAScript 2017 (http://www.ecma-international.org/ecma-262/8.0/index.html)
+ - CSS Grid (https://www.w3.org/TR/css-grid-1/)
 
 ## History
 

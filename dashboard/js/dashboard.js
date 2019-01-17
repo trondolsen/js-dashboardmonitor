@@ -61,14 +61,13 @@
   const applyConfig = () => new Promise((resolve) => {
     // Handle URL parameters
     var searchParams = new URLSearchParams(browser.window.location.search);
-
     if (searchParams.has('search')) {
-      config.searchFilters = searchParams.get('search').split(' ').map(item => item.toLowerCase());
-      query('.navbar .searchbar .form-control').prop('value', () => config.searchFilters.join('+'));
-      browser.console.info(`search=${config.searchFilters.join('+')}`);
+      config.searchFilters = searchParams.get('search').split(',').map(item => item.toLowerCase());
+      query('.navbar .searchbar .form-control').prop('value', () => config.searchFilters.join(','));
+      browser.console.info(`Searching for ${config.searchFilters.join(',')}`);
     }
     if (searchParams.has('datasources')) {
-      const datasourcesParams = searchParams.get('datasources').split(' ');
+      const datasourcesParams = searchParams.get('datasources').split(',');
       config.datasource.sources.forEach((source) => {
         source.enabled = false;
         datasourcesParams.forEach((sourceParam) => {
@@ -77,7 +76,7 @@
           }
         });
       });
-      browser.console.info(`datasources=${datasourcesParams.join('+')}`);
+      browser.console.info(`Enabling datasources ${datasourcesParams.join(',')}`);
      }
 
     // Handle grid layout resizing
@@ -99,13 +98,13 @@
     query('.navbar .topbar .text').text(config.title);
     dom(browser.document).prop('title', () => config.title);
 
-    // Handle search text
+    // Handle search text. Search terms separated by comma.
     query('.navbar .searchbar .form-control')
       .event('keyup', (event) => {
         browser.scrollTop = 0;
         config.searchFilters = [];
         if (event.target.value.length > 0) {
-          config.searchFilters = event.target.value.split('+').map(item => item.toLowerCase());
+          config.searchFilters = event.target.value.split(',').filter(item => item !== '').map(item => item.toLowerCase());
         }
         filterChecks();
         layoutGrid(query('#checks'), query('.card'));
@@ -179,51 +178,40 @@
     });
 
   function filterChecks() {
-    if (config.searchFilters.length > 0 ) {
-      // Apply search filter on folders
-      for (const folder of Object.values(data.folders)) {
-        const html = query('#' + stringify(folder.name));
-        const nameTest = config.searchFilters.length > 0 && config.searchFilters.reduce((acc,item) => folder.name.toLowerCase().includes(item) && acc, true);
-        if (nameTest) {
-          html.css({remove:['remove']});
-          for (const check of folder.checks) {
-            html.query(`div [data-id="${check.id}"]`).css({remove:['hide']});
-          }
-        }
-        else {
-          // Apply search filter on checks
-          html.css({add:['remove']});
-          for (const check of folder.checks) {
-            const text = check.explanation.toLowerCase() + check.type.toLowerCase() + check.host.toLowerCase();
-            const textTest = config.searchFilters.length > 0 && config.searchFilters.reduce((acc,item) => text.includes(item) && acc, true);
-            if (textTest && check.datasource.enabled) {
-              html.css({remove:['remove']});
-              html.query(`div [data-id="${check.id}"]`).css({remove:['hide']});
-            }
-            else {
-              html.query(`div [data-id="${check.id}"]`).css({add:['hide']});
-            }
-          }
-        }
-      }
-    }
-    else {
-      // Unapply search filter on all folders and checks
-      for (const folder of Object.values(data.folders)) {
-        const html = query('#' + stringify(folder.name));
+    // Apply search filter on folders
+    for (const folder of Object.values(data.folders)) {
+      const html = query('#' + stringify(folder.name));
+      // Apply search filter on folder name (also true if no search filter is given)
+      const folderTest = config.searchFilters.length === 0 ? true : config.searchFilters.reduce(
+        (sum,item) => item.split('+').reduce((sum2,item2) => folder.name.toLowerCase().includes(item2) && sum2, true) || sum, false
+      );
+      if (folderTest) {
         html.css({remove:['remove']});
         for (const check of folder.checks) {
-          if (check.datasource.enabled) {
+          html.query(`div [data-id="${check.id}"]`).css({remove:['hide']});
+        }
+      }
+      else {
+        // Apply search filter on checks (also true if no search filter is given)
+        html.css({add:['remove']});
+        for (const check of folder.checks) {
+          const checkText = check.explanation.toLowerCase() + check.type.toLowerCase() + check.host.toLowerCase();
+          const checkTest = config.searchFilters.length === 0 ? true : config.searchFilters.reduce(
+            (sum,item) => item.split('+').reduce((sum2,item2) => checkText.includes(item2) && sum2, true) || sum, false
+          );
+          if (checkTest) {
+            html.css({remove:['remove']});
             html.query(`div [data-id="${check.id}"]`).css({remove:['hide']});
           }
           else {
             html.query(`div [data-id="${check.id}"]`).css({add:['hide']});
           }
         }
-        // Folder with all checks from disabled datasources are hidden
-        if (folder.checks.every(item => item.datasource.enabled === false)) {
-          html.css({add:['remove']});
-        }
+      }
+
+      // Hide folders where all checks are from disabled datasources
+      if (folder.checks.every(item => item.datasource.enabled === false)) {
+        html.css({add:['remove']});
       }
     }
   }
