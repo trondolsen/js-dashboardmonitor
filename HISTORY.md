@@ -1,6 +1,11 @@
 # History
 
 ```
+2.0:
+337c805 revised readme
+2aaec44 Revised Readme
+36db42d Revised readme
+ca625c8 Improved search with more functionality
 1.3:
 c3d5d04 Added url parameters and improved search and filtering functionality
 0541bc6 Updated bootstrap css to 4.2.1
