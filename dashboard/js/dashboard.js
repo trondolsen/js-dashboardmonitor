@@ -1,7 +1,7 @@
 /***
  * Dashboard for ActiveExperts
  *
- * Copyright (c) 2017-2018 Trond Olsen
+ * Copyright (c) 2017-2019 Trond Olsen
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -66,8 +66,8 @@
       query('.navbar .searchbar .form-control').prop('value', () => config.searchFilters.join(','));
       browser.console.info(`Searching for ${config.searchFilters.join(',')}`);
     }
-    if (searchParams.has('datasources')) {
-      const datasourcesParams = searchParams.get('datasources').split(',');
+    if (searchParams.has('datasource')) {
+      const datasourcesParams = searchParams.get('datasource').split(',');
       config.datasource.sources.forEach((source) => {
         source.enabled = false;
         datasourcesParams.forEach((sourceParam) => {
@@ -94,11 +94,11 @@
         query('.navbar').prop('scrollHeight', (value) => query('#alerts').attr('padding-top', () => value + "px"));
       });
 
-    // Set title
+    // Change title
     query('.navbar .topbar .text').text(config.title);
     dom(browser.document).prop('title', () => config.title);
 
-    // Handle search text. Search terms separated by comma.
+    // Handle search input. Search terms separated by comma.
     query('.navbar .searchbar .form-control')
       .event('keyup', (event) => {
         browser.scrollTop = 0;
@@ -123,16 +123,8 @@
             .append(span({props: {textContent: ''}, css: ['icon','mx-1']}))
             .append(span({props: {textContent: source.name, title: `${source.checks.url}\n${source.availability.url}`}, css: ['text','datasource-tooltip']}))
             .event('click', () => {
-              if (source.enabled) {
-                source.enabled = false;
-                query('#ds-' + source.name)
-                  .css({add: ['disabled']});
-                }
-              else {
-                source.enabled = true;
-                query('#ds-' + source.name)
-                  .css({remove: ['disabled']});
-              }
+              // Trigger datasource on/off
+              source.enabled = !source.enabled;
               filterChecks();
               layoutGrid(query('#checks'), query('.card'));
           })
@@ -141,9 +133,8 @@
 
     // Repeated fetching of datasources
     const fetchSources = () => {
-      const sources = config.datasource.sources.filter((source) => source.enabled);
       Promise.all(
-        sources.map(async (source) => {
+        config.datasource.sources.map(async (source) => {
           try {
             const checksData = fetchText(source.name, source.checks.url, config.datasource.requestInit);
             const availabilityData = fetchText(source.name, source.availability.url, config.datasource.requestInit);
@@ -178,6 +169,18 @@
     });
 
   function filterChecks() {
+    // Handle disabled datasources
+    for (const source of config.datasource.sources) {
+      if (source.enabled) {
+        query('#ds-' + source.name)
+          .css({remove: ['disabled']});
+        }
+      else {
+        query('#ds-' + source.name)
+          .css({add: ['disabled']});
+      }
+    }
+
     // Apply search filter on folders
     for (const folder of Object.values(data.folders)) {
       const html = query('#' + stringify(folder.name));
@@ -209,7 +212,7 @@
         }
       }
 
-      // Hide folders where all checks are from disabled datasources
+      // Hide folder where all checks are from disabled datasources
       if (folder.checks.every(item => item.datasource.enabled === false)) {
         html.css({add:['remove']});
       }
