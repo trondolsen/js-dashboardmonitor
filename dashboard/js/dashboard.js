@@ -62,7 +62,7 @@
     // Handle URL parameters
     var searchParams = new URLSearchParams(browser.window.location.search);
     if (searchParams.has('search')) {
-      config.searchFilters = searchParams.get('search').split(',').map(item => item.toLowerCase());
+      config.searchFilters = searchParams.get('search').split(',').map(param => param.toLowerCase());
       query('.navbar .searchbar .form-control').prop('value', () => config.searchFilters.join(','));
       browser.console.info(`Searching for ${config.searchFilters.join(',')}`);
     }
@@ -104,7 +104,7 @@
         browser.scrollTop = 0;
         config.searchFilters = [];
         if (event.target.value.length > 0) {
-          config.searchFilters = event.target.value.split(',').filter(item => item !== '').map(item => item.toLowerCase());
+          config.searchFilters = event.target.value.split(',').filter(filter => filter !== '').map(filter => filter.toLowerCase());
         }
         filterChecks();
         layoutGrid(query('#checks'), query('.card'));
@@ -125,6 +125,7 @@
             .event('click', () => {
               // Trigger datasource on/off
               source.enabled = !source.enabled;
+              updateStatus();
               filterChecks();
               layoutGrid(query('#checks'), query('.card'));
           })
@@ -355,10 +356,8 @@
         );
     }
   }
-  
-  function showChecks() {
-    query('#checks').empty();
-    
+
+  function updateStatus() {
     // Group folders by checks result
     const byStatus = Object.values(data.folders).reduce((sum,folder) => {
       if(folder.checks.every(check => check.result === 'On Hold' || check.result === 'Maintenance')) {
@@ -375,11 +374,22 @@
       }
       return sum;
     }, {'Ok':[], 'Warning': [], 'Error':[], 'Onhold': []});
-    
-    byStatus['Ok'] ? query('#statusUpText').text(byStatus['Ok'].length) : query('#statusUpText').text('0');
-    byStatus['Warning'] ? query('#statusWarnText').text(byStatus['Warning'].length) : query('#statusWarnText').text('0');
-    byStatus['Error'] ? query('#statusDownText').text(byStatus['Error'].length) : query('#statusDownText').text('0');
 
+    const okText = byStatus['Ok'].reduce((sum,folder) => (sum + folder.checks.filter(check => check.datasource.enabled).length), 0);
+    const warnText = byStatus['Warning'].reduce((sum,folder) => (sum + folder.checks.filter(check => check.datasource.enabled).length), 0);
+    const errorText = byStatus['Error'].reduce((sum,folder) => (sum + folder.checks.filter(check => check.datasource.enabled).length), 0);
+    
+    byStatus['Ok'] ? query('#statusUpText').text(okText) : query('#statusUpText').text('0');
+    byStatus['Warning'] ? query('#statusWarnText').text(warnText) : query('#statusWarnText').text('0');
+    byStatus['Error'] ? query('#statusDownText').text(errorText) : query('#statusDownText').text('0');
+
+    return byStatus;
+  }
+  
+  function showChecks() {
+    query('#checks').empty();
+  
+    const byStatus = updateStatus();
     if (byStatus['Error']) { showFolders(byStatus['Error'], 'Error'); }
     if (byStatus['Warning']) { showFolders(byStatus['Warning'], 'Warning'); }
     if (byStatus['Ok']) { showFolders(byStatus['Ok'], 'Ok'); }
