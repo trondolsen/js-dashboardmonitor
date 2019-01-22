@@ -359,26 +359,29 @@
 
   function updateStatus() {
     // Group folders by checks result
-    const byStatus = Object.values(data.folders).reduce((sum,folder) => {
-      if(folder.checks.every(check => check.result === 'On Hold' || check.result === 'Maintenance')) {
-        sum['Onhold'].push(folder);
-      }
-      else if (folder.checks.every(check => check.result === 'Successful' || check.result === 'Uncertain' || check.result === 'On Hold' || check.result === 'Maintenance') ) {
-        sum['Ok'].push(folder);
-      }
-      else if (folder.checks.every(check => check.result === 'Failed')) {
-        sum['Error'].push(folder); 
-      }
-      else {
-        sum['Warning'].push(folder);
-      }
-      return sum;
-    }, {'Ok':[], 'Warning': [], 'Error':[], 'Onhold': []});
+    const byStatus = Object.values(data.folders).reduce(
+      (sum,folder) => {
+        if(folder.checks.every(check => check.result === 'On Hold' || check.result === 'Maintenance')) {
+          sum['Onhold'].push(folder);
+        }
+        else if (folder.checks.every(check => check.result === 'Successful' || check.result === 'Uncertain' || check.result === 'On Hold' || check.result === 'Maintenance') ) {
+          sum['Ok'].push(folder);
+        }
+        else if (folder.checks.every(check => check.result === 'Failed')) {
+          sum['Error'].push(folder); 
+        }
+        else {
+          sum['Warning'].push(folder);
+        }
+        return sum;
+      },
+      {'Ok':[], 'Warning': [], 'Error':[], 'Onhold': []}
+    );
 
-    const okText = byStatus['Ok'].reduce((sum,folder) => (sum + folder.checks.filter(check => check.datasource.enabled).length), 0);
-    const warnText = byStatus['Warning'].reduce((sum,folder) => (sum + folder.checks.filter(check => check.datasource.enabled).length), 0);
-    const errorText = byStatus['Error'].reduce((sum,folder) => (sum + folder.checks.filter(check => check.datasource.enabled).length), 0);
-    
+    const okText = byStatus['Ok'].filter(folder => folder.checks.find(item => item.datasource.enabled)).length;
+    const warnText = byStatus['Warning'].filter(folder => folder.checks.find(item => item.datasource.enabled)).length;
+    const errorText = byStatus['Error'].filter(folder => folder.checks.find(item => item.datasource.enabled)).length;
+
     byStatus['Ok'] ? query('#statusUpText').text(okText) : query('#statusUpText').text('0');
     byStatus['Warning'] ? query('#statusWarnText').text(warnText) : query('#statusWarnText').text('0');
     byStatus['Error'] ? query('#statusDownText').text(errorText) : query('#statusDownText').text('0');
