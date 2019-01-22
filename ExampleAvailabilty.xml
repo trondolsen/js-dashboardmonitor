@@ -129,8 +129,8 @@
     <id>10095</id>
     <checktype>HTTP(s)</checktype>
     <checktype-id>33</checktype-id>
-    <uncertain-pct>0.00%</uncertain-pct>
-    <success-pct>63.33%</success-pct>
+    <uncertain-pct>10.00%</uncertain-pct>
+    <success-pct>53.33%</success-pct>
     <failure-pct>0.00%</failure-pct>
     <maintenance-pct>0.00%</maintenance-pct>
     <onhold-pct>0.00%</onhold-pct>

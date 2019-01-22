@@ -62,7 +62,7 @@
     // Handle URL parameters
     var searchParams = new URLSearchParams(browser.window.location.search);
     if (searchParams.has('search')) {
-      config.searchFilters = searchParams.get('search').split(',').map(param => param.toLowerCase());
+      config.searchFilters = searchParams.get('search').split(',').map(param => param.replace(' ','+').toLowerCase());
       query('.navbar .searchbar .form-control').prop('value', () => config.searchFilters.join(','));
       browser.console.info(`Searching for ${config.searchFilters.join(',')}`);
     }
@@ -453,7 +453,7 @@
       htmlStatus.text('');
     }
     else if (check.result === 'Uncertain') {
-      htmlStatus.text('');
+      htmlStatus.text('');
     }
     else if (check.result === 'On Hold') {
       htmlStatus.text('');

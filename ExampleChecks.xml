@@ -120,7 +120,7 @@
     <host>SRV01.domain</host>
     <explanation>Web site available, text pattern found in page</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Uncertain</result>
     <type>HTTP/HTTPs</type>
     <data>16</data>
   </check>
