@@ -27,6 +27,17 @@
   </check>
   <check>
     <comments></comments>
+    <id>10525</id>
+    <displayname>domain.com - HTTP(s)</displayname>
+    <host>domain.com</host>
+    <explanation>Web site available, text pattern found in page</explanation>
+    <folder>\SRV\Application 1</folder>
+    <result>Failed</result>
+    <type>HTTP/HTTPs</type>
+    <data>31</data>
+  </check>
+  <check>
+    <comments></comments>
     <id>10581</id>
     <displayname>SRV01.domain - TCP/IP port 8530</displayname>
     <host>SRV01.domain</host>
@@ -46,5 +57,16 @@
     <result>Successful</result>
     <type>Service</type>
     <data></data>
+  </check>
+  <check>
+    <comments>Down for 10d 13h</comments>
+    <id>10700</id>
+    <displayname>SRV01.domain - Event Log MSSQLSERVER</displayname>
+    <host>SRV01.domain</host>
+    <explanation>Event found (131 events matched)</explanation>
+    <folder>\SRV\Database</folder>
+    <result>Failed</result>
+    <type>Event Log</type>
+    <data>131</data>
   </check>
 </monitor>

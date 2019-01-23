@@ -366,18 +366,6 @@
     <notprocessed-pct>0.00%</notprocessed-pct>
   </check>
   <check>
-    <id>10525</id>
-    <checktype>HTTP(s)</checktype>
-    <checktype-id>33</checktype-id>
-    <uncertain-pct>0.00%</uncertain-pct>
-    <success-pct>63.35%</success-pct>
-    <failure-pct>36.65%</failure-pct>
-    <maintenance-pct>0.00%</maintenance-pct>
-    <onhold-pct>0.00%</onhold-pct>
-    <depfailure-pct>0.00%</depfailure-pct>
-    <notprocessed-pct>0.00%</notprocessed-pct>
-  </check>
-  <check>
     <id>10530</id>
     <checktype>Event Log (Classic)</checktype>
     <checktype-id>90</checktype-id>
@@ -808,18 +796,6 @@
     <onhold-pct>0.00%</onhold-pct>
     <depfailure-pct>0.00%</depfailure-pct>
     <notprocessed-pct>36.72%</notprocessed-pct>
-  </check>
-  <check>
-    <id>10700</id>
-    <checktype>Event Log (Classic)</checktype>
-    <checktype-id>90</checktype-id>
-    <uncertain-pct>0.00%</uncertain-pct>
-    <success-pct>45.00%</success-pct>
-    <failure-pct>55.00%</failure-pct>
-    <maintenance-pct>0.00%</maintenance-pct>
-    <onhold-pct>0.00%</onhold-pct>
-    <depfailure-pct>0.00%</depfailure-pct>
-    <notprocessed-pct>0.00%</notprocessed-pct>
   </check>
   <check>
     <id>10701</id>

@@ -124,12 +124,14 @@
             .append(span({props: {textContent: ''}, css: ['icon','mx-1']}))
             .append(span({props: {textContent: source.name, title: `${source.checks.url}\n${source.availability.url}`}, css: ['text','datasource-tooltip']}))
             .event('click', () => {
-              // Trigger datasource on/off
+              // Enable or disable datasource
               source.enabled = !source.enabled;
               showChecks();
               layoutGrid(query('#checks'), query('.card'));
-              updateStatus();
               filterChecks();
+              updateAvailability();
+              config.datasource.sources.filter(source => source.enabled).forEach(source => showAvailability(source));
+              updateStatus();
           })
         );
     }
@@ -146,6 +148,7 @@
             layoutGrid(query('#checks'), query('.card'));
             filterChecks();
             readAvailability(parseXml(await availabilityData), source);
+            updateAvailability();
             showAvailability(source);
           }
           catch (reason) {
@@ -337,10 +340,12 @@
           .prop('title', () => `Host: ${check.host}\nSuccess: ${check.successPct}%\nFailure: ${check.failurePct}%\nUncertain: ${check.uncertainPct}%\nMaintenance: ${check.maintenancePct}%\nNot Processed: ${check.notprocessedPct}%\nType: ${check.type}\nRating: ${check.rating}\nResult: ${check.result}\n\n${check.explanation}`);
       }
     });
+  }
 
+  function updateAvailability() {
     for (const folder of Object.values(data.folders)) {
-      const checks = folder.checks.filter(check => check.result !== 'On Hold' || check.result !== 'Maintenance');
-      const sum = checks.reduce((sum, check) => sum + fromFloat(check.success) * check.rating, 0.00);
+      const checks = folder.checks.filter(check => check.datasource.enabled).filter(check => check.result !== 'On Hold' || check.result !== 'Maintenance');
+      const sum = checks.reduce((sum,check) => sum + fromFloat(check.success) * check.rating, 0.00);
       if (sum > 0.0) {
         const ratings = checks.reduce((sum, check) => sum + check.rating, 0.00);
         folder.success = (sum / ratings).toFixed(2);
