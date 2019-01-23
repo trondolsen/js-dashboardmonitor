@@ -460,7 +460,7 @@
       htmlStatus.text('');
     }
     else if (check.result === 'Uncertain') {
-      htmlStatus.text('');
+      htmlStatus.text('');
     }
     else if (check.result === 'On Hold') {
       htmlStatus.text('');
