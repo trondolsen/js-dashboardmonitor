@@ -1,6 +1,14 @@
 # History
 
 ```
+2.1:
+6b024e1 availability adjusted for disabled datasources
+20181d2 folder with multiple datasources hide checks from disabled datasource
+6773cdf corrected search url parameter new icon for uncertain results
+854d8b1 corrected status counting
+a4cb792 status is now adjusted for disabled datasources
+cfcad0f fixed search filtering when datasources are disabled
+2f643df revised history
 2.0:
 337c805 revised readme
 2aaec44 Revised Readme
