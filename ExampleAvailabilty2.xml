@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monitor>
+  <from-secs>1506895200</from-secs>
+  <to-secs>1507499999</to-secs>
+  <from-date>02.10.2017 00:00:00</from-date>
+  <to-date>08.10.2017 23:59:59</to-date>
+  <description></description>
+  <check>
+    <id>10084</id>
+    <checktype>Service</checktype>
+    <checktype-id>50</checktype-id>
+    <uncertain-pct>0.00%</uncertain-pct>
+    <success-pct>63.30%</success-pct>
+    <failure-pct>0.00%</failure-pct>
+    <maintenance-pct>0.00%</maintenance-pct>
+    <onhold-pct>0.00%</onhold-pct>
+    <depfailure-pct>0.00%</depfailure-pct>
+    <notprocessed-pct>36.70%</notprocessed-pct>
+  </check>
+  <check>
+    <id>10581</id>
+    <checktype>TCP/IP</checktype>
+    <checktype-id>30</checktype-id>
+    <uncertain-pct>0.00%</uncertain-pct>
+    <success-pct>100.00%</success-pct>
+    <failure-pct>0.00%</failure-pct>
+    <maintenance-pct>0.00%</maintenance-pct>
+    <onhold-pct>0.00%</onhold-pct>
+    <depfailure-pct>0.00%</depfailure-pct>
+    <notprocessed-pct>36.67%</notprocessed-pct>
+  </check>
+  <check>
+    <id>10637</id>
+    <checktype>Service</checktype>
+    <checktype-id>50</checktype-id>
+    <uncertain-pct>0.00%</uncertain-pct>
+    <success-pct>63.26%</success-pct>
+    <failure-pct>0.00%</failure-pct>
+    <maintenance-pct>0.00%</maintenance-pct>
+    <onhold-pct>0.00%</onhold-pct>
+    <depfailure-pct>0.00%</depfailure-pct>
+    <notprocessed-pct>36.74%</notprocessed-pct>
+  </check>
+</monitor>

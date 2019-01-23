@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monitor>
+  <xslname>ExampleChecks2</xslname>
+  <xsldescription>ExampleChecks2</xsldescription>
+  <xslrefreshtime>06.10.2017 10:32:38</xslrefreshtime>
+  <check>
+    <comments></comments>
+    <id>10084</id>
+    <displayname>SRV01.domain - Service</displayname>
+    <host>SRV01.domain</host>
+    <explanation>Service [Service] has state: [Running]</explanation>
+    <folder>\SRV\Application 3</folder>
+    <result>Successful</result>
+    <type>Service</type>
+    <data></data>
+  </check>
+  <check>
+    <comments></comments>
+    <id>10086</id>
+    <displayname>SRV01.domain - Service</displayname>
+    <host>SRV01.domain</host>
+    <explanation>Service [Service] has state: [Running]</explanation>
+    <folder>\SRV\Application 3</folder>
+    <result>Successful</result>
+    <type>Service</type>
+    <data></data>
+  </check>
+  <check>
+    <comments></comments>
+    <id>10581</id>
+    <displayname>SRV01.domain - TCP/IP port 8530</displayname>
+    <host>SRV01.domain</host>
+    <explanation>Server is available</explanation>
+    <folder>\SRV\WSUS</folder>
+    <result>Successful</result>
+    <type>TCP/IP</type>
+    <data>15</data>
+  </check>
+  <check>
+    <comments></comments>
+    <id>10637</id>
+    <displayname>SRV01.domain - Service &apos;WsusService&apos;</displayname>
+    <host>SRV01.domain</host>
+    <explanation>Service [WSUS Service] has state: [Running]</explanation>
+    <folder>\SRV\SCCM</folder>
+    <result>Successful</result>
+    <type>Service</type>
+    <data></data>
+  </check>
+</monitor>

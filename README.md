@@ -31,8 +31,9 @@ Configure datasource(s) in `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web\dashb
 const settings = {
   datasource: {
       sources: [
-        {name: 'ExampleData', checks: {url: 'ExampleChecks.xml'}, availability: {url: 'ExampleAvailabilty.xml'}}
-      ]
+        {name: 'Example1', enabled: true, checks: {url: 'ExampleChecks1.xml'}, availability: {url: 'ExampleAvailabilty1.xml'}},
+        {name: 'Example2', enabled: true, checks: {url: 'ExampleChecks2.xml'}, availability: {url: 'ExampleAvailabilty2.xml'}}
+      ],
     }
   };
 ```

@@ -18,30 +18,6 @@
     <notprocessed-pct>0.00%</notprocessed-pct>
   </check>
   <check>
-    <id>10084</id>
-    <checktype>Service</checktype>
-    <checktype-id>50</checktype-id>
-    <uncertain-pct>0.00%</uncertain-pct>
-    <success-pct>63.30%</success-pct>
-    <failure-pct>0.00%</failure-pct>
-    <maintenance-pct>0.00%</maintenance-pct>
-    <onhold-pct>0.00%</onhold-pct>
-    <depfailure-pct>0.00%</depfailure-pct>
-    <notprocessed-pct>36.70%</notprocessed-pct>
-  </check>
-  <check>
-    <id>10086</id>
-    <checktype>Service</checktype>
-    <checktype-id>50</checktype-id>
-    <uncertain-pct>0.00%</uncertain-pct>
-    <success-pct>63.29%</success-pct>
-    <failure-pct>0.00%</failure-pct>
-    <maintenance-pct>0.00%</maintenance-pct>
-    <onhold-pct>0.00%</onhold-pct>
-    <depfailure-pct>0.00%</depfailure-pct>
-    <notprocessed-pct>36.71%</notprocessed-pct>
-  </check>
-  <check>
     <id>10087</id>
     <checktype>Service</checktype>
     <checktype-id>50</checktype-id>
@@ -438,18 +414,6 @@
     <notprocessed-pct>36.67%</notprocessed-pct>
   </check>
   <check>
-    <id>10581</id>
-    <checktype>TCP/IP</checktype>
-    <checktype-id>30</checktype-id>
-    <uncertain-pct>0.00%</uncertain-pct>
-    <success-pct>100.00%</success-pct>
-    <failure-pct>0.00%</failure-pct>
-    <maintenance-pct>0.00%</maintenance-pct>
-    <onhold-pct>0.00%</onhold-pct>
-    <depfailure-pct>0.00%</depfailure-pct>
-    <notprocessed-pct>36.67%</notprocessed-pct>
-  </check>
-  <check>
     <id>10585</id>
     <checktype>HTTP(s)</checktype>
     <checktype-id>33</checktype-id>
@@ -592,18 +556,6 @@
     <onhold-pct>0.00%</onhold-pct>
     <depfailure-pct>0.00%</depfailure-pct>
     <notprocessed-pct>36.67%</notprocessed-pct>
-  </check>
-  <check>
-    <id>10637</id>
-    <checktype>Service</checktype>
-    <checktype-id>50</checktype-id>
-    <uncertain-pct>0.00%</uncertain-pct>
-    <success-pct>63.26%</success-pct>
-    <failure-pct>0.00%</failure-pct>
-    <maintenance-pct>0.00%</maintenance-pct>
-    <onhold-pct>0.00%</onhold-pct>
-    <depfailure-pct>0.00%</depfailure-pct>
-    <notprocessed-pct>36.74%</notprocessed-pct>
   </check>
   <check>
     <id>10638</id>

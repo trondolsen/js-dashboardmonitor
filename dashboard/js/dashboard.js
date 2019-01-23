@@ -36,7 +36,8 @@
       insyncInMinutes: 5,
       requestInit: {cache: 'no-cache', mode: 'same-origin', credentials: 'same-origin'},
       sources: [
-        {name: 'ExampleData', enabled: true, checks: {url: 'ExampleChecks.xml'}, availability: {url: 'ExampleAvailabilty.xml'}}
+        {name: 'Example1', enabled: true, checks: {url: 'ExampleChecks1.xml'}, availability: {url: 'ExampleAvailabilty1.xml'}},
+        {name: 'Example2', enabled: true, checks: {url: 'ExampleChecks2.xml'}, availability: {url: 'ExampleAvailabilty2.xml'}}
       ],
       checkRating: {
         'default': 1,
@@ -125,9 +126,10 @@
             .event('click', () => {
               // Trigger datasource on/off
               source.enabled = !source.enabled;
+              showChecks();
+              layoutGrid(query('#checks'), query('.card'));
               updateStatus();
               filterChecks();
-              layoutGrid(query('#checks'), query('.card'));
           })
         );
     }
@@ -426,7 +428,7 @@
      const htmlData = div({css:['data-table']});
 
     for (const [name,checks] of Object.entries(byType)) {
-      for (const check of Object.values(checks)) {
+      for (const check of Object.values(checks.filter(check => check.datasource.enabled))) {
         showCheck(check, name, htmlData);
       }
     }
