@@ -334,8 +334,8 @@
         check.uncertainPct = elem.query('uncertain-pct').text().slice(0,-1);
         check.maintenancePct = elem.query('maintenance-pct').text().slice(0,-1);
         check.notprocessedPct = elem.query('notprocessed-pct').text().slice(0,-1);
-        check.success = ((fromFloat(check.successPct) * 10 + fromFloat(check.uncertainPct) * 10 + fromFloat(check.maintenancePct) * 10 + fromFloat(check.notprocessedPct) * 10) / 10).toFixed(2);
-        check.failure = check.failurePct;
+        check.success = ((fromFloat(check.successPct) * 10 + fromFloat(check.maintenancePct) * 10 + fromFloat(check.notprocessedPct) * 10) / 10).toFixed(2);
+        check.failure = ((fromFloat(check.failurePct) * 10 + fromFloat(check.uncertainPct) * 10) / 10).toFixed(2);
         query('#' + stringify(check.folder) + '_' + check.id)
           .prop('title', () => `Host: ${check.host}\nSuccess: ${check.successPct}%\nFailure: ${check.failurePct}%\nUncertain: ${check.uncertainPct}%\nMaintenance: ${check.maintenancePct}%\nNot Processed: ${check.notprocessedPct}%\nType: ${check.type}\nRating: ${check.rating}\nResult: ${check.result}\n\n${check.explanation}`);
       }
@@ -371,10 +371,10 @@
         if(folder.checks.every(check => check.result === 'On Hold' || check.result === 'Maintenance')) {
           sum['Onhold'].push(folder);
         }
-        else if (folder.checks.every(check => check.result === 'Successful' || check.result === 'Uncertain' || check.result === 'On Hold' || check.result === 'Maintenance') ) {
+        else if (folder.checks.every(check => check.result === 'Successful' || check.result === 'On Hold' || check.result === 'Maintenance') ) {
           sum['Ok'].push(folder);
         }
-        else if (folder.checks.every(check => check.result === 'Failed')) {
+        else if (folder.checks.every(check => check.result === 'Failed' || check.result === 'Uncertain')) {
           sum['Error'].push(folder); 
         }
         else {
