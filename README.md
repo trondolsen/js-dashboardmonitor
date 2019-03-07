@@ -1,6 +1,6 @@
 # Dashboard for ActiveXperts Network Monitor
 
-Web-based dashboard for displaying checks exported from ActiveXperts Network Monitor (see www.activexperts.com).
+Web-based dashboard for displaying checks exported from ActiveXperts Network Monitor 2019 (see www.activexperts.com).
 
 ![Screenshot](README.png "Screenshot")
 
@@ -8,7 +8,7 @@ Web-based dashboard for displaying checks exported from ActiveXperts Network Mon
 
 * Live updates
 * Search
-* Supports multiple installations of ActiveXperts Network Monitor
+* Supports multiple installations of ActiveXperts Network Monitor 2019
 
 ## Demo
 
@@ -18,21 +18,21 @@ See [trondolsen.github.io/dashboard/dashboard.html](https://trondolsen.github.io
 
 See [Releases](https://github.com/trondolsen/js-dashboardmonitor/releases) for packaged releases.
 
-Manually copy `dashboard.html` and `\dashboard` to `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web`
-* For demo purpose also copy the example files `ExampleChecks.xml` and `ExampleAvailability.xml` to `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web`
+Manually copy `dashboard.html` and `\dashboard` to `%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot`
+* For demo purpose also copy the `demo1` and `demo2` foldes to `%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot`
 
-Prepare datasource files in ActiveXperts Network Monitor
+Prepare datasource files in ActiveXperts Network Monitor 2019
 * Use customized report to defined interval for checks data
 * Use scheduled task to generate availability data at regular intervals
 * See https://www.activexperts.com/files/network-monitor/manual.htm#Report_Module for details
 
-Configure datasource(s) in `%PROGRAMDATA%\ActiveXperts\Network Monitor\Web\dashboard\js\dashboard.js` with url for given checks and availability xml file
+Configure datasource(s) in `%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot\dashboard\js\dashboard.js` with url for given checks and availability xml file
 ```javascript
 const settings = {
   datasource: {
       sources: [
-        {name: 'Example1', enabled: true, checks: {url: 'ExampleChecks1.xml'}, availability: {url: 'ExampleAvailabilty1.xml'}},
-        {name: 'Example2', enabled: true, checks: {url: 'ExampleChecks2.xml'}, availability: {url: 'ExampleAvailabilty2.xml'}}
+        {name: 'Demo1', enabled: true, checks: {url: './demo1/data/all.xml'}, availability: {url: './demo1/data/availabilty.xml'}},
+        {name: 'Demo2', enabled: true, checks: {url: './demo2/data/all.xml'}, availability: {url: './demo2/data/availabilty.xml'}}
       ],
     }
   };

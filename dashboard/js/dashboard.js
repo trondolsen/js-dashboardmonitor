@@ -36,8 +36,8 @@
       insyncInMinutes: 5,
       requestInit: {cache: 'no-cache', mode: 'same-origin', credentials: 'same-origin'},
       sources: [
-        {name: 'Example1', enabled: true, checks: {url: 'ExampleChecks1.xml'}, availability: {url: 'ExampleAvailabilty1.xml'}},
-        {name: 'Example2', enabled: true, checks: {url: 'ExampleChecks2.xml'}, availability: {url: 'ExampleAvailabilty2.xml'}}
+        {name: 'Demo1', enabled: true, checks: {url: './demo1/data/all.xml'}, availability: {url: './demo1/data/availabilty.xml'}},
+        {name: 'Demo2', enabled: true, checks: {url: './demo2/data/all.xml'}, availability: {url: './demo2/data/availabilty.xml'}}
       ],
       checkRating: {
         'default': 1,
@@ -244,7 +244,7 @@
     data.checks = data.checks.filter(check => check.datasource !== datasource);
 
     // Check if datasource is insync
-    datasource.checks.lastUpdate = parseDate(dom(xml).query('monitor').query('xslrefreshtime').text());
+    datasource.checks.lastUpdate = parseDate(dom(xml).query('monitor').query('refreshtime').text());
     const datasourceInsync = new Date(Date.now() - config.datasource.insyncInMinutes * 60 * 1000);
     clearAlert({id: `alert-source-${datasource.name}`});
     if (datasource.checks.lastUpdate.getTime() > datasourceInsync.getTime()) {
@@ -371,7 +371,7 @@
         if(folder.checks.every(check => check.result === 'On Hold' || check.result === 'Maintenance')) {
           sum['Onhold'].push(folder);
         }
-        else if (folder.checks.every(check => check.result === 'Successful' || check.result === 'On Hold' || check.result === 'Maintenance') ) {
+        else if (folder.checks.every(check => check.result === 'Success' || check.result === 'On Hold' || check.result === 'Maintenance') ) {
           sum['Ok'].push(folder);
         }
         else if (folder.checks.every(check => check.result === 'Failed' || check.result === 'Uncertain')) {
@@ -456,7 +456,7 @@
 
     // Add status column
     const htmlStatus = span({css: ['btn-sm','icon'], datas:{'id': check.id}});
-    if (check.result === 'Successful') {
+    if (check.result === 'Success') {
       htmlStatus.text('');
     }
     else if (check.result === 'Uncertain') {

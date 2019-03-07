@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <monitor>
-  <xslname>ExampleChecks1</xslname>
-  <xsldescription>ExampleChecks1</xsldescription>
-  <xslrefreshtime>06.10.2017 10:32:38</xslrefreshtime>
+  <webview-name>Entire Network View</webview-name>
+  <webview-description>All Checks</webview-description>
+  <refreshtime>06.10.2017 10:32:38</refreshtime>
   <check>
     <comments></comments>
     <id>10085</id>
@@ -21,7 +20,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -32,7 +31,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -43,7 +42,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -54,7 +53,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -65,7 +64,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>MS SQL Server</type>
     <data></data>
   </check>
@@ -76,7 +75,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [World Wide Web Publishing Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -87,7 +86,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Windows Process Activation Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -109,7 +108,7 @@
     <host>SRV01.domain</host>
     <explanation>Web site available, text pattern found in page</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>HTTP/HTTPs</type>
     <data>31</data>
   </check>
@@ -120,7 +119,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [World Wide Web Publishing Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -131,7 +130,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Windows Process Activation Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -142,7 +141,7 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Event Log</type>
     <data>0</data>
   </check>
@@ -153,7 +152,7 @@
     <host>SRV01.domain</host>
     <explanation>CPU usage=[50%], maximum allowed=[80%]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>CPU Usage</type>
     <data>50</data>
   </check>
@@ -164,7 +163,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\ActiveDirectory</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>MS Active Directory</type>
     <data></data>
   </check>
@@ -175,7 +174,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\ActiveDirectory</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>MS Active Directory</type>
     <data></data>
   </check>
@@ -186,7 +185,7 @@
     <host>SRV01.domain</host>
     <explanation>DNS server queried, response string matched, response=[123.123.123.123 (A)]</explanation>
     <folder>\SRV\ActiveDirectory</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>DNS</type>
     <data>Not monitored</data>
   </check>
@@ -197,7 +196,7 @@
     <host>SRV01.domain</host>
     <explanation>DNS server queried, response string matched, response=[123.123.123.123 (A)]</explanation>
     <folder>\SRV\ActiveDirectory</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>DNS</type>
     <data>Not monitored</data>
   </check>
@@ -208,7 +207,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Citrix</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Citrix - XenApp</type>
     <data></data>
   </check>
@@ -219,7 +218,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Citrix</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Citrix - XenApp</type>
     <data></data>
   </check>
@@ -230,7 +229,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Citrix</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>MS IIS Server</type>
     <data></data>
   </check>
@@ -241,7 +240,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Citrix</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>MS IIS Server</type>
     <data></data>
   </check>
@@ -252,7 +251,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>MS SQL Server</type>
     <data></data>
   </check>
@@ -263,7 +262,7 @@
     <host>SRV01.domain</host>
     <explanation>CPU usage=[0%], maximum allowed=[80%]</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>CPU Usage</type>
     <data>0</data>
   </check>
@@ -274,7 +273,7 @@
     <host>SRV01.domain</host>
     <explanation>Available memory=[927 MB], minimum required=[500 MB]</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Memory Usage</type>
     <data>927</data>
   </check>
@@ -285,7 +284,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>MS SQL Server</type>
     <data></data>
   </check>
@@ -296,7 +295,7 @@
     <host>SRV01.domain</host>
     <explanation>CPU usage=[15%], maximum allowed=[80%]</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>CPU Usage</type>
     <data>15</data>
   </check>
@@ -307,7 +306,7 @@
     <host>SRV01.domain</host>
     <explanation>Available memory=[640 MB], minimum required=[500 MB]</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Memory Usage</type>
     <data>640</data>
   </check>
@@ -318,7 +317,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>MS SQL Server</type>
     <data></data>
   </check>
@@ -329,7 +328,7 @@
     <host>SRV01.domain</host>
     <explanation>CPU usage=[1%], maximum allowed=[80%]</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>CPU Usage</type>
     <data>1</data>
   </check>
@@ -340,7 +339,7 @@
     <host>SRV01.domain</host>
     <explanation>Available memory=[5745 MB], minimum required=[500 MB]</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Memory Usage</type>
     <data>5745</data>
   </check>
@@ -351,7 +350,7 @@
     <host>SRV01.domain</host>
     <explanation>Available memory=[3213 MB], minimum required=[500 MB]</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Memory Usage</type>
     <data>3213</data>
   </check>
@@ -362,7 +361,7 @@
     <host>SRV01.domain</host>
     <explanation>CPU usage=[1%], maximum allowed=[80%]</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>CPU Usage</type>
     <data>1</data>
   </check>
@@ -373,7 +372,7 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Event Log</type>
     <data>0</data>
   </check>
@@ -384,7 +383,7 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Event Log</type>
     <data>0</data>
   </check>
@@ -395,7 +394,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>MS SQL Server</type>
     <data></data>
   </check>
@@ -406,7 +405,7 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Event Log</type>
     <data>0</data>
   </check>
@@ -417,7 +416,7 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\Database</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Event Log</type>
     <data>0</data>
   </check>
@@ -428,7 +427,7 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\DHCP</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Event Log</type>
     <data>0</data>
   </check>
@@ -439,7 +438,7 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\DHCP</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Event Log</type>
     <data>0</data>
   </check>
@@ -450,7 +449,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [DHCP Server] has state: [Running]</explanation>
     <folder>\SRV\DHCP</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -461,7 +460,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [DHCP Server] has state: [Running]</explanation>
     <folder>\SRV\DHCP</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -472,7 +471,7 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\DHCP</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Event Log</type>
     <data>0</data>
   </check>
@@ -516,7 +515,7 @@
     <host>SRV01.domain</host>
     <explanation>DNS server queried, response string matched, response=[123.123.123.123 (A)]</explanation>
     <folder>\SRV\DNS</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>DNS</type>
     <data>Not monitored</data>
   </check>
@@ -527,7 +526,7 @@
     <host>SRV01.domain</host>
     <explanation>DNS server queried, response string matched, response=[123.123.123.123 (A)]</explanation>
     <folder>\SRV\DNS</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>DNS</type>
     <data>Not monitored</data>
   </check>
@@ -538,7 +537,7 @@
     <host>domain.com</host>
     <explanation>Web site available, text pattern found in page</explanation>
     <folder>\SRV\Application 8</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>HTTP/HTTPs</type>
     <data>109</data>
   </check>
@@ -549,7 +548,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Application 8</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>MS SQL Server</type>
     <data></data>
   </check>
@@ -560,7 +559,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [IIS Admin Service] has state: [Running]</explanation>
     <folder>\SRV\Application 8</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -571,7 +570,7 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\Application 8</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Event Log</type>
     <data>0</data>
   </check>
@@ -582,7 +581,7 @@
     <host>SRV01.domain</host>
     <explanation>Reply from SRV01.domain, time=[0ms], TTL=[64]</explanation>
     <folder>\SRV\Application 9</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>ICMP Ping</type>
     <data>0</data>
   </check>
@@ -593,7 +592,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [SMS Agent Host] has state: [Running]</explanation>
     <folder>\SRV\SCCM</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -615,7 +614,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [SMS_NOTIFICATION_SERVER] has state: [Running]</explanation>
     <folder>\SRV\SCCM</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -637,7 +636,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [SMS_SITE_SQL_BACKUP] has state: [Running]</explanation>
     <folder>\SRV\SCCM</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -648,7 +647,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [SMS_SITE_VSS_WRITER] has state: [Running]</explanation>
     <folder>\SRV\SCCM</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -659,7 +658,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\SCCM</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>MS SQL Server</type>
     <data></data>
   </check>
@@ -670,7 +669,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\SCCM</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>MS IIS Server</type>
     <data></data>
   </check>
@@ -681,7 +680,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [SMS Agent Host] has state: [Running]</explanation>
     <folder>\SRV\SCCM</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -692,7 +691,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\SCCM</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>MS IIS Server</type>
     <data></data>
   </check>
@@ -703,7 +702,7 @@
     <host>SRV01.domain</host>
     <explanation>Event not found</explanation>
     <folder>\SRV\SCCM</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Event Log</type>
     <data>0</data>
   </check>
@@ -714,7 +713,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Network Policy Server] has state: [Running]</explanation>
     <folder>\SRV\Radius</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -725,7 +724,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Network Policy Server] has state: [Running]</explanation>
     <folder>\SRV\Radius</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -736,7 +735,7 @@
     <host>SRV01.domain</host>
     <explanation>Service(s) running: Service (Service)</explanation>
     <folder>\SRV\Application 2</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>MS SQL Server</type>
     <data></data>
   </check>
@@ -747,7 +746,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 2</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -758,7 +757,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 2</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -769,7 +768,7 @@
     <host>domain.com</host>
     <explanation>Web site available, text pattern found in page</explanation>
     <folder>\SRV\Application 2</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>HTTP/HTTPs</type>
     <data>0</data>
   </check>
@@ -791,7 +790,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [domain.com] has state: [Running]</explanation>
     <folder>\SRV\Application 10</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -802,7 +801,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [domain.com] has state: [Running]</explanation>
     <folder>\SRV\Application 10</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -813,7 +812,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [domain.com] has state: [Running]</explanation>
     <folder>\SRV\Application 10</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -857,7 +856,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 6</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -868,7 +867,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 6</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -879,7 +878,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 6</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -890,7 +889,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 6</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -901,7 +900,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 6</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>

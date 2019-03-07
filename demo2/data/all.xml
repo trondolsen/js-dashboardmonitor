@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <monitor>
-  <xslname>ExampleChecks2</xslname>
-  <xsldescription>ExampleChecks2</xsldescription>
-  <xslrefreshtime>06.10.2017 10:32:38</xslrefreshtime>
+  <webview-name>Entire Network View</webview-name>
+  <webview-description>All Checks</webview-description>
+  <refreshtime>06.10.2017 10:32:38</refreshtime>
   <check>
     <comments></comments>
     <id>10084</id>
@@ -10,7 +9,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -21,7 +20,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [Service] has state: [Running]</explanation>
     <folder>\SRV\Application 3</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
@@ -43,7 +42,7 @@
     <host>SRV01.domain</host>
     <explanation>Server is available</explanation>
     <folder>\SRV\WSUS</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>TCP/IP</type>
     <data>15</data>
   </check>
@@ -54,7 +53,7 @@
     <host>SRV01.domain</host>
     <explanation>Service [WSUS Service] has state: [Running]</explanation>
     <folder>\SRV\SCCM</folder>
-    <result>Successful</result>
+    <result>Success</result>
     <type>Service</type>
     <data></data>
   </check>
