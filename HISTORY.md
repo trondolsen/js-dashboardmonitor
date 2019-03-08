@@ -1,6 +1,14 @@
 # History
 
 ```
+3.0:
+c5d700c update image for readme
+504d4dc Adapted changes required for Activexperts 2019
+b25718e updated to bootstrap 4.3.1
+9202dbb mouse pointer now indicate clickable datasources
+20974c0 uncertain results now handled as failure
+954c4e8 icon change for uncertain checks
+6410fe1 updated readme image
 2.1:
 6b024e1 availability adjusted for disabled datasources
 20181d2 folder with multiple datasources hide checks from disabled datasource
