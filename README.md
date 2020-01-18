@@ -94,7 +94,7 @@ SOFTWARE.
 
 This software was built using these additional libraries.
 
-### Bootstrap 4.3.1
+### Bootstrap 4.4.1
 
 https://getbootstrap.com/
 
