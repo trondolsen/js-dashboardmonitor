@@ -1,6 +1,12 @@
 # History
 
 ```
+4.0:
+4ed51bd support for activexperts 2021
+ef5f662 upgraded bootstrap to 4.5.2
+8542d1c license update
+f1617e6 updated boostrap to 4.4.1
+6cfef72 updated history
 3.0:
 c5d700c update image for readme
 504d4dc Adapted changes required for Activexperts 2019
