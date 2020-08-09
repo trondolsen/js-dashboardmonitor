@@ -1,6 +1,6 @@
 # Dashboard for ActiveXperts Network Monitor
 
-Web-based dashboard for displaying checks exported from ActiveXperts Network Monitor 2019 (see www.activexperts.com).
+Web-based dashboard for displaying checks exported from ActiveXperts Network Monitor 2021 (see www.activexperts.com).
 
 ![Screenshot](README.png "Screenshot")
 
@@ -8,7 +8,7 @@ Web-based dashboard for displaying checks exported from ActiveXperts Network Mon
 
 * Live updates
 * Search
-* Supports multiple installations of ActiveXperts Network Monitor 2019
+* Supports multiple installations of ActiveXperts Network Monitor 2021
 
 ## Demo
 
@@ -31,8 +31,8 @@ Configure datasource(s) in `%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot\d
 const settings = {
   datasource: {
       sources: [
-        {name: 'Demo1', enabled: true, checks: {url: './demo1/data/all.xml'}, availability: {url: './demo1/data/availabilty.xml'}},
-        {name: 'Demo2', enabled: true, checks: {url: './demo2/data/all.xml'}, availability: {url: './demo2/data/availabilty.xml'}}
+        {name: 'Demo1', enabled: true, checks: {url: './demo1/all.xml'}, availability: {url: './demo1/availabilty.xml'}},
+        {name: 'Demo2', enabled: true, checks: {url: './demo2/all.xml'}, availability: {url: './demo2/availabilty.xml'}}
       ],
     }
   };
@@ -70,7 +70,7 @@ Trond Olsen, trond@steinbit.org, Norway
 
 MIT License
 
-Copyright (c) 2017-2019 Trond Olsen
+Copyright (c) 2017-2020 Trond Olsen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -94,14 +94,14 @@ SOFTWARE.
 
 This software was built using these additional libraries.
 
-### Bootstrap 4.4.1
+### Bootstrap 4.5.2
 
 https://getbootstrap.com/
 
 The MIT License (MIT)
 
-Copyright (c) 2011-2019 Twitter, Inc.
-Copyright (c) 2011-2019 The Bootstrap Authors
+Copyright (c) 2011-2020 Twitter, Inc.
+Copyright (c) 2011-2020 The Bootstrap Authors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

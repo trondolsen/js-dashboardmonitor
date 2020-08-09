@@ -1,7 +1,7 @@
 /***
  * Dashboard for ActiveExperts
  *
- * Copyright (c) 2017-2019 Trond Olsen
+ * Copyright (c) 2017-2020 Trond Olsen
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -36,8 +36,8 @@
       insyncInMinutes: 5,
       requestInit: {cache: 'no-cache', mode: 'same-origin', credentials: 'same-origin'},
       sources: [
-        {name: 'Demo1', enabled: true, checks: {url: './demo1/data/all.xml'}, availability: {url: './demo1/data/availabilty.xml'}},
-        {name: 'Demo2', enabled: true, checks: {url: './demo2/data/all.xml'}, availability: {url: './demo2/data/availabilty.xml'}}
+        {name: 'Demo1', enabled: true, checks: {url: './demo1/all.xml'}, availability: {url: './demo1/availabilty.xml'}},
+        {name: 'Demo2', enabled: true, checks: {url: './demo2/all.xml'}, availability: {url: './demo2/availabilty.xml'}}
       ],
       checkRating: {
         'default': 1,
