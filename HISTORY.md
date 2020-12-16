@@ -1,6 +1,8 @@
 # History
 
 ```
+4.1:
+1cbfd57 corrections for date handling
 4.0:
 4ed51bd support for activexperts 2021
 ef5f662 upgraded bootstrap to 4.5.2
