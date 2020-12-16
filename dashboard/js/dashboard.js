@@ -557,11 +557,17 @@
   }
 
   function parseDate(str) {
+    // Try automatic date parsing
+    const date = new Date(str);
+    if (isNaN(date.getTime()) === false) {
+      return date;
+    }
+
+    // Perform manual date parsing
     const ts = {
       year: 0, month: 0, day: 0,
       hour:0 , min: 0, sec: 0
     };
-
     const dateText = str.includes(' ') ? (str.split(' ', 2)[0]) : ('');
     const timeText = str.includes(' ') ? (str.split(' ', 2)[1]) : ('');
 
@@ -583,13 +589,13 @@
 
       if (timeText.split(' ', 2).length > 1) {
         const period = timeText.split(' ', 2)[1].toLowerCase();
-        if (period === 'pm') {
+        if (period === 'pm' || period === 'am') {
           ts.hour = ts.hour + 12;
         }
       }
     }
 
-    return new Date(ts.year, ts.month, ts.day, ts.hour, ts.min, ts.sec);
+    return new Date(ts.year, ts.month, ts.day, ts.hour, ts.min, ts.sec)
   }
 
 

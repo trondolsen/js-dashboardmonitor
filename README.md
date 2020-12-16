@@ -21,7 +21,7 @@ See [Releases](https://github.com/trondolsen/js-dashboardmonitor/releases) for p
 Manually copy `dashboard.html` and `\dashboard` to `%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot`
 * For demo purpose also copy the `demo1` and `demo2` foldes to `%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot`
 
-Prepare datasource files in ActiveXperts Network Monitor 2019
+Prepare datasource files in ActiveXperts Network Monitor 2021
 * Use customized report to defined interval for checks data
 * Use scheduled task to generate availability data at regular intervals
 * See https://www.activexperts.com/files/network-monitor/manual.htm#Report_Module for details
