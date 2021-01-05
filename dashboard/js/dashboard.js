@@ -573,23 +573,26 @@
 
     if (dateText.includes('.')) {
       ts.year = parseInt(dateText.split('.')[2]);
-      ts.month = parseInt(dateText.split('.')[1]) - 1;
+      ts.month = parseInt(dateText.split('.')[1]);
       ts.day = parseInt(dateText.split('.')[0]);
     }
     else if (dateText.includes('/'))
     {
       ts.year = parseInt(dateText.split('/')[2]);
-      ts.month = parseInt(dateText.split('/')[0]) - 1;
+      ts.month = parseInt(dateText.split('/')[0]);
       ts.day = parseInt(dateText.split('/')[1]);
     }
+  
     if (timeText.includes(':')) {
       ts.hour = parseInt(timeText.split(':')[0]);
       ts.min = parseInt(timeText.split(':')[1]);
       ts.sec = parseInt(timeText.split(':')[2]);
 
-      if (timeText.split(' ', 2).length > 1) {
+      // Handle 12-hour clock
+      if (dateText.includes('am') || dateText.includes('pm')) {
         const period = timeText.split(' ', 2)[1].toLowerCase();
-        if (period === 'pm' || period === 'am') {
+        ts.hour = ts.hour % 12
+        if (period === 'pm') {
           ts.hour = ts.hour + 12;
         }
       }
