@@ -1,6 +1,8 @@
 # History
 
 ```
+4.2:
+b7eb9a0 fix for datestamps using 12-hour clock
 4.1:
 1cbfd57 corrections for date handling
 4.0:
