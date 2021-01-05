@@ -2,6 +2,8 @@
 
 ```
 4.2:
+79f9f9b additional fixes for date handling
+1178a75 updated history
 b7eb9a0 fix for datestamps using 12-hour clock
 4.1:
 1cbfd57 corrections for date handling
