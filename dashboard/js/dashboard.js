@@ -242,20 +242,21 @@
       folder.checks = folder.checks.filter(check => check.datasource !== datasource);
     }
     data.checks = data.checks.filter(check => check.datasource !== datasource);
+    clearAlert({id: `alert-source-${datasource.name}`});
 
     // Check if datasource is insync
     datasource.checks.lastUpdate = parseDate(dom(xml).query('monitor').query('refreshtime').text());
-    const datasourceInsync = new Date(Date.now() - config.datasource.insyncInMinutes * 60 * 1000);
-    clearAlert({id: `alert-source-${datasource.name}`});
-    if (datasource.checks.lastUpdate.getTime() > datasourceInsync.getTime()) {
-      query('#ds-' + datasource.name)
-        .css({add: ['success'], remove: ['error']});
-    }
-    else {
+    const nowDate = new Date(Date.now())
+    const timeDiffInMinutes = Math.abs(datasource.checks.lastUpdate.getTime() - nowDate.getTime()) / (60 * 1000);
+    if (timeDiffInMinutes > config.datasource.insyncInMinutes) {
       query('#ds-' + datasource.name)
         .css({add: ['error'], remove: ['success']});
 
       showAlert({id: `alert-source-${datasource.name}` , text: `Outdated ${datasource.checks.url} for ${datasource.name}. Updated ${datasource.checks.lastUpdate}.`});
+    }
+    else {
+      query('#ds-' + datasource.name)
+        .css({add: ['success'], remove: ['error']});
     }
     query('#ds-' + datasource.name)
       .query('.text')
@@ -583,22 +584,21 @@
       ts.day = parseInt(dateText.split('/')[1]);
     }
   
-    if (timeText.includes(':')) {
-      ts.hour = parseInt(timeText.split(':')[0]);
-      ts.min = parseInt(timeText.split(':')[1]);
-      ts.sec = parseInt(timeText.split(':')[2]);
+    const timePartsText = timeText.toLowerCase().split(' ', 2);
+    ts.hour = parseInt(timePartsText[0].split(':')[0]);
+    ts.min = parseInt(timePartsText[0].split(':')[1]);
+    ts.sec = parseInt(timePartsText[0].split(':')[2]);
 
-      // Handle 12-hour clock
-      if (dateText.includes('am') || dateText.includes('pm')) {
-        const period = timeText.split(' ', 2)[1].toLowerCase();
-        ts.hour = ts.hour % 12
-        if (period === 'pm') {
-          ts.hour = ts.hour + 12;
-        }
+    if (timePartsText.length > 1) {
+       // Handle 12-hour clock
+       ts.hour = ts.hour % 12
+      if (timePartsText[1] === 'pm') {
+        ts.hour = ts.hour + 12;
       }
     }
 
-    return new Date(ts.year, ts.month, ts.day, ts.hour, ts.min, ts.sec)
+    // Note: month is specified between 0-11
+    return new Date(ts.year, ts.month - 1, ts.day, ts.hour, ts.min, ts.sec);
   }
 
 
