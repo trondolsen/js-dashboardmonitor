@@ -24,7 +24,7 @@ Manually copy `dashboard.html` and `\dashboard` to `%PROGRAMDATA%\ActiveXperts\N
 Prepare datasource files in ActiveXperts Network Monitor 2021
 * Use customized report to defined interval for checks data
 * Use scheduled task to generate availability data at regular intervals
-* See https://www.activexperts.com/files/network-monitor/manual.htm#Report_Module for details
+* See https://www.activexperts.com/support/network-monitor/online/xmlreports for details
 
 Configure datasource(s) in `%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot\dashboard\js\dashboard.js` with url for given checks and availability xml file
 ```javascript
@@ -70,7 +70,7 @@ Trond Olsen, trond@steinbit.org, Norway
 
 MIT License
 
-Copyright (c) 2017-2020 Trond Olsen
+Copyright (c) 2017-2021 Trond Olsen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -94,7 +94,7 @@ SOFTWARE.
 
 This software was built using these additional libraries.
 
-### Bootstrap 4.5.2
+### Bootstrap 4.5.3
 
 https://getbootstrap.com/
 
