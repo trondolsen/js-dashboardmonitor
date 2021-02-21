@@ -64,7 +64,7 @@ See [HISTORY.md](https://github.com/trondolsen/js-dashboardmonitor/blob/master/H
 
 ## Credits
 
-Trond Olsen, trond@steinbit.org, Norway
+Trond Olsen, trond at steinbit dot org, Norway
 
 ## License
 
@@ -94,14 +94,14 @@ SOFTWARE.
 
 This software was built using these additional libraries.
 
-### Bootstrap 4.5.3
+### Bootstrap 4.6.0
 
 https://getbootstrap.com/
 
 The MIT License (MIT)
 
-Copyright (c) 2011-2020 Twitter, Inc.
-Copyright (c) 2011-2020 The Bootstrap Authors
+Copyright (c) 2011-2021 Twitter, Inc.
+Copyright (c) 2011-2021 The Bootstrap Authors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
