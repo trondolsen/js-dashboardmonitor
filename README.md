@@ -12,7 +12,7 @@ Web-based dashboard for displaying checks exported from ActiveXperts Network Mon
 
 ## Demo
 
-See [trondolsen.github.io/dashboard/dashboard.html](https://trondolsen.github.io/dashboard/dashboard.html)
+See [https://trondolsen.github.io/js-dashboardmonitor/dashboard.html](https://trondolsen.github.io/js-dashboardmonitor/dashboard.html)
 
 ## Installation
 
