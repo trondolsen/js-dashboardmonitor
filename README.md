@@ -22,24 +22,27 @@ See [Releases](https://github.com/trondolsen/js-dashboardmonitor/releases) for p
 
 Manually copy `dashboard.html` and `\dashboard` to `%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot`
 
-### Setup Web publishing
+### Setup Web publishing in ActiveXperts Network Monitor
 
 Tools -> Web Access -> Web Access Configuration
- - Select Publish to IIS ![Web Setup 1](README-1.png "Web Setup 1")
+ - Select Publish to IIS
+ - ![Web Setup 1](README-1.png "Web Setup 1")
 
 Connect to local IIS host
- - Create new Web Site ![Web Setup 2](README-2.png "Web Setup 2")
+ - Create new Web Site
+ - ![Web Setup 2](README-2.png "Web Setup 2")
 
-### Setup Availability Reporting
+### Setup Availability Reporting in ActiveXperts Network Monitor
 Tools -> Reports and Graphs -> Reports and Graphs Configuration
- - Report has weekly period ![Report Setup 1](README-3.png "Report Setup 1") ![Report Setup 2](README-4.png "Report Setup 2")
+ - Report has weekly period
+ - ![Report Setup 1](README-3.png "Report Setup 1") ![Report Setup 2](README-4.png "Report Setup 2")
 
 Tools -> Reports and Graphs -> Create New Report (Command Line/Scheduled)
- - Run command: axrgcmd.exe /o "%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot\1" Availability
+ - Run command: `axrgcmd.exe /o "%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot\1" Availability`
  - Set up as Scheduled Task running each 30 minutes
- - See https://www.activexperts.com/support/network-monitor/online/xmlreports for details
+ - See https://www.activexperts.com/support/network-monitor/online/xmlreports for advanced details
 
-### Configure Web Dasboard
+### Set configuration for Web Dashboard
 
 Configure datasource(s) in `%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot\dashboard\js\dashboard.js` with url for given checks and availability xml file
 ```javascript
