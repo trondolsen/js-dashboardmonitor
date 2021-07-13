@@ -16,23 +16,41 @@ See [https://trondolsen.github.io/js-dashboardmonitor/dashboard.html](https://tr
 
 ## Installation
 
+### Prepare files
+
 See [Releases](https://github.com/trondolsen/js-dashboardmonitor/releases) for packaged releases.
 
 Manually copy `dashboard.html` and `\dashboard` to `%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot`
-* For demo purpose also copy the `demo1` and `demo2` foldes to `%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot`
 
-Prepare datasource files in ActiveXperts Network Monitor 2021
-* Use customized report to defined interval for checks data
-* Use scheduled task to generate availability data at regular intervals
-* See https://www.activexperts.com/support/network-monitor/online/xmlreports for details
+### Setup Web publishing
+
+Tools -> Web Access -> Web Access Configuration
+ - Select Publish to IIS
+ - ![Web Setup 1](README-1.png "Web Setup 1")
+
+Connect to local IIS host
+ - Create new Web Site
+ - ![Web Setup 2](README-2.png "Web Setup 2")
+
+### Setup Availability Reporting
+Tools -> Reports and Graphs -> Reports and Graphs Configuration
+ - Report has weekly period
+ - ![Report Setup 1](README-3.png "Report Setup 1")
+ - ![Report Setup 2](README-4.png "Report Setup 2")
+
+Tools -> Reports and Graphs -> Create New Report (Command Line/Scheduled)
+ - Run command: axrgcmd.exe /o "%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot\1" Availability
+ - Set up as Scheduled Task running each 30 minutes
+ - See https://www.activexperts.com/support/network-monitor/online/xmlreports for details
+
+### Configure Web Dasboard
 
 Configure datasource(s) in `%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot\dashboard\js\dashboard.js` with url for given checks and availability xml file
 ```javascript
 const settings = {
   datasource: {
       sources: [
-        {name: 'Demo1', enabled: true, checks: {url: './demo1/all.xml'}, availability: {url: './demo1/availabilty.xml'}},
-        {name: 'Demo2', enabled: true, checks: {url: './demo2/all.xml'}, availability: {url: './demo2/availabilty.xml'}}
+        {name: 'Main', enabled: true, checks: {url: './1/all.xml'}, availability: {url: './1/availability.xml'}}
       ],
     }
   };

@@ -18,8 +18,8 @@
       insyncInMinutes: 5,
       requestInit: {cache: 'no-cache', mode: 'same-origin', credentials: 'same-origin'},
       sources: [
-        {name: 'Demo1', enabled: true, checks: {url: './demo1/all.xml'}, availability: {url: './demo1/availabilty.xml'}},
-        {name: 'Demo2', enabled: true, checks: {url: './demo2/all.xml'}, availability: {url: './demo2/availabilty.xml'}}
+        {name: 'Demo1', enabled: true, checks: {url: './demo1/all.xml'}, availability: {url: './demo1/availability.xml'}},
+        {name: 'Demo2', enabled: true, checks: {url: './demo2/all.xml'}, availability: {url: './demo2/availability.xml'}}
       ],
       checkRating: {
         'default': 1,
