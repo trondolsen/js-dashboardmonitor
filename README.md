@@ -32,12 +32,12 @@ Connect to local IIS host
 
 ### Setup Availability Reporting in ActiveXperts Network Monitor
 Tools -> Reports and Graphs -> Reports and Graphs Configuration
- - Report has weekly period
+ - Create new Report
  - ![Report Setup 1](README-1.png "Report Setup 1") ![Report Setup 2](README-2.png "Report Setup 2")
 
 Tools -> Reports and Graphs -> Create New Report (Command Line/Scheduled)
  - Run command: `axrgcmd.exe /o "%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot\1" Availability`
- - Set up as Scheduled Task running each 30 minutes
+ - Manually set up a Scheduled Task running each 30 minutes
  - See https://www.activexperts.com/support/network-monitor/online/xmlreports for advanced details
 
 ### Set configuration for Web Dashboard
