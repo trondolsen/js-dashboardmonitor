@@ -26,16 +26,14 @@ Manually copy `dashboard.html` and `\dashboard` to `%PROGRAMDATA%\ActiveXperts\N
 
 Tools -> Web Access -> Web Access Configuration
  - Select Publish to IIS
- - ![Web Setup 1](README-1.png "Web Setup 1")
 
 Connect to local IIS host
- - Create new Web Site
- - ![Web Setup 2](README-2.png "Web Setup 2")
+ - Create New Site Now
 
 ### Setup Availability Reporting in ActiveXperts Network Monitor
 Tools -> Reports and Graphs -> Reports and Graphs Configuration
  - Report has weekly period
- - ![Report Setup 1](README-3.png "Report Setup 1") ![Report Setup 2](README-4.png "Report Setup 2")
+ - ![Report Setup 1](README-1.png "Report Setup 1") ![Report Setup 2](README-2.png "Report Setup 2")
 
 Tools -> Reports and Graphs -> Create New Report (Command Line/Scheduled)
  - Run command: `axrgcmd.exe /o "%PROGRAMDATA%\ActiveXperts\Network Monitor\WebRoot\1" Availability`
